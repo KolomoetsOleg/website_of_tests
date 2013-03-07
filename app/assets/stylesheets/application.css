@@ -16,6 +16,7 @@ header nav ul {
 list-style: none;
 margin: 0 0 2em;
 padding: 0;
+
 }
 header nav ul li {
 display: inline;
@@ -31,4 +32,44 @@ border: solid 1px #6C6;
 #flash_alert {
 background-color: #FCC;
 border: solid 1px #C66;
+}
+
+html,body{
+    margin:0;
+    padding:0;
+    }
+
+div#header {
+    position: relative;    
+}
+
+div#header h1{
+    height:80px;
+    line-height:80px;
+    margin:0;
+    padding-left:10px;
+    background: #EEE;
+    color: #000
+}
+
+div#container {
+    text-align: left;
+    width: 800px;
+    margin: 0 auto;
+}
+
+div#content {
+    float: right;
+    width: 500px;
+}
+div#content p {
+    line-height: 1.4;
+}
+
+div#navigation {
+    text-align: center;
+    background: #ccc;
+    float: left;
+    width: 300px;
+    
 }
