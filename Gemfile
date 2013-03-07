@@ -5,10 +5,12 @@ gem 'rails', '3.2.12'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'mysql2'
+gem 'mysql2', :except => [:production]
 gem 'devise'
+gem 'cancan'
+gem 'heroku'
 
-
+gem "pg", :only => :production
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
