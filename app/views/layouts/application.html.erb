@@ -10,7 +10,7 @@
 <div id= "container">
 <%= render 'shared/header' %>
 
-<%= render 'shared/content' %>
+
 
 <div id="navigation">
 <ul>
@@ -20,7 +20,7 @@
 <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
 
 <% end %>
-<%= yield %>
 </div>
+<%= yield %>
 </body>
 </html>
