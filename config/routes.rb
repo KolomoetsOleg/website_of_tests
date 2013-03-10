@@ -1,6 +1,16 @@
 WebsiteOfTests::Application.routes.draw do
-  resources :posts
+  resources :answers
 
+
+  resources :quests
+
+
+  resources :tests
+
+
+  resources :posts
+  match 'tests/start/:id' => 'tests#start'
+  match 'quests/testing/:id' => 'quests#testing'
 
   get "home/index"
   devise_for :users

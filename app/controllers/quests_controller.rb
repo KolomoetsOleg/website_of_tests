@@ -22,6 +22,13 @@ class QuestsController < ApplicationController
   end
 
 def testing
+    
+    if session[:idq] == nil
+      #Здесь продумать переходы от одного к другому
+
+    end
+
+
     @test = Test.find(params[:id])
     @quests = @test.quest
     respond_to do |format|

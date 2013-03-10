@@ -23,7 +23,10 @@ class TestsController < ApplicationController
 
   def start
     @test = Test.find(params[:id])
-
+    session[:test] = nil
+    session[:test] = @test.quest
+    session[:idq] = nil
+    puts session[:test]
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @test }

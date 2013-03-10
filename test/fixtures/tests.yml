@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyString
+  kol_pop: 1
+  time: 1
+  author_id: 1
+  active: 
+
+two:
+  title: MyString
+  kol_pop: 1
+  time: 1
+  author_id: 1
+  active: 
