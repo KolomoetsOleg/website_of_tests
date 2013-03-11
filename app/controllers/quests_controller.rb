@@ -22,20 +22,20 @@ class QuestsController < ApplicationController
   end
 
 def testing
+  @page = params[:id].to_i
+  @quest = Quest.find(session[:quest_id][@page])   
+  ########Проверка на следующюю страницу
+  if session[:quest_id][@page+=1].nil?
+  else
     
-    if session[:idq] == nil
-      #Здесь продумать переходы от одного к другому
-
-    end
-
-
-    @test = Test.find(params[:id])
-    @quests = @test.quest
-    respond_to do |format|
-      format.html # testing.html.erb
-      format.json { render json: @quest }
-    end
   end
+  ###########
+
+
+
+
+
+end
 
 
 

@@ -1,3 +1,16 @@
-<% @quests.each do |quest|%>
-	<br><%= quest.title%>
-<% end %>
+
+	<br><%= @quest.title%>
+
+	<%= case @quest.tip_vop
+    when 1 
+  #Грузим радио
+  	render :partial => 'radio', :locals => { :answer => @quest.answer }
+	   when 2
+  #Грузим чеки
+  	render :partial => 'chek', :locals => { :answer => @quest.answer }
+	    else
+  #Грузим текста
+  	render :partial => 'text'
+		end %>
+	<%= button_to "Next", :controller => :quests, :action =>:testing, 
+	:id=> @page %>
