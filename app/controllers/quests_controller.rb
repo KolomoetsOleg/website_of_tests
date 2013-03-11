@@ -23,16 +23,20 @@ class QuestsController < ApplicationController
 
 def testing
   @page = params[:id].to_i
-  @quest = Quest.find(session[:quest_id][@page])   
-  ########Проверка на следующюю страницу
-  if session[:quest_id][@page+=1].nil?
+  @end = false
+  session[:answer_id][params[:id_quest]] = params[:answer]
+  if params[:end].nil?
+
+      @quest = Quest.find(session[:quest_id][@page])
+      if session[:quest_id][@page+=1] == nil
+        @end = true
+      end 
   else
-    
+      rendirect_to :action => :finish
   end
-  ###########
+end
 
-
-
+def finish
 
 
 end
