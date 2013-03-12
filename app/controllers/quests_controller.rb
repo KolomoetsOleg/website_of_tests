@@ -22,9 +22,9 @@ class QuestsController < ApplicationController
   end
 
 def testing
-  @page = params[:id].to_i
+   @page = params[:id].to_i
   @end = false
-  puts session[:answer_id][params[:id_quest]] = params[:answer]
+  session[:answer_id][params[:id_quest]] = params[:answer]
   if params[:end].nil?
 
       @quest = Quest.find(session[:quest_id][@page])
