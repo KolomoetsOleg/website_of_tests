@@ -22,6 +22,7 @@ class QuestsController < ApplicationController
   end
 
 def testing
+  @all_quest = session[:quest_id].count
    @page = params[:id].to_i
   @end = false
   session[:answer_id][params[:id_quest]] = params[:answer]

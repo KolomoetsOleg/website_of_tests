@@ -1,3 +1,6 @@
+<br>Вопрос <%= @page %> из <%= @all_quest %>
+
+
 <%= form_tag(:controller => :quests, :action =>:testing, :id=> @page) do %>
   	<br>
   		<%=	label_tag(@quest.title) %>
@@ -14,6 +17,13 @@
   		render :partial => 'text'
 	end %>
    <%= hidden_field_tag(:id_quest, @quest.id) %>
+   <br>
+
+
+   <input type="button" value="Назад" onclick="history.back()" 
+   <% if @page == 1 %>
+   disabled
+   <% end %>>
    <%= if @end == false
    		submit_tag("Следующий вопрос", :name => "next")
    		else
