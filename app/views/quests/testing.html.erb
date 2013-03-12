@@ -1,3 +1,22 @@
-<% @quests.each do |quest|%>
-	<br><%= quest.title%>
+<%= form_tag(:controller => :quests, :action =>:testing, :id=> @page) do %>
+  	<br>
+  		<%=	label_tag(@quest.title) %>
+
+	<%= case @quest.tip_vop
+    when 1 
+  #Грузим радио
+  		render :partial => 'radio', :locals => { :answer => @quest.answer }
+	when 2
+  #Грузим чеки
+  		render :partial => 'chek', :locals => { :answer => @quest.answer }
+	else
+  #Грузим текста
+  		render :partial => 'text'
+	end %>
+   <%= hidden_field_tag(:id_quest, @quest.id) %>
+   <%= if @end == false
+   		submit_tag("Следующий вопрос", :name => "next")
+   		else
+   		submit_tag("Завершить тестирование", :name => "end")
+   		end %>
 <% end %>

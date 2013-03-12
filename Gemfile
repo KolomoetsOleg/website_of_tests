@@ -1,20 +1,37 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
-gem 'rails', '3.2.12'
+ruby '1.9.3'
+gem  'rails', '3.2.12'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
+<<<<<<< HEAD
 
 gem 'devise'
 gem 'cancan'
 gem 'heroku'
 group :development, :test do
 	gem 'mysql2'
+=======
+gem 'devise'
+gem 'cancan'
+gem 'heroku'
+
+group :development, :test do
+  gem 'mysql2'
+>>>>>>> 3d92d8ebbc25fe1ea214a2d44d897397a32d945c
 end
 group :production do
   gem 'pg'
 end
+<<<<<<< HEAD
+=======
+
+#group :production do
+# gem 'pg'
+#end
+>>>>>>> 3d92d8ebbc25fe1ea214a2d44d897397a32d945c
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -42,4 +59,4 @@ gem 'jquery-rails'
 # gem 'capistrano'
 
 # To use debugger
- gem 'debugger'
+# gem 'debugger'

@@ -2,7 +2,7 @@ WebsiteOfTests::Application.routes.draw do
   resources :answers
 
 
-  resources :quests
+  #resources :quests
 
 
   resources :tests
@@ -11,6 +11,7 @@ WebsiteOfTests::Application.routes.draw do
   resources :posts
   match 'tests/start/:id' => 'tests#start'
   match 'quests/testing/:id' => 'quests#testing'
+  match 'quests/finish' => 'quests#finish'
 
   get "home/index"
   devise_for :users
