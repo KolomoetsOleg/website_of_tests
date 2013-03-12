@@ -1,4 +1,4 @@
 <% answer.each do |ans| %>
-	<br><%= check_box_tag "answer[]", ans.id %>
+	<br><%= check_box_tag "answer[]", ans.answer %>
 	<%= label_tag(:title, ans.answer) %>
 <% end %>

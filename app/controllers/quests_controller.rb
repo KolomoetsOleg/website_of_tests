@@ -24,7 +24,7 @@ class QuestsController < ApplicationController
 def testing
   @page = params[:id].to_i
   @end = false
-  session[:answer_id][params[:id_quest]] = params[:answer]
+  puts session[:answer_id][params[:id_quest]] = params[:answer]
   if params[:end].nil?
 
       @quest = Quest.find(session[:quest_id][@page])
@@ -32,12 +32,12 @@ def testing
         @end = true
       end 
   else
-      rendirect_to :action => :finish
+      redirect_to :controller => :quests, :action => :finish
   end
 end
 
 def finish
-
+  @bal = Quest.chek(session[:answer_id])
 
 end
 

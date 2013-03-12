@@ -1,4 +1,4 @@
 <% answer.each do |ans| %>
-	<br><%= radio_button_tag(:answer, ans.id) %>
+	<br><%= radio_button_tag(:answer, ans.answer) %>
 	<%= label_tag(:title, ans.answer) %>
 <% end %>
