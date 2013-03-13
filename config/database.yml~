@@ -32,11 +32,11 @@ test:
   socket: /var/run/mysqld/mysqld.sock
 
 production:
-  adapter: mysql2
-  encoding: utf8
-  reconnect: false
-  database: website_of_tests_production
-  pool: 5
-  username: root
-  password:
-  socket: /var/run/mysqld/mysqld.sock
+  adapter: postgresql
+encoding: unicode
+pool: 5
+database: dfkm1b962gnjs1
+username: gmvnaqmiictvyk
+password: phF6QKTZH6JxanUjZYGSrGF2gS
+host: ec2-107-21-107-194.compute-1.amazonaws.com
+port: 5432

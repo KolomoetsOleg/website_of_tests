@@ -1,6 +1,8 @@
-<div class="content">
-	<p> Здраствуйте. Вы выбрали тест <%= @test.title %></p>
+<h3 class="page-header">Приветствуем</h3>
+      <div class="pull-left container">
+        <h5>
+    <p> Здраствуйте. Вы выбрали тест <%= @test.title %></p>
 	<p>На его прохождение у вас есть <%= @test.time %> секунд</p>
-	<p>При начале прохождения его у вас снимиться одна попытка</p>
-	<%= link_to "Начать тестирование", :controller => :quests, :action =>:testing, :id=> 0 %>
+	<p>При начале прохождения его у вас снимиться одна попытка</p></h5>
+     <%= link_to "Начать тестиррование", {:controller => :quests, :action => :testing, :id => 0}, :class => "btn" %>
 </div>

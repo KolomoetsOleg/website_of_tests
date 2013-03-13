@@ -1,3 +1,5 @@
-конец
-Вы набрали 
-<%= @bal.to_s %> балов
+<h3 class="page-header">Поздравляем</h3>
+      <div class="pull-left container">
+        <h5>Ваш результат <%= @bal.to_s %> балов</h5>
+   	  <%= link_to "На главную", {:controller => :tests, :action => :index }, :class => "btn"  %> 
+   	  </div>

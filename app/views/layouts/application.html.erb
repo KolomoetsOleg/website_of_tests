@@ -1,24 +1,23 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
-  <title>WebsiteOfTests</title>
+  <head>
+      <title>Testing SLOBODA</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
+  <%= stylesheet_link_tag    "bootstrap", :media => "all" %>
+  <%= stylesheet_link_tag    "bootstrap-responsive", :media => "all" %>
+  <%= javascript_include_tag "jquery.min" %>
+  <%= javascript_include_tag "bootstrap.min" %>
   <%= csrf_meta_tags %>
-</head>
-<body>
-<div id= "container">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  </head>
+  
+  <body>
+<div class="container">
 <%= render 'shared/header' %>
-<div id="navigation">
-<ul>
-<%= render 'shared/navigation' %>
-</ul>
-<% flash.each do |name, msg| %>
-<%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
-<% end %>
-</div>
-<div class = "content">
 <%= yield %>
+
 </div>
 </body>
 </html>

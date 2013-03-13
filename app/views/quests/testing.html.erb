@@ -1,11 +1,13 @@
-<br>Вопрос <%= @page %> из <%= @all_quest %>
+<h3 class="page-header">Вопрос <%= @page %> из <%= @all_quest %>
+      </h3>
 
+<br>
 
 <%= form_tag(:controller => :quests, :action =>:testing, :id=> @page) do %>
-  	<br>
-  		<%=	label_tag(@quest.title) %>
-
-	<%= case @quest.tip_vop
+      <div class="pull-left container">
+        <h5><%= label_tag(@quest.title) %></h5>
+        <br>
+<%= case @quest.tip_vop
     when 1 
   #Грузим радио
   		render :partial => 'radio', :locals => { :answer => @quest.answer }

@@ -26,3 +26,25 @@ Answer.create([ 		{ :answer => "tachka", 		:status => 0, :quest_id => 1},
 				{ :answer => "Atlantik",    :status => 0, :quest_id => 2},
 				{ :answer => "Dnepr",       :status => 1, :quest_id => 2},
 				{ :answer => "kharkiv",     :status => 1, :quest_id => 3}])
+				
+				
+				
+Test.create(:title => "Test test2",
+      :kol_pop => 10,
+      :time => 4321,
+      :active => 1
+  )
+Quest.create([{ :title => "Chose a car 2",     :tip_vop => 1, :test_id => 2}, 
+        { :title => "chose a riwer 2",   :tip_vop => 2, :test_id => 2}, 
+        { :title => "Capital of Ukraine",       :tip_vop => 3, :test_id => 2} ])
+
+Answer.create([     { :answer => "book",            :status => 0, :quest_id => 4},
+                    { :answer => "Opel",            :status => 1, :quest_id => 4},
+                    { :answer => "tree",            :status => 0, :quest_id => 4},
+                    { :answer => "see",             :status => 0, :quest_id => 4},
+                    { :answer => "Dunai",           :status => 1, :quest_id => 5},
+                    { :answer => "Temza",           :status => 1, :quest_id => 5},
+                    { :answer => "Artek",           :status => 0, :quest_id => 5},
+                    { :answer => "Indian okean",    :status => 0, :quest_id => 5},
+                    { :answer => "Vena",            :status => 0, :quest_id => 5},
+                    { :answer => "kiev",            :status => 1, :quest_id => 6}])

@@ -1,3 +1,8 @@
+		 <dl>
 <%  @tests.each do |test|%>
-	<div class="title"><%= link_to test.title, :action => :start, :id=>test.id %>  </div>
-<% end %>
+          <dt><%= test.title %></dt>
+          <dd>Описание теста 1
+          <%= button_to "Пройти", {:action => :start, :id=>test.id}, :class => "btn pull-right btn-primary btn-mini"  %> 
+          </dd>
+          <% end %>
+        </dl>
