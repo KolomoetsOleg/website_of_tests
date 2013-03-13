@@ -1,10 +1,13 @@
 WebsiteOfTests::Application.routes.draw do
+
+  devise_for :users
+
+  resources :posts
+  resources :pages
+
+  match '/userpage',  :to => 'pages#userpage'
+  match '/adminpage', :to => 'pages#adminpage'
   resources :answers
-
-
-  #resources :quests
-
-
   resources :tests
 
 
@@ -13,8 +16,6 @@ WebsiteOfTests::Application.routes.draw do
   match 'quests/testing/:id' => 'quests#testing'
   match 'quests/finish' => 'quests#finish'
 
-  get "home/index"
-  devise_for :users
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -65,7 +66,7 @@ WebsiteOfTests::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-   root :to => 'home#index'
+   root :to => 'pages#userpage'
 
   # See how all your routes lay out with "rake routes"
 

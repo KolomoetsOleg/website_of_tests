@@ -1,0 +1,4 @@
+<h1>Pages#userpage</h1>
+<p>Find me in app/views/pages/userpage.html.erb</p>
+<%= user_stat = UsersRole.find_by_user_id(session["warden.user.user.key"][1])
+    user_stat[:role_id]%>
