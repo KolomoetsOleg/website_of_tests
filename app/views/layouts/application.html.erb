@@ -9,17 +9,15 @@
 <body>
 <div id= "container">
 <%= render 'shared/header' %>
-
-<%= render 'shared/content' %>
-
 <div id="navigation">
 <ul>
 <%= render 'shared/navigation' %>
 </ul>
 <% flash.each do |name, msg| %>
 <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
-
 <% end %>
+</div>
+<div class = "content">
 <%= yield %>
 </div>
 </body>

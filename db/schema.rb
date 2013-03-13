@@ -11,7 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130305132948) do
+ActiveRecord::Schema.define(:version => 20130309010244) do
+
+  create_table "answers", :force => true do |t|
+    t.string  "answer"
+    t.boolean "status"
+    t.integer "quest_id"
+  end
 
   create_table "posts", :force => true do |t|
     t.string   "title"
@@ -23,10 +29,24 @@ ActiveRecord::Schema.define(:version => 20130305132948) do
 
   add_index "posts", ["user_id"], :name => "index_posts_on_user_id"
 
+  create_table "quests", :force => true do |t|
+    t.string  "title"
+    t.integer "tip_vop"
+    t.integer "test_id"
+  end
+
   create_table "roles", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "tests", :force => true do |t|
+    t.string  "title"
+    t.integer "kol_pop"
+    t.integer "time"
+    t.boolean "active"
+    t.integer "author_id"
   end
 
   create_table "users", :force => true do |t|

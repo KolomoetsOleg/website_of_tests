@@ -1,11 +1,9 @@
 body {
   background-color: #fff;
-  font: 76% arial,sans-serif;
   color: #333;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
-  
 }
 
 p, ol, ul, td {
@@ -31,7 +29,11 @@ a {
   }
 }
 
-
+div {
+  &.field, &.actions {
+    margin-bottom: 10px;
+  }
+}
 
 #notice {
   color: green;
@@ -64,8 +66,4 @@ a {
     font-size: 12px;
     list-style: square;
   }
-}
-
-p {
-  margin: 0 10px 10px;
 }

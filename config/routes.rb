@@ -7,7 +7,14 @@ WebsiteOfTests::Application.routes.draw do
 
   match '/userpage',  :to => 'pages#userpage'
   match '/adminpage', :to => 'pages#adminpage'
+  resources :answers
+  resources :tests
 
+
+  resources :posts
+  match 'tests/start/:id' => 'tests#start'
+  match 'quests/testing/:id' => 'quests#testing'
+  match 'quests/finish' => 'quests#finish'
 
 
   # The priority is based upon order of creation:
