@@ -21,12 +21,14 @@
       <%= render :partial => 'sidebar' %>
    <br>
 
-
    <input type="button" value="Назад" onclick="history.back()" 
    <% if @page == 1 %>disabled<% end %>>
+	
    <%= if @end == false
    		submit_tag("Следующий вопрос", :name => "next")
    		else
    		submit_tag("Завершить тестирование", :name => "end")
    		end %>
 <% end %>
+
+<%= button_to "Пропустить", :action => :testing, :id => @page  %>
