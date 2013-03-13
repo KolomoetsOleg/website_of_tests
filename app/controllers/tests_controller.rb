@@ -28,7 +28,7 @@ class TestsController < ApplicationController
     quest_id = Array.new
     answer_id = Hash.new
     @test.quest.each { |quest| 
-                        quest_id << quest.id
+                        quest_id << { quest.id => 0 }
                       }
     session[:quest_id] = quest_id
     session[:answer_id] = answer_id

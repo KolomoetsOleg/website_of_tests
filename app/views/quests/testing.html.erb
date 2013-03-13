@@ -18,12 +18,12 @@
 	end %>
    <%= hidden_field_tag(:id_quest, @quest.id) %>
    <br>
+      <%= render :partial => 'sidebar' %>
+   <br>
 
 
    <input type="button" value="Назад" onclick="history.back()" 
-   <% if @page == 1 %>
-   disabled
-   <% end %>>
+   <% if @page == 1 %>disabled<% end %>>
    <%= if @end == false
    		submit_tag("Следующий вопрос", :name => "next")
    		else

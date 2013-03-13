@@ -23,12 +23,11 @@ class QuestsController < ApplicationController
 
 def testing
   @all_quest = session[:quest_id].count
-   @page = params[:id].to_i
+  @page = params[:id].to_i
   @end = false
   session[:answer_id][params[:id_quest]] = params[:answer]
   if params[:end].nil?
-
-      @quest = Quest.find(session[:quest_id][@page])
+      @quest = Quest.find(session[:quest_id][@page].keys.first)
       if session[:quest_id][@page+=1] == nil
         @end = true
       end 
