@@ -46,7 +46,6 @@ end
 
 def finish
   @bal = Quest.chek(session[:answer_id])
-
 end
 
 
