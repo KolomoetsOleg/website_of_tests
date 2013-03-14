@@ -13,11 +13,10 @@ class Quest < ActiveRecord::Base
       		if(answer_u == Answer.where(:status => 1, :quest_id => id_q).first[:answer])
  					@bal+=1
   				end
-			when 2
+			 when 2
 				@array = Array.new
 				Answer.where(:status => 1, :quest_id => id_q).all.each{ |ans| 
 					@array << ans.answer
-
 				}
 				if (answer_u == @array)
 					@bal+=1
