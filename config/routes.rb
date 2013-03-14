@@ -12,6 +12,8 @@ WebsiteOfTests::Application.routes.draw do
 
 
   resources :posts
+  resources :user
+  get 'user/rezult'
   match 'tests/start/:id' => 'tests#start'
   match 'quests/testing/:id' => 'quests#testing'
   match 'quests/finish' => 'quests#finish'
