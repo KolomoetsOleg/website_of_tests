@@ -1,11 +1,11 @@
 <h1>Управление тестами :</h1>
 <div class="table">
   <table>
-<% @tests.each do |test| %>
+    <% @tests.each do |test| %>
 
         <tr>
           <td>
-             <h2>Тест №<%= test.id %></h2>
+            <h2>Тест №<%= test.id %></h2>
             <%= test.title %>
           </td>
           <td>
@@ -19,6 +19,6 @@
           </td>
         </tr>
     <% end %>
-      </table>
-    </div>
+  </table>
+</div>
 

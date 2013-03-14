@@ -1,20 +1,34 @@
 WebsiteOfTests::Application.routes.draw do
 
+
+  get 'user/index'
+
+
   devise_for :users
 
-  resources :posts
-  resources :pages
 
-  match '/userpage',  :to => 'pages#userpage'
-  match '/adminpage', :to => 'pages#adminpage'
+  match '/userpage',   :to => 'user#userpage'
+
+  match '/adminpage', :to => 'admin#adminpage'
+
+
+
+
+
   resources :answers
   resources :tests
+ # resources :quests
 
 
-  resources :posts
   match 'tests/start/:id' => 'tests#start'
+  match 'tests/edit/:id'  => 'test#edit'
+  match 'tests/:id?method=delete' => 'test#destroy'
   match 'quests/testing/:id' => 'quests#testing'
-  match 'quests/finish' => 'quests#finish'
+  match 'quests/finish/:id' => 'quests#finish'
+  match 'pages/edit/:id'  => 'tests#edit'
+
+
+
 
 
   # The priority is based upon order of creation:
@@ -66,7 +80,7 @@ WebsiteOfTests::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-   root :to => 'pages#userpage'
+   root :to => 'pages#chose'
 
   # See how all your routes lay out with "rake routes"
 

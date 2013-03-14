@@ -32,7 +32,7 @@ def testing
         @end = true
       end 
   else
-      redirect_to :controller => :quests, :action => :finish
+      redirect_to  :action => :finish
   end
 end
 
