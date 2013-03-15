@@ -29,7 +29,7 @@ def start
     @rezult.user_id = session["warden.user.user.key"][1].first
     @rezult.attempt = 1
     @rezult.save 
- else
+    else
   @rezult.attempt = @rezult.attempt + 1
   @rezult.save
   end

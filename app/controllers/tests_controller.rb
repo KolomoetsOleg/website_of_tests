@@ -25,6 +25,10 @@ class TestsController < ApplicationController
     @test = Test.find(params[:id])
     session[:test_id] = params[:id]
     @rezult = Rezult.where(:user_id => session["warden.user.user.key"][1].first, :test_id => session[:test_id]).first
+    if @rezult.nil?
+      @rezult = Rezult.new
+      @rezult.save
+    end
     session[:quest_id] = nil #Хранение id вопросов  
     session[:answer_id] = nil # Хранение ответов на вопрос
     quest_id = Array.new
