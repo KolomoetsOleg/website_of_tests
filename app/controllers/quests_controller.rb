@@ -46,6 +46,19 @@ end
 
 def finish
   @bal = Quest.chek(session[:answer_id])
+  @rezult = Rezult.where(:user_id => session["warden.user.user.key"][1].first, :test_id => session[:test_id]).first
+  if @rezult.nil?
+    @rezult = Rezult.new
+    @rezult.test_id = session[:test_id]
+    @rezult.user_id = session["warden.user.user.key"][1].first
+    @rezult.bal = @bal
+    @rezult.save 
+ else
+  @rezult.bal = @bal
+  @rezult.save
+  end
+   
+  #@rezult.bal = @bal
 end
 
 

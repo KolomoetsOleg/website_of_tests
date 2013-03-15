@@ -23,6 +23,7 @@ class TestsController < ApplicationController
 
   def start
     @test = Test.find(params[:id])
+    session[:test_id] = params[:id]
     session[:quest_id] = nil #Хранение id вопросов  
     session[:answer_id] = nil # Хранение ответов на вопрос
     quest_id = Array.new

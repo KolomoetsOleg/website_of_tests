@@ -6,7 +6,8 @@ class UserController < ApplicationController
   end
   
   def rezult
-    
+    @rezult = Rezult.where(:user_id => session["warden.user.user.key"][1].first)
+    puts @rezut.class
   end
 
   

@@ -1,0 +1,7 @@
+<% @rezult.each do |rezu|%>
+
+<br>Тест  "<%= rezu.test.title  %>"  -  <%= rezu.bal %>   
+
+
+<% end%>
+   	  <%= link_to "На главную", {:controller => :user}, :class => "btn"  %> 
