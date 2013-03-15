@@ -4,7 +4,7 @@ class CreateRezults < ActiveRecord::Migration
       t.integer :user_id 
       t.integer :test_id 
       t.integer :attempt, :default => 0 
-      t.integer :bal     
+      t.integer :bal,     :default => 0     
 
       t.timestamps
     end

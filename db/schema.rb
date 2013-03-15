@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(:version => 20130314160124) do
     t.integer  "user_id"
     t.integer  "test_id"
     t.integer  "attempt",    :default => 0
-    t.integer  "bal"
+    t.integer  "bal",        :default => 0
     t.datetime "created_at",                :null => false
     t.datetime "updated_at",                :null => false
   end
