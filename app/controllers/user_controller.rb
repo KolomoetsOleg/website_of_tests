@@ -2,12 +2,11 @@ class UserController < ApplicationController
   
   def index
     @user = User.find(session["warden.user.user.key"][1].first)
-    @tests = Test.all
+    @tests = Test.find_all_by_active(1)
   end
   
   def rezult
     @rezult = Rezult.where(:user_id => session["warden.user.user.key"][1].first)
-    puts @rezut.class
   end
 
   

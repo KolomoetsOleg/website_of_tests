@@ -21,11 +21,29 @@ class QuestsController < ApplicationController
     end
   end
 
+def start
+  @rezult = Rezult.where(:user_id => session["warden.user.user.key"][1].first, :test_id => session[:test_id]).first
+    if @rezult.nil?
+    @rezult = Rezult.new
+    @rezult.test_id = session[:test_id]
+    @rezult.user_id = session["warden.user.user.key"][1].first
+    @rezult.attempt = 1
+    @rezult.save 
+ else
+  @rezult.attempt = @rezult.attempt + 1
+  @rezult.save
+  end
+ 
+ redirect_to :action => :testing 
+end
+
+
 def testing
   @all_quest = session[:quest_id].count
   @page = params[:id].to_i
   @end = false
   if params[:id_quest].nil?
+    
   else
     if params[:answer].nil?
       session[:quest_id][@page - 1][params[:id_quest].to_i] = 0    

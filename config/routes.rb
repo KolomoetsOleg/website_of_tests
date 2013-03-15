@@ -11,10 +11,6 @@ WebsiteOfTests::Application.routes.draw do
 
   match '/adminpage', :to => 'admin#adminpage'
 
-
-
-
-
   resources :answers
   resources :tests
  # resources :quests
@@ -23,7 +19,7 @@ WebsiteOfTests::Application.routes.draw do
   resources :posts
   #resources :user
   match 'user/rezult' => 'user#rezult'
-  
+  match 'quests/start/:id' => 'quests#start'
   match 'tests/start/:id' => 'tests#start'
   match 'tests/edit/:id'  => 'test#edit'
   match 'tests/:id?method=delete' => 'test#destroy'

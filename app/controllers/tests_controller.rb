@@ -2,7 +2,7 @@ class TestsController < ApplicationController
   # GET /tests
   # GET /tests.json
   def index
-    @tests = Test.all
+    @tests = Test.find_all_by_active(1)
 
     respond_to do |format|
       format.html # index.html.erb
