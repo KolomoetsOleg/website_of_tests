@@ -72,8 +72,10 @@ def finish
     @rezult.bal = @bal
     @rezult.save 
  else
-  @rezult.bal = @bal
-  @rezult.save
+  if  @rezult.bal < @bal
+    @rezult.bal = @bal
+    @rezult.save
+  end
   end
    
   #@rezult.bal = @bal
