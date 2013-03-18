@@ -9,7 +9,7 @@
             <%= test.title %>
           </td>
           <td>
-            <% #test.description 
+            <%= test.description 
             %>
           </td>
           <td>
@@ -20,6 +20,8 @@
           </td>
         </tr>
     <% end %>
+
   </table>
+      <%= link_to "New test", :controller => :tests, :action => :new %>
 </div>
 

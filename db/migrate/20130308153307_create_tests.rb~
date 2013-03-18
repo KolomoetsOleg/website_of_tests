@@ -3,7 +3,7 @@ class CreateTests < ActiveRecord::Migration
     create_table :tests do |t|
       t.string :title
       t.integer :kol_pop
-      t.integer :time
+      t.time :time
       t.integer :author_id
       t.boolean :active
 

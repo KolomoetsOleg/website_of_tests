@@ -16,20 +16,25 @@
     <%= f.text_field :title %>
   </div>
   <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
     <%= f.label :kol_pop %><br />
     <%= f.number_field :kol_pop %>
   </div>
   <div class="field">
     <%= f.label :time %><br />
-    <%= f.number_field :time %>
+ 	
+ 
+  <%= f.time_select :time %>
   </div>
   <div class="field">
-    <%= f.label :author_id %><br />
-    <%= f.number_field :author_id %>
+    <%= f.hidden_field :author_id %>
   </div>
   <div class="field">
     <%= f.label :active %><br />
-    <%= f.text_field :active %>
+    <%= f.check_box :active %>
   </div>
   <div class="actions">
     <%= f.submit %>

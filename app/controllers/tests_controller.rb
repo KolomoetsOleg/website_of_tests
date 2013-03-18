@@ -59,11 +59,14 @@ class TestsController < ApplicationController
   # GET /tests/1/edit
   def edit
     @test = Test.find(params[:id])
+    @test.author_id = session["warden.user.user.key"][1].first
   end
 
   # POST /tests
   # POST /tests.json
   def create
+
+
     @test = Test.new(params[:test])
 
     respond_to do |format|
@@ -80,16 +83,18 @@ class TestsController < ApplicationController
   # PUT /tests/1
   # PUT /tests/1.json
   def update
-    @test = Test.find(params[:id])
-
+   update = Hash.new
+   update = params[:test]
+   update[:time] = Time.new(update.delete("time(1i)"), update.delete("time(2i)"), update.delete("time(3i)"), update.delete("time(4i)"), update.delete("time(5i)"))
+   @test = Test.find(params[:id])
     respond_to do |format|
-      if @test.update_attributes(params[:test])
-        format.html { redirect_to @test, notice: 'Test was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @test.errors, status: :unprocessable_entity }
-      end
+    if @test.update_attributes(update)
+     format.html { redirect_to @test, notice: 'Test was successfully updated.' }
+     format.json { head :no_content }
+     else
+       format.html { render action: "edit" }
+       format.json { render json: @test.errors, status: :unprocessable_entity }
+     end
     end
   end
 
