@@ -3,6 +3,7 @@ WebsiteOfTests::Application.routes.draw do
 
   get 'user/index'
 
+  post 'admin/update_roles'
 
   devise_for :users
 
@@ -10,6 +11,8 @@ WebsiteOfTests::Application.routes.draw do
   match '/userpage',   :to => 'user#userpage'
 
   match '/adminpage', :to => 'admin#adminpage'
+  match '/adminpage/show', :to => 'admin#show'
+  match '/admin/update_routes', :to => 'admin#show'
 
 
 

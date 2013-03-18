@@ -1,0 +1,26 @@
+<h1>All users</h1>
+<%= form_tag(:action => :update_roles, :method => :put) do %>
+<table>
+<% @users.each  do |user| %>
+
+  <tr>
+    <td>
+      <%=  user.email %>
+    </td>
+    <td>
+      <%=  user.last_sign_in_at.strftime("%d.%m.%Y") %>
+    </td>
+    <td>
+      <% roles = UsersRole.find_by_user_id(user.id)  %>
+       <%= roles.role.name %>
+    </td>
+    <td>
+        <%= check_box_tag( "user[]" , user.id ,if roles.role.name=="admin" then true end )
+        %>
+    </td>
+  </tr>
+
+<% end %>
+</table>
+<%= submit_tag("Save changes") %>
+<% end %>
