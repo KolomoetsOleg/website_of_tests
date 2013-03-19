@@ -15,7 +15,8 @@
        <%= roles.role.name %>
     </td>
     <td>
-        <%= check_box_tag( "user[]" , user.id ,if roles.role.name=="admin" then true end )
+        <%= select_tag( "user[]" ,  "<option>User</option><option>Admin</option>".html_safe)
+            #check_box_tag("user[]", user.id ,if roles.role.name=="admin" then true end )
         %>
     </td>
   </tr>
