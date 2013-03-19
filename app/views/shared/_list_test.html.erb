@@ -5,4 +5,6 @@
           <%= button_to "Пройти", { :controller => :tests, :action => :start, :id=>test.id}, :class => "btn pull-right btn-primary btn-mini"  %> 
           </dd>
           <% end %>
+<%= will_paginate @tests %>
         </dl>
+
