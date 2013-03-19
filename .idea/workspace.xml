@@ -4,7 +4,6 @@
     <list id="14026719-ce75-4c07-b64d-ac43c80ce6bf" name="Default" comment="" />
     <list id="2380a75f-152a-490d-a009-e2ce1b9f68e4" name="New changelist" comment="" />
     <list default="true" id="0f43b165-41d5-4a19-84e5-ac5f79e3972f" name="admin/user" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/admin_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/admin_controller.rb" />
     </list>
     <ignored path="website_of_tests.iws" />
@@ -90,7 +89,7 @@
       <file leaf-file-name="admin_controller.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/admin_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="20" selection-start="586" selection-end="586" vertical-scroll-proportion="0.77321815">
+            <state line="25" column="28" selection-start="504" selection-end="504" vertical-scroll-proportion="0.5788337">
               <folding />
             </state>
           </provider>
@@ -1050,7 +1049,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/admin_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="20" selection-start="586" selection-end="586" vertical-scroll-proportion="0.77321815">
+        <state line="25" column="28" selection-start="504" selection-end="504" vertical-scroll-proportion="0.5788337">
           <folding />
         </state>
       </provider>
