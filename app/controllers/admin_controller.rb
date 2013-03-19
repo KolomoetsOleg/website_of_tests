@@ -19,14 +19,18 @@ class AdminController < ApplicationController
   end
 
   def update_roles
-     param = params[:user]
-     #if !param.nil?
-     #param.each do |user|
-     #  update = UsersRole.find(user)
-     #  update[:role_id] = "2"
-     #  update.save
-     #end
-     #end
+     users =  params[:user]
+     roles = params[:role]
+     s= 0
+     if !users.nil?
+     users.each do |user_id|
+       updates = UsersRole.find(user_id)
+       updates[:role_id] = roles[s]
+       updates.save
+       s+=1
+
+       end
+     end
     redirect_to :action => "show"
   end
 end
