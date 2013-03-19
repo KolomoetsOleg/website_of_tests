@@ -3,7 +3,7 @@ class UserController < ApplicationController
   def index
     @user = User.find(session["warden.user.user.key"][1].first)
     @tests = Test.where(:active => 1).paginate(:page => params[:page])
-    WillPaginate.per_page = 5
+    WillPaginate.per_page = 2
   end
   
   def rezult
