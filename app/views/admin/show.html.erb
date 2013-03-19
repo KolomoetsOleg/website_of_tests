@@ -8,7 +8,7 @@
       <%=  user.email %>
     </td>
     <td>
-      <%=  user.last_sign_in_at.strftime("%d.%m.%Y") %>
+      
     </td>
     <td>
       <% roles = UsersRole.find_by_user_id(user.id)  %>
