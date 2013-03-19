@@ -29,7 +29,7 @@
    <%= if @end == false
    		submit_tag("Следующий вопрос", :name => "next")
    		else
-   		submit_tag("Завершить тестирование", :name => "end")
+   		submit_tag("Завершить тестирование", :name => "end", data: { confirm: 'Are you sure?' } )
    		end %>
 <% end %>
 
