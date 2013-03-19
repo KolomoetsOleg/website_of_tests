@@ -87,6 +87,7 @@ end
   # GET /quests/new.json
   def new
     @quest = Quest.new
+    @author = session["warden.user.user.key"][1]
 
     respond_to do |format|
       format.html # new.html.erb

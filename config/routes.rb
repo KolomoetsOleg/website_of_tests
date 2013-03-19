@@ -16,7 +16,7 @@ WebsiteOfTests::Application.routes.draw do
 
   resources :answers
   resources :tests
- # resources :quests
+  resources :quests
 
 
   resources :posts

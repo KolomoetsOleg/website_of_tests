@@ -16,6 +16,6 @@ class User < ActiveRecord::Base
   has_many :rezult
   private
   def create_role
-  self.roles << Role.find_by_name(:admin)
+  self.roles << Role.find_by_name(:user)
 end
 end
