@@ -23,7 +23,7 @@ class AdminController < ApplicationController
      if !param.nil?
      param.each do |user|
        update = UsersRole.find(user)
-       update[:role_id] = "1"
+       update[:role_id] = "2"
        update.save
      end
      end
