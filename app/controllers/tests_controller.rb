@@ -43,6 +43,8 @@ class TestsController < ApplicationController
   # GET /tests/new.json
   def new
     @test = Test.new
+    @author = session["warden.user.user.key"][1]
+
 
     respond_to do |format|
       format.html # new.html.erb
@@ -59,6 +61,7 @@ class TestsController < ApplicationController
   # POST /tests.json
   def create
     @test = Test.new(params[:test])
+
 
     respond_to do |format|
       if @test.save
