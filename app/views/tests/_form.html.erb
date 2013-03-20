@@ -21,7 +21,7 @@
   </div>
   <div class="field">
     <%= f.label "Количество попыток" %><br />
-    <%= f.number_field :kol_pop %>
+    <%= f.number_field :kol_pop, :in => 1..10%>
   </div>
   <div class="field">
     <%= f.label "Время прохождения" %><br />
