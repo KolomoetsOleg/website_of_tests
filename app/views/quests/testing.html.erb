@@ -27,10 +27,15 @@
    <% if @page == 1 %>disabled<% end %>>
 	
    <%= if @end == false
-   		submit_tag("Следующий вопрос", :name => "next")
+   		submit_tag("Следующий вопрос", :name => "next")  
    		else
-   		submit_tag("Завершить тестирование", :name => "end", data: { confirm: 'Are you sure?' } )
+   		submit_tag("Завершить тестирование", :name => "end", data: { confirm: 'Вы уверены что готовы звершить тест?' } )
+   		end %>
+   <%= if @end == false
+   		button_to "Пропустить", :action => :testing, :id => @page  
+   		else
    		end %>
 <% end %>
 
-<%= button_to "Пропустить", :action => :testing, :id => @page  %>
+
+
