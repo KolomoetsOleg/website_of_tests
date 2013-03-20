@@ -1,15 +1,31 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Title:</b>
-  <%= @quest.title %>
-</p>
-
-<p>
-  <b>Tip vop:</b>
-  <%= @quest.tip_vop %>
-</p>
 
 
-<%= link_to 'Edit', edit_quest_path(@quest) %> |
-<%= link_to 'Back', quests_path %>
+<h1>Вопросы к тесту №<%= @test.id%></h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Tip vop</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+  <% @quests.each do |quest| %>
+      <tr>
+        <td><%= quest.title %></td>
+        <td><%= quest.tip_vop %></td>
+        <td><%= link_to 'Show', quest %></td>
+        <td><%= link_to 'Edit', edit_quest_path(quest) %></td>
+        <td><%= link_to 'Destroy', quest, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+  <% end %>
+</table>
+
+<br />
+ <% test = @test %>
+<%= link_to 'New Quest',  :action => :new, :id => test.id%>
+
+
+
+

@@ -5,7 +5,7 @@ class PagesController < ApplicationController
     if user_stat[:role_id] == 1
       redirect_to adminpage_path
     else
-      redirect_to userpage_path
+      redirect_to user_index_path
     end
   end
 

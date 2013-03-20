@@ -5,10 +5,11 @@ WebsiteOfTests::Application.routes.draw do
 
   post 'admin/update_roles'
 
+
   devise_for :users
 
 
-  match '/userpage',   :to => 'user#userpage'
+  match '/user/index',   :to => 'user#index'
 
   match '/adminpage', :to => 'admin#adminpage'
   match '/adminpage/show', :to => 'admin#show'
@@ -16,20 +17,24 @@ WebsiteOfTests::Application.routes.draw do
 
   resources :answers
   resources :tests
-  resources :quests
+  #resources :quests
 
 
   resources :posts
   #resources :user
-  match 'user/rezult' => 'user#rezult'
-  match 'quests/start/:id' => 'quests#start'
-  match 'tests/start/:id' => 'tests#start'
-  match 'tests/edit/:id'  => 'test#edit'
-  match 'tests/:id?method=delete' => 'test#destroy'
-  match 'quests/testing/:id' => 'quests#testing'
-  match 'quests/finish/:id' => 'quests#finish'
-  match 'pages/edit/:id'  => 'tests#edit'
+  match 'user/rezult'             =>  'user#rezult'
+  match 'quests/start/:id'        =>  'quests#start'
+  match 'tests/start/:id'         =>  'tests#start'
+  match 'tests/edit/:id'          =>  'test#edit'
+  match 'tests/:id?method=delete' =>  'test#destroy'
+  match 'quests/testing/:id'      =>  'quests#testing'
+  match 'quests/finish/:id'       =>  'quests#finish'
+  match 'pages/edit/:id'          =>  'tests#edit'
+  match 'quests/new/:id'          =>  'quests#new'
+  match 'quests/:id'               =>  'quests#show'
 
+
+  get 'quests/new'
 
 
 

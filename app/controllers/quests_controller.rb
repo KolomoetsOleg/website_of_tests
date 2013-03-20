@@ -13,7 +13,8 @@ class QuestsController < ApplicationController
   # GET /quests/1
   # GET /quests/1.json
   def show
-    @quest = Quest.find(params[:id])
+    @test = Test.find(params[:id])
+    @quests = Quest.find_all_by_test_id(@test)
 
     respond_to do |format|
       format.html # show.html.erb
@@ -83,8 +84,8 @@ end
 
 
 
-  # GET /quests/new
-  # GET /quests/new.json
+  # GET /quests/new/:id
+  # GET /quests/new/:id.json
   def new
     @quest = Quest.new
     @author = session["warden.user.user.key"][1]

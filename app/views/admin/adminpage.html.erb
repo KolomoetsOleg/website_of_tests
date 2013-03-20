@@ -20,7 +20,7 @@
             <%= link_to "Delete", {:controller => "tests",  :action => :destroy, :id => test.id },:method => :delete %>
           </td>
           <td>
-            <%= link_to "Добавить вопросы", { :controller => "quests", :action => :edit, :id => test.id} %>
+            <%= link_to "Добавить вопросы", { :controller => "quests", :action => :show, :id => test.id} %>
           </td>
         </tr>
     <% end %>
