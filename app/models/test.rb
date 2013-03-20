@@ -3,6 +3,7 @@ class Test < ActiveRecord::Base
   has_many :quest
   has_many :rezult
   validates :kol_pop, :numericality => {:greater_than => 0, :less_than => 10}
+  validates :title,   :presence => {:format => '%{message}'}
   
   
 end
