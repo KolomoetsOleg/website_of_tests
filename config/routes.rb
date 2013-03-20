@@ -31,9 +31,6 @@ WebsiteOfTests::Application.routes.draw do
   match 'pages/edit/:id'  => 'tests#edit'
 
 
-
-
-
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
