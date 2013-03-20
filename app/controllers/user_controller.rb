@@ -1,5 +1,4 @@
 class UserController < ApplicationController
-  require 'will_paginate/array'
   def index
     @user = User.find(session["warden.user.user.key"][1].first)
     @tests = Test.where(:active => 1).paginate(:page => params[:page])
