@@ -1,0 +1,46 @@
+<table>
+  <tr>
+    <th>
+        <h4>Название теста</h4>
+    </th>
+    <th>
+        <h4>Описание теста</h4>
+    </th>
+    <th>
+      <h4>Активность</h4>
+    </th>
+    <th>
+
+    </th>
+    <th>
+
+    </th>
+    <th>
+
+    </th>
+  </tr>
+  <% @tests.each do |test| %>
+
+      <tr>
+        <td>
+            <h5><%= test.title %></h5>
+        </td>
+        <td>
+            <h5><%= test.description%> </h5>
+        </td>
+        <td>
+            <%= test.active  %>
+        </td>
+        <td>
+          <%= link_to "Редактировать", :controller => "tests", :action => :edit, :id => test.id  %>
+        </td>
+        <td>
+          <%= link_to "Delete", {:controller => "tests",  :action => :destroy, :id => test.id },:method => :delete %>
+        </td>
+        <td>
+          <%= link_to "Добавить вопросы", { :controller => "quests", :action => :show, :id => test.id} %>
+        </td>
+      </tr>
+  <% end %>
+
+</table>

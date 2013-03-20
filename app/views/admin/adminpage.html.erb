@@ -1,31 +1,8 @@
 <%= link_to "Пользователи", :action => :show %>
 <h1>Управление тестами :</h1>
 <div class="table">
-  <table>
-    <% @tests.each do |test| %>
-
-        <tr>
-          <td>
-            <h2>Тест №<%= test.id %></h2>
-            <%= test.title %>
-          </td>
-          <td>
-            <%= test.description 
-            %>
-          </td>
-          <td>
-            <%= link_to "Редактировать", :controller => "tests", :action => :edit, :id => test.id  %>
-          </td>
-          <td>
-            <%= link_to "Delete", {:controller => "tests",  :action => :destroy, :id => test.id },:method => :delete %>
-          </td>
-          <td>
-            <%= link_to "Добавить вопросы", { :controller => "quests", :action => :show, :id => test.id} %>
-          </td>
-        </tr>
-    <% end %>
-
-  </table>
-      <%= link_to "New test", :controller => :tests, :action => :new %>
+  <%=  render("/shared/test_admin") %>
+  <%= will_paginate @tests %>
+  <%= link_to "New test", :controller => :tests, :action => :new %>
 </div>
 
