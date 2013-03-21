@@ -204,9 +204,6 @@ app/controllers
   automated URL mapping. All controllers should descend from
   ApplicationController which itself descends from ActionController::Base.
 
-app/models
-  Holds models that should be named like post.rb. Models descend from
-  ActiveRecord::Base by default.
 
 app/views
   Holds the template files for the view that should be named like
