@@ -3,15 +3,15 @@
         <h5>
     <% if @rezult.attempt < @test.kol_pop %>
     <p> Здраствуйте. Вы выбрали тест <%= @test.title %></p>
-	<p>На его прохождение у вас есть <%= @test.time.hour*360+@test.time.min %> минут</p>
+	<p>На его прохождение у вас есть <%= @test.time %> минут</p>
 
 	<p>Мой друг попыток у тебя осталось всего навсего <%= @test.kol_pop-@rezult.attempt %></p>
 	<p>При начале прохождения его у вас снимется одна попытка</p></h5>
-     <%= link_to "Начать тестиррование", {:controller => :quests, :action => :start, :id => 0, :time => (@test.time.hour*360+@test.time.min)*60}, :class => "btn" %>
+     <%= link_to "Начать тестиррование", {:controller => :quests, :action => :start, :id => 0 }, :class => "btn" %>
      <%= link_to "На главную", {:controller => :user, :action => :index}, :class => "btn" %>
 	<% else %>
 	<p> Уппссссс у вас закончились попытки))))</p>
-	<%= link_to "На главную", {:controller => :user, :action => :index}, :class => "btn" %>
+	<%= link_to "На главную", root_path, :class => "btn" %>
 	<% end %>
 
 </div>

@@ -9,12 +9,9 @@ setInterval(function () {
 	  text = '';
   
   if (diff < 0) {
-	$.ajax({
-            url: "quest/end",
-            type: "GET",
-            success: function() {$(".listing").unreel();
-        }
-        });
+  	document.location.href = '/quests/finish/<%= @page %>';
+	document.write(document.location.href);
+	
   } else {
 	text = Math.floor(diff / 3600) + ' час. ' +  Math.floor(diff / 60) % 60 + ' мин.'+  Math.floor(diff) % 60 + ' сек.';
   }
@@ -39,10 +36,10 @@ setInterval(function () {
 <%= case @quest.tip_vop
     when 1 
   #Грузим радио
-  		render :partial => 'radio', :locals => { :answer => @quest.answer }
+  		render :partial => 'radio', :locals => { :answer => @quest.answers }
 	when 2
   #Грузим чеки
-  		render :partial => 'chek', :locals => { :answer => @quest.answer }
+  		render :partial => 'chek', :locals => { :answer => @quest.answers }
 	else
   #Грузим текста
   		render :partial => 'text'
