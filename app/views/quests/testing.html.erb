@@ -9,8 +9,8 @@ setInterval(function () {
 	  text = '';
   
   if (diff < 0) {
-  	document.location.href = '/quests/finish/<%= @page %>';
-	document.write(document.location.href);
+
+	location.replace('/quests/finish/<%= @page %>');
 	
   } else {
 	text = Math.floor(diff / 3600) + ' час. ' +  Math.floor(diff / 60) % 60 + ' мин.'+  Math.floor(diff) % 60 + ' сек.';
