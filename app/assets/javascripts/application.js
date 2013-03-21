@@ -14,3 +14,24 @@
 //= require jquery_ujs
 //= require_tree .
 
+function timer($hour, $min, $sec, $page) {
+
+var outTimer = document.getElementById('timer'),
+	dateEnd = (new Date()).setHours($hour, $min, $sec);
+
+setInterval(function () {
+  var diff = Math.round((dateEnd - new Date()) / 1000), // разница
+	  text = '';
+  
+  if (diff < 0) {
+
+	location.replace('/quests/finish/'+$page);
+	
+  } else {
+	text = Math.floor(diff / 3600) + ' час. ' +  Math.floor(diff / 60) % 60 + ' мин.'+  Math.floor(diff) % 60 + ' сек.';
+  }
+  
+  outTimer.innerHTML = text;
+  
+}, 1000);
+};
