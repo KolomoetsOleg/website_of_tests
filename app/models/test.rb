@@ -1,10 +1,13 @@
 class Test < ActiveRecord::Base
+
+  scope :active, :conditions => {:active => true}
+
   attr_accessible :active, :author_id, :kol_pop, :time, :title, :description
-  has_many :quest
-  has_many :rezult
+
+  has_many :quests
+  has_many :rezults
+
   validates :title,   :presence => true
   validates :kol_pop, :numericality => {:greater_than => 0, :less_than => 10}
 
-  
-  
-end
+ end

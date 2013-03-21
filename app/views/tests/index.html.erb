@@ -1,7 +1,9 @@
-<h2 class="page-header">Выберете нужный тест
-             </h2>
+Приветствую тебя, мой юный <%= @user.email %>! Я вывожу тебе мыло, так как имя нет в базе твоего))
+<br> Мой юный падаван, если хочешь просмотреть свои прежнии успехи, кликни здесь: <%= link_to "Просмотр", rezult_user_path(@user), :class => "btn pull-right btn-primary btn-mini"  %> 
+<h2 class="page-header">Выберите нужный тест
+</h2>
 <div class="pull-left container">
 
 <%= render "shared/list_test" %>
-
+<%= will_paginate @tests %>
 </div>
