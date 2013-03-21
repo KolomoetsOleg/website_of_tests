@@ -25,7 +25,7 @@ setInterval(function () {
   
   if (diff < 0) {
 
-	//location.replace('/quests/finish/'+$page);
+	location.replace('/quests/finish/'+$page);
 	
   } else {
 	text = Math.floor(diff / 3600) + ' час. ' +  Math.floor(diff / 60) % 60 + ' мин.'+  Math.floor(diff) % 60 + ' сек.';
