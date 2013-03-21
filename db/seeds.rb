@@ -19,7 +19,7 @@ Role.create(:name => :user)
 Test.create(:title => "Test test",
       :description => "This is Andrew's test)))",
 			:kol_pop => 5,
-			:time => 2,
+			:time => 10,
 			:active => 1
 	)
 Quest.create([{ :title => "choose a car", 		:tip_vop => 1, :test_id => 1},
