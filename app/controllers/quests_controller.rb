@@ -34,12 +34,15 @@ def start
   @rezult.attempt = @rezult.attempt + 1
   @rezult.save
   end
- 
+  @time = Test.find(session[:test_id]).time
+  session[:time] = Time.now + (@time.hour*360+@time.min*60)
+  
  redirect_to :action => :testing 
 end
 
 
 def testing
+  @time = session[:time]
   @all_quest = session[:quest_id].count
   @page = params[:id].to_i
   @end = false
