@@ -10,6 +10,7 @@ gem  'rails', '3.2.12'
 gem 'devise'
 gem 'cancan'
 gem 'heroku'
+gem 'haml-rails'
 group :development, :test do
 	gem 'mysql2'
 end
