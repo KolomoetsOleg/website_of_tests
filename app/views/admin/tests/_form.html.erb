@@ -27,7 +27,7 @@
     <%= f.label "Время прохождения" %><br />
  	
  
-  <%= f.time_select :time %>
+  <%= f.number_field :time, :min => 1  %>
   </div>
   <div class="field">
     <%= f.label "Сделать активным" %><br />
