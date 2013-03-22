@@ -28,6 +28,13 @@ WebsiteOfTests::Application.routes.draw do
     end
   end
 
+  resources :posts
+  resources :user
+  match 'user/rezult'             =>  'user#rezult'
+  match 'quests/start/:id/:time'        =>  'quests#start'
+  match 'tests/start/:id'         =>  'tests#start'
+  match 'tests/edit/:id'          =>  'test#edit'
+  match 'tests/:id?method=delete' =>  'test#destroy'
   match 'quests/start/:id'        =>  'quests#start'
   match 'quests/testing/:id'      =>  'quests#testing'
   match 'quests/finish/:id'       =>  'quests#finish'

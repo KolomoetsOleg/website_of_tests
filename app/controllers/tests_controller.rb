@@ -17,9 +17,7 @@ class TestsController < ApplicationController
     session[:answer_id] = nil # Хранение ответов на вопрос
     quest_id = Array.new
     answer_id = Hash.new
-    @test.quests.each do |quest| 
-      quest_id << { quest.id => 0 }
-    end
+    @test.quests.each { |quest| quest_id << { quest.id => 0 } }
     session[:quest_id] = quest_id
     session[:answer_id] = answer_id
   end

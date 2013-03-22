@@ -9,41 +9,38 @@ class QuestsController < ApplicationController
     @quests = Quest.find_all_by_test_id(@test)
   end
 
-  #TODO do something with that!! :)
+
   def start
-    @rezult = Rezult.where(:user_id => session["warden.user.user.key"][1].first, :test_id => session[:test_id]).first
-    if @rezult.nil?
-      @rezult = Rezult.new
-      @rezult.test_id = session[:test_id]
-      @rezult.user_id = session["warden.user.user.key"][1].first
-      @rezult.attempt = 1
-      @rezult.save 
+    @rezult = Rezult.where('user_id = ? and test_id = ?', @user.id, session[:test_id]).first
+    
+    if @rezult.nil? 
+     @rezult = Rezult.create(:test_id => session[:test_id], :user_id => @user.id, :attempt => 1)
     else
-      @rezult.attempt = @rezult.attempt + 1
-      @rezult.save
+     @rezult.update_attributes(:attempt => (@rezult.attempt + 1))  
     end
-    redirect_to :action => :testing 
+    session[:time] = Time.now + Test.find(session[:test_id]).time*60
+     
+    redirect_to :action => :testing
   end
 
-  def testing
-    @all_quest = session[:quest_id].count
-    @page = params[:id].to_i
-    @end = false
-    if params[:id_quest].nil?
-      
-    else
-      if params[:answer].nil?
+
+def testing
+  @time = session[:time]
+  @all_quest = session[:quest_id].count
+  @page = params[:id].to_i
+  @end = false
+  unless params[:id_quest].nil?
+  
+      if params[:answer].nil? 
         session[:quest_id][@page - 1][params[:id_quest].to_i] = 0    
       else
         session[:quest_id][@page - 1][params[:id_quest].to_i] = 1
       end    
-    end
+  end
     session[:answer_id][params[:id_quest]] = params[:answer]
     if params[:end].nil?
         @quest = Quest.find(session[:quest_id][@page].keys.first)
-         if session[:quest_id][@page+=1] == nil
-          @end = true
-        end 
+        @end = true if session[:quest_id][@page+=1].nil?
     else
         redirect_to  :action => :finish
     end
@@ -51,18 +48,12 @@ class QuestsController < ApplicationController
 
   def finish
     @bal = Quest.check(session[:answer_id])
+    @bal = 0 if Time.now > session[:time] + 60 # погрешность 1 минута на всякий случай)
     @rezult = Rezult.where(:user_id => @user, :test_id => session[:test_id]).first
     if @rezult.nil?
-      @rezult = Rezult.new
-      @rezult.test_id = session[:test_id]
-      @rezult.user_id = @user
-      @rezult.bal = @bal
-      @rezult.save 
+      @rezult = Rezult.create(:test_id => session[:test_id], :user_id => @user, :bal => @bal)
     else
-      if  @rezult.bal < @bal
-        @rezult.bal = @bal
-        @rezult.save
-      end
+     @rezult.update_attributes(:bal => @bal) if  @rezult.bal < @bal
     end     
     #@rezult.bal = @bal
   end

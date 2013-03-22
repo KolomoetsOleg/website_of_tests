@@ -5,7 +5,6 @@ class Quest < ActiveRecord::Base
   has_many :answers
 
 
-  #TODO refactor this
   def self.check(answer_id) # Хеш ответов пользователя, id testa
     @bal = 0
     answer_id.delete(nil)
