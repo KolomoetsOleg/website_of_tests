@@ -25,7 +25,6 @@ class Admin::TestsController < ApplicationController
   def update
     update = Hash.new
     update = params[:test]
-    update[:time] = Time.new(update.delete("time(1i)"), update.delete("time(2i)"), update.delete("time(3i)"), update.delete("time(4i)"), update.delete("time(5i)"))
     @test = Test.find(params[:id])
     @test.author_id = @user.id
     if @test.update_attributes(update)
