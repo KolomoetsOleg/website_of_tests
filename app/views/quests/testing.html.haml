@@ -8,25 +8,34 @@
   .pull-left.container
     %h5= label_tag(@quest.title)
     %br/
-    = case @quest.tip_vop                                                  
-      when 1                                                               
-      #Грузим радио                                                        
-      render :partial => 'radio', :locals => { :answer => @quest.answers } 
-      when 2                                                               
-      #Грузим чеки                                                         
-      render :partial => 'chek', :locals => { :answer => @quest.answers }  
-      else                                                                 
-      #Грузим текста                                                       
-      render :partial => 'text'                                            
-      end                                                                  
+    - case @quest.tip_vop                                                      
+      - when 1                                                                 
+        = render :partial => 'radio', :locals => { :answer => @quest.answers } 
+      - when 2                                                                   
+        = render :partial => 'chek', :locals => { :answer => @quest.answers }  
+      - else                                                                     
+        = render :partial => 'text'                                            
+      - end                                                                      
     = hidden_field_tag(:id_quest, @quest.id)
     %br/
     = render :partial => 'sidebar'
     %br/
-    <input type="button" value="Назад" onclick="history.back()"
+
     - if @page == 1
-      disabled
-    >
+      %input{:disabled => "true", :onclick => "history.back()", :type => "button", :value => "Назад"}/
+    - else
+      %input{:disabled => "false", :onclick => "history.back()", :type => "button", :value => "Назад"}/
+    - end
+
+    - if @end == false
+      = submit_tag("Следующий вопрос", :name => "next")  
+    - else
+      = submit_tag("Завершить тестирование", :name => "end", data: { confirm: 'Вы уверены что готовы звершить тест?' } )
+    - end
     
-    \#{if @end == false submit_tag("Следующий вопрос", :name => "next")   else submit_tag("Завершить тестирование", :name => "end", data: { confirm: 'Вы уверены что готовы звершить тест?' } ) end}
-    \#{if @end == false button_to "Пропустить", :action => :testing, :id => @page   else end}
+    - if @end == false
+      = button_to "Пропустить", :action => :testing, :id => @page  
+    - else
+    
+    - end 
+-end
