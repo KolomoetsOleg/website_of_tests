@@ -1,28 +1,7 @@
 <p id="timer"></p>
-
 <script>
-var outTimer = document.getElementById('timer'),
-	dateEnd = (new Date()).setHours(<%= @time.hour %>, <%= @time.min %>, <%= @time.sec %>);
-
-setInterval(function () {
-  var diff = Math.round((dateEnd - new Date()) / 1000), // разница
-	  text = '';
-  
-  if (diff < 0) {
-  	document.location.href = '/quests/finish/<%= @page %>';
-	document.write(document.location.href);
-	
-  } else {
-	text = Math.floor(diff / 3600) + ' час. ' +  Math.floor(diff / 60) % 60 + ' мин.'+  Math.floor(diff) % 60 + ' сек.';
-  }
-  
-  outTimer.innerHTML = text;
-  
-}, 1000);
+timer(<%= @time.hour%>, <%= @time.min %>, <%= @time.sec %>,<%= @page %>)
 </script>
-
-
-
 
 <h3 class="page-header">Вопрос <%= @page %> из <%= @all_quest %>
       </h3>

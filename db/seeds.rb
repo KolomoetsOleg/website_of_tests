@@ -41,7 +41,7 @@ Answer.create([ 		{ :answer => "tachka", 		:status => 0, :quest_id => 1},
 Test.create(:title => "Oleg's test",
             :description => "This is Oleg's test)))",
             :kol_pop => 2,
-            :time => 10,
+            :time => 1,
             :active => 1
 )
 Quest.create([{ :title => "chose true", 		:tip_vop => 1, :test_id => 2},
