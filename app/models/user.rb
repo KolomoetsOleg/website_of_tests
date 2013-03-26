@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :f_name, :l_name, :remember_me
+  validates :f_name, :length => {:maximum => 50, :minimum => 2}, :presence => true
+  validates :l_name, :length => {:maximum => 50, :minimum => 2}, :presence => true
   # attr_accessible :title, :body
   before_create :create_role
   has_many :users_roles
