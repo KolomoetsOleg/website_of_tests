@@ -60,19 +60,9 @@ def testing
       @page +=1
     end
 
+
   end
 
-
- #if params[:end].nil? 
- #@quest = Quest.find(session[:quest_id][@page].keys.first)
- #  if session[:quest_id][@page+=1].nil? &&  
- #   @end = true 
- # else
-#@quest = Quest.find(session[:quest_id].first.keys.first)
-# end
-# else
-#   redirect_to  :action => :finish
-# end
 end
 
 def finish
