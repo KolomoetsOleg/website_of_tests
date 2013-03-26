@@ -43,8 +43,7 @@ def testing
     end    
   end
 
-puts session[:status]
-puts session[:end]
+
   if session[:end] == false
     @quest = Quest.find(session[:quest_id][@page])
     @page+=1
