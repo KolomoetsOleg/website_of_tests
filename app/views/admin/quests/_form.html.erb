@@ -1,4 +1,4 @@
-<%= form_for(@quest) do |f| %>
+<%= form_for [:admin, @quest] do |f| %>
   <% if @quest.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@quest.errors.count, "error") %> prohibited this quest from being saved:</h2>
@@ -20,6 +20,6 @@
     <%= f.number_field :tip_vop  %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Сохранить"%>
   </div>
 <% end %>
