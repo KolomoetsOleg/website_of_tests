@@ -49,6 +49,13 @@ GEM
     excon (0.16.10)
     execjs (1.4.0)
       multi_json (~> 1.0)
+    haml (4.0.1)
+      tilt
+    haml-rails (0.4)
+      actionpack (>= 3.1, < 4.1)
+      activesupport (>= 3.1, < 4.1)
+      haml (>= 3.1, < 4.1)
+      railties (>= 3.1, < 4.1)
     heroku (2.35.0)
       heroku-api (~> 0.3.7)
       launchy (>= 0.3.2)
@@ -140,6 +147,7 @@ DEPENDENCIES
   cancan
   coffee-rails (~> 3.2.1)
   devise
+  haml-rails
   heroku
   jquery-rails
   mysql2

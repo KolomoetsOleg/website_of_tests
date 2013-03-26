@@ -13,13 +13,23 @@ class TestsController < ApplicationController
     session[:test_id] = params[:id]
     @rezult = Rezult.where('user_id = ? and test_id = ?', @user.id, @test.id).first
     @rezult ||= Rezult.create
-    session[:quest_id] = nil #Хранение id вопросов  
-    session[:answer_id] = nil # Хранение ответов на вопрос
+    session[:quest_id]  = nil            # Хранение id вопросов  
+    session[:answer_id] = nil            # Хранение ответов на вопрос
+    session[:status] = nil            # хеш отвевеченных/не отвеченых вопросов
     quest_id = Array.new
     answer_id = Hash.new
-    @test.quests.each { |quest| quest_id << { quest.id => 0 } }
+    status = Array.new
+    session[:end] = false
+    # Внесение id вопросов в масив
+    @test.quests.each do |quest| 
+                         quest_id << quest.id 
+                         status <<  0 
+
+                      end   
     session[:quest_id] = quest_id
     session[:answer_id] = answer_id
+    session[:status] = status
+    puts status
   end
 
 end
