@@ -1,6 +1,6 @@
 %p#timer
 :javascript
-  timer(#{@time.hour}, #{@time.min}, #{@time.sec},#{@page})
+  //timer(#{@time.hour}, #{@time.min}, #{@time.sec},#{@page})
 %h3.page-header
   Вопрос #{@page} из #{@all_quest}
 %br/
@@ -17,14 +17,8 @@
         = render :partial => 'text'                                                                                                          
     = hidden_field_tag(:id_quest, @quest.id)
     %br/
-    - if @page == 1
-      %input{:disabled => "true", :onclick => "history.back()", :type => "button", :value => "Назад"}/
-    - else
-      %input{:disabled => "false", :onclick => "history.back()", :type => "button", :value => "Назад"}/
     - if @end == false
-      = submit_tag("Следующий вопрос", :name => "next")  
-    - else
-      = submit_tag("Завершить тестирование", :name => "end", data: { confirm: 'Вы уверены что готовы звершить тест?' } )
-    
+      = submit_tag("Ответить", :name => "next")  
     - if @end == false
       = button_to "Пропустить", :action => :testing, :id => @page      
+    = button_to "Завершить тест", { :action => :finish, :id => @page }, :confirm => "Вы уверены что готовы звершить тест?" 
