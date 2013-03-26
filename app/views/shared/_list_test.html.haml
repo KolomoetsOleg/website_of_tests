@@ -1,0 +1,6 @@
+%dl
+  - @tests.each do |test|
+    %dt= test.title
+    %dd
+      = test.description
+      \#{button_to "Пройти", start_test_path(test), :class => "btn pull-right btn-primary btn-mini", :method => 'get'}
