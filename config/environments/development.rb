@@ -43,7 +43,7 @@ WebsiteOfTests::Application.configure do
       :address                    => "smtp.gmail.com",
       :port                           => 587,
       :domain                     => 'baci.lindsaar.net',
-      :user_name                => 'KolomoetsOleg.googlemail.com',
+      :user_name                => 'kolomoets.oleg@googlemail.com',
       :password                  => '19922801',
       :authentication          => 'plain',
       :enable_starttls_auto => true  }
