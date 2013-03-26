@@ -52,13 +52,13 @@ div#header h1{
     color: #000
 }
 
-div#container {
+.container {
     text-align: left;
     width: 800px;
     margin: 0 auto;
 }
 
-div#content {
+.content {
     float: right;
     width: 500px;
 }

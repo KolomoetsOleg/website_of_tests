@@ -62,8 +62,8 @@ Answer.create([ 		{ :answer => "java", 		:status => 0, :quest_id => 4},
 #
 #Create User, UsersRole
 #
-User.create(:email => "bacr@bacr.com", :password => "123456789" )
-User.create(:email => "admin@admin.com", :password => "123456789" )
+User.create(:email => "bacr@bacr.com", :password => "123456789", :f_name => "BacR", :l_name => "Bashenov" )
+User.create(:email => "admin@admin.com", :password => "123456789", :f_name => "Admin", :l_name => "Nimda" )
 admin =  UsersRole.find(2)
 admin[:role_id] ="1"
 admin.save
