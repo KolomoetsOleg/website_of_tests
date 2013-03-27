@@ -33,16 +33,18 @@ def testing
   @end = false
 
   # Проверка было на вопрос отвечено или нажато кнопка "Пропустить"
-  unless params[:next].nil?
-    if params[:answer].nil? 
-      session[:status][session[:quest_id].index(@page)] = 0 
+  unless params[:next]
+    
+    if @page != 0
+      session[:status][@quest] = 0 
+    end
     else
-      session[:status][session[:quest_id].index(@page)] = 1
+      session[:status][@quest] = 1
       # Внесение ответа в хеш ответов юзера
-      session[:answer_id][params[:id_quest]] = params[:answer]
-    end    
+      
+      session[:answer_id][@quest] = params[:answer]
+    
   end
-
 
   if session[:end] == false
     @quest = Quest.find(session[:quest_id][@page])
@@ -51,18 +53,14 @@ def testing
       session[:end] = true
     end
   else
-   
-    if session[:status].index(0).nil?
+    unless session[:status].value?(0)
       redirect_to :action => :finish
     else
-      @quest = Quest.find(session[:quest_id][session[:status].index(0)])  
+      @quest = Quest.find(session[:status].key(0))  
       @page = session[:quest_id].index(@quest.id)
       @page +=1
     end
-
-
   end
-
 end
 
 def finish

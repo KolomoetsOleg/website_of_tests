@@ -18,18 +18,18 @@ class TestsController < ApplicationController
     session[:status] = nil            # хеш отвевеченных/не отвеченых вопросов
     quest_id = Array.new
     answer_id = Hash.new
-    status = Array.new
+    status = Hash.new
     session[:end] = false
     # Внесение id вопросов в масив
     @test.quests.each do |quest| 
                          quest_id << quest.id 
-                         status <<  0 
+                         
 
                       end   
     session[:quest_id] = quest_id
     session[:answer_id] = answer_id
     session[:status] = status
-    puts status
+   
   end
 
 end
