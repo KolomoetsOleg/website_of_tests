@@ -28,7 +28,6 @@ WebsiteOfTests::Application.routes.draw do
     end
   end
 
-  resources :posts
   resources :user
   match 'user/rezult'             =>  'user#rezult'
   match 'quests/start/:id/:time'  =>  'quests#start'
@@ -38,6 +37,7 @@ WebsiteOfTests::Application.routes.draw do
   match 'quests/start/:id'        =>  'quests#start'
   match 'quests/testing/:id'      =>  'quests#testing'
   match 'quests/finish/:id'       =>  'quests#finish'
+
 
 
 

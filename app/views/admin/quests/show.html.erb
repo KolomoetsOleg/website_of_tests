@@ -1,29 +1,26 @@
 
+<%= link_to('Назад', admin_tests_path, :class => "btn pull-right") %>
+<h1>Вопросы к тесту: <%= @test.title  %></h1>
+<div class="table">
+  <%=  render("/shared/questions_admin") %>
+</div>
 
-<h1>Вопросы к тесту №<%= @test.id%></h1>
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Tip vop</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<p> Выбирите тип вопроса:
+  <%= radio_button_tag  "quest", "radio",  :checked => true  %>
+  <%= radio_button_tag  "quest", "checkbox"  %>
+  <%= radio_button_tag  "quest", "hidden"    %>
+  <a href="#" id="add">Добавить вопрос</a></p>| <a href="#" id="remove">Удалить</a>
 
-  <% @quests.each do |quest| %>
-      <tr>
-        <td><%= quest.title %></td>
-        <td><%= quest.tip_vop %></td>
-        <td><%= link_to 'Show', "#"%></td>
-        <td><%= link_to 'Edit', edit_admin_quest_path(quest) %></td>
-        <td><%= link_to 'Destroy', admin_quest_path(quest), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-  <% end %>
-</table>
 
-<br />
-<%= link_to 'New Quest', new_admin_quest_path(2) %>
+    <form action="quest">
+      <div class="inputs">
+
+      </div>
+      <a href="#" id="add_answer">Добавить ответ</a>
+      <input name="submit" type="submit" class="submit" value="ОК">
+    </form>
+
 
 
 
