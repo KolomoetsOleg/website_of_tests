@@ -3,6 +3,7 @@ ru:
     failure:
       invalid: Неверный логин или пароль
       unauthenticated: Для дальнейшей работы вам необходимо авторизоваться!
+      not_found_in_database: Данный пользователь не найден в базе данных!!!
     passwords:
       user:
         send_instructions: Сообщение с интструкциями отправлено на указанный вами email
@@ -262,3 +263,5 @@ ru:
         title: Название
         kol_pop: Количество попыток
         password: Пароль
+        l_name:  Фамилия
+        f_name:  Имя
