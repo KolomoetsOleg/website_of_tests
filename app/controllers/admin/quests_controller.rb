@@ -38,7 +38,7 @@ class Admin::QuestsController < ApplicationController
 
     respond_to do |format|
       if @quest.update_attributes(params[:quest])
-        format.html { redirect_to @quest, notice: 'Quest was successfully updated.' }
+        format.html { redirect_to admin_quest_path(@quest.test_id), notice: 'Quest was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

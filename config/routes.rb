@@ -19,7 +19,12 @@ WebsiteOfTests::Application.routes.draw do
 
   resource :admin, :controller => :admin, :only => [:show]
   namespace :admin do
-    resources :tests
+    resources :tests do
+        member do
+          get :results
+        end
+      end
+
     resources :quests
     resources :users, :only => [:index] do
       collection do
@@ -29,7 +34,6 @@ WebsiteOfTests::Application.routes.draw do
   end
 
   resources :user
-  match 'user/rezult'             =>  'user#rezult'
   match 'quests/start/:id/:time'  =>  'quests#start'
   match 'tests/start/:id'         =>  'tests#start'
   match 'tests/edit/:id'          =>  'test#edit'
@@ -37,6 +41,7 @@ WebsiteOfTests::Application.routes.draw do
   match 'quests/start/:id'        =>  'quests#start'
   match 'quests/testing/:id'      =>  'quests#testing'
   match 'quests/finish/:id'       =>  'quests#finish'
+
 
 
 

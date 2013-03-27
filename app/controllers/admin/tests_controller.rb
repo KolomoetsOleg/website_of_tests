@@ -39,5 +39,11 @@ class Admin::TestsController < ApplicationController
     @test.destroy
     redirect_to admin_tests_path
   end
+
+  def results
+    @test =  Test.find(params[:id])
+    @results = @test.rezults
+
+  end
   
 end

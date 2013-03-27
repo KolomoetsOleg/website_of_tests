@@ -18,6 +18,9 @@
     <th>
 
     </th>
+    <th>
+
+    </th>
   </tr>
   <% @tests.each do |test| %>
 
@@ -30,6 +33,9 @@
         </td>
         <td>
             <%= test.active  %>
+        </td>
+        <td>
+          <%= link_to "Результаты", results_admin_test_path(test) %>
         </td>
         <td>
           <%= link_to "Редактировать", edit_admin_test_path(test) %>
