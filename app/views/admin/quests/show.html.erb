@@ -5,23 +5,25 @@
   <%=  render("/shared/questions_admin") %>
 </div>
 
-
+<div id="form_data">
 <p> Выбирите тип вопроса:
-  <%= radio_button_tag  "quest", "radio",  :checked => true  %>
-  <%= radio_button_tag  "quest", "checkbox"  %>
-  <%= radio_button_tag  "quest", "hidden"    %>
-  <a href="#" id="add">Добавить вопрос</a></p>| <a href="#" id="remove">Удалить</a>
+  <%= hidden_field_tag  "quest[test_id]", @test.id  %>
+  <%= radio_button_tag  "quest[tip_vop]", "1",  :checked => true  %>
+  <%= radio_button_tag  "quest[tip_vop]", "2" %>
+  <%= radio_button_tag  "quest[tip_vop]", "3"  %>
+  <a href="#" id="add">Добавить вопрос</a> | <a href="#" id="remove">Удалить</a></p>
+  <div id="form">
+      <div id="quest" class="quest">
 
+      </div>
+    <div id="answers" class="answers">
 
-    <form action="quest">
-      <div class="inputs">
+    </div>
 
       </div>
       <a href="#" id="add_answer">Добавить ответ</a>
       <input name="submit" type="submit" class="submit" value="ОК">
-    </form>
-
-
+</div>
 
 
 

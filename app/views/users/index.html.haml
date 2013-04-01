@@ -1,6 +1,8 @@
 Првиетствую тебя  #{@user.l_name} #{@user.f_name}!!!
 %br/
 Мой юный падаван если хочешь просмотреть свои прежнии успехи, кликни сдесь #{link_to "Просотр", { :controller => :user, :action => :rezult}, :class => "btn pull-right btn-primary btn-mini"}
+%br/
+Ты являешься избранным друг мой и поэтому имеешь право посетить страницу Администратора #{link_to "Админка", admin_path, :class => "btn pull-right btn-primary btn-mini" }
 %h2.page-header
   Выберите нужный тест
 .pull-left.container

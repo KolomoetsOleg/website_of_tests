@@ -25,7 +25,11 @@ WebsiteOfTests::Application.routes.draw do
         end
       end
 
-    resources :quests
+    resources :quests do
+      member do
+        post :create
+      end
+    end
     resources :users, :only => [:index] do
       collection do
         post :update_roles

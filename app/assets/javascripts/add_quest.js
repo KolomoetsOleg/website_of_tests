@@ -2,6 +2,7 @@ $(document).ready(function(){
 
 
     var i = $('tr').size()
+    var type
     var j = 0
     $('.type').click(function(){
 
@@ -11,45 +12,46 @@ $(document).ready(function(){
 
     $('#add').one('click',function() {
 
-        var type =  $('input:radio:checked').val();
-        var input =  '<li class="answer"><input type="'+ type +'" name="bacr"/> <input type="text"/></li>';
+        var type_id =  $('input:radio:checked').val();
+        switch (type_id){
+            case "1": type = "radio"
+                break;
+            case "2": type = "checkbox"
+                break;
+            case "3": type = "hidden"
+                break;
+        };
+        var input =  '<li id="answers"><input name="answer[status]" type="'+ type +'"/> <input name="answer[answer]" type="text"/></li>';
 
 
-        $('<div>Введите вопрос: <input type="text" name="label" value = ""/><br>').fadeIn('slow').appendTo('.inputs');
+        $('Введите вопрос: <input id="title"  type="text" name="quest[title]" value = ""/><br>').fadeIn('slow').appendTo('.quest');
 
 
 
-//            'Варианты ответа : <div class="li"> <br>').fadeIn('slow').appendTo('.inputs');
+            $('Варианты ответа : <br>').fadeIn('slow').appendTo('.answers');
+        if (type == "hidden") {j = 4}
 
-//        for(; j<5; j++){
-//            $(input).fadeIn('slow').appendTo('.inputs');
-//        }
+        for(; j<5; j++){
+            $('<li id="'+j+'"><input name="status[]" value="'+j+'"  type="'+ type +'"/> <input name="answer[]" type="text"/></li>').fadeIn('slow').appendTo('.answers');
+        }
 
-//        $('</div>' +
-//            '</div>').fadeIn('slow').appendTo('.inputs');
+        $('</div>').fadeIn('slow').appendTo('.inputs');
 
     });
 
     $('#remove').click(function() {
         if(j > 0) {
-            $('.answer:last').remove();
+            $('#'+(j-1)+'').remove();
             j--;
         }
     });
 
-    $('#reset').click(function() {
-        while(i > 2) {
-            $('.field:last').remove();
-            i--;
-        }
-    });
 
     $('#add_answer').click(function(){
 
-        var type =  $('input:radio:checked').val();
         if(j<10)
         {
-        $('<li class="answer"><input type="'+ type +'" name="bacr"/> <input type="text"/></li>').fadeIn('slow').appendTo('.li');
+        $('<li id="'+j+'"><input name="status[]" value="'+j+'"  type="'+ type +'"/> <input name="answer[]" type="text"/></li>').fadeIn('slow').appendTo('.answers');
         j++;
         }
     });
@@ -57,23 +59,29 @@ $(document).ready(function(){
 
 // here's our click function for when the forms submitted
 
-    $('.submit').click(function(){
+    $('.submit').click(function(e){
 
-
-        var answers = [];
-        $.each($('.field'), function() {
-            answers.push($(this).val());
+        var csrfToken = $("meta[name='csrf-token']").attr("content");
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-Token': csrfToken
+            }
         });
 
-        if(answers.length == 0) {
-            answers = "none";
-        }
+        e.preventDefault();
 
-        alert(answers);
+        var data = $('#form_data,#answers').find('input').serialize() ;
+        console.log(data);
+        $.ajax({
 
-        return false;
+            type: "post",
+            data: data,
+            success: function(data) {console.log('done')}
+        });
 
-    });
+        location.reload();
+
+    })
 
 
 

@@ -2,3 +2,5 @@
   %img{:src => "http://placehold.it/100x30"}/
   - if user_signed_in?
     = link_to('Выход', destroy_user_session_path, :method=>'delete', :class => "btn pull-right")
+    - if @role == 1
+      = link_to('Админка', admin_path, :class => "btn pull-right")
