@@ -9,7 +9,7 @@ class QuestsController < ApplicationController
      @rezult.update_attributes(:attempt => (@rezult.attempt + 1))  
     end
 
-    session[:time] = Time.now.getlocal("+02:00")  + Test.find(session[:test_id]).time*60
+    session[:time] = Time.now.getlocal("+03:00")  + Test.find(session[:test_id]).time*60
 
     redirect_to :action => :testing
   end
@@ -65,7 +65,7 @@ end
 
 def finish
   @bal = Quest.check(session[:answer_id])
-  @bal = 0 if Time.now.getlocal("+02:00") > session[:time] + 60 # погрешность 1 минута на всякий случай)
+  @bal = 0 if Time.now.getlocal("+03:00") > session[:time] + 60 # погрешность 1 минута на всякий случай)
   @rezult = Rezult.where(:user_id => @user, :test_id => session[:test_id]).first
   if @rezult.nil?
     @rezult = Rezult.create(:test_id => session[:test_id], :user_id => @user, :bal => @bal)

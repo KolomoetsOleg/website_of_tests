@@ -9,7 +9,6 @@ gem  'rails', '3.2.12'
 
 gem 'devise'
 gem 'cancan'
-gem 'carrierwave'
 gem 'heroku'
 gem 'haml-rails'
 group :development, :test do

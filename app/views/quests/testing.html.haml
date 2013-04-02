@@ -13,6 +13,11 @@
         = render :partial => 'radio', :locals => { :answer => @quest.answers } 
       - when 2                                                                   
         = render :partial => 'chek', :locals => { :answer => @quest.answers }  
+      - when 4
+        - session[:questid] = @quest.id
+        = render :partial => 'upload'
+
+
       - else                                                                     
         = render :partial => 'text'                                                                                                          
     = hidden_field_tag(:id_quest, @quest.id)

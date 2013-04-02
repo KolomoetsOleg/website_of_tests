@@ -20,6 +20,11 @@ class Quest < ActiveRecord::Base
           @array << ans.answer
         end
         @bal += 1 if answer_u == @array
+      when 4
+        
+        if check_programs("uploads/1/1/7.rb", Answer.find_by_quest_id(id_q).answer)
+          bal+=1
+        end
       else
         @bal += 1 if answer_u == Answer.find_by_quest_id(id_q).answer
       end 
@@ -28,4 +33,17 @@ class Quest < ActiveRecord::Base
     @bal
   end
 
+def self.check_programs(url_student, url_admin)
+require ".././uploads/1/1/7.rb"
+require url_admin.to_s
+
+  if checkup
+    puts 1
+  else
+    puts 0
+  end
+
+
+
+end
 end

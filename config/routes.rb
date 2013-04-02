@@ -35,6 +35,8 @@ WebsiteOfTests::Application.routes.draw do
 
   resources :user
   match 'quests/start/:id/:time'  =>  'quests#start'
+  match 'upload_file/new' => 'upload_file#new'
+  match 'upload_file/upload' => 'upload_file#upload'
   match 'tests/start/:id'         =>  'tests#start'
   match 'tests/edit/:id'          =>  'test#edit'
   match 'tests/:id?method=delete' =>  'test#destroy'
