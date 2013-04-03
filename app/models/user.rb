@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
   has_many :roles, :through => :users_roles 
   has_many :posts
   has_many :rezults
-
+  has_many :user_answer
   private
 
   def create_role

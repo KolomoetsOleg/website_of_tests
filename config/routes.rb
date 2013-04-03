@@ -11,6 +11,7 @@ WebsiteOfTests::Application.routes.draw do
     end
   end
 
+  
   resources :users, :only => [] do
     member do
       get :rezult
@@ -41,11 +42,16 @@ WebsiteOfTests::Application.routes.draw do
   match 'quests/start/:id'        =>  'quests#start'
   match 'quests/testing/:id'      =>  'quests#testing'
   match 'quests/finish/:id'       =>  'quests#finish'
+  ### Костыльность роутов поменять
+  match 'test_using/show/:id'       =>  'test_using#show'
+  match 'test_using/start/:id'       =>  'test_using#start'
+  match 'test_using/testing/:id'       =>  'test_using#testing'
+  match 'test_using/finish'       =>  'test_using#finish'
 
 
 
 
 
-  root :to => 'tests#index'
+  root :to => 'test_using#index'
 
 end

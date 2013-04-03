@@ -1,0 +1,5 @@
+- answer.each do |ans|
+	%label.checkbox{:for => "rediobutton"}
+	= radio_button_tag(:answer, ans.answer)
+	= ans.answer
+	

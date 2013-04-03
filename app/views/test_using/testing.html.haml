@@ -1,0 +1,17 @@
+#quest.container.pull-left
+  %h3.page-header
+    Вопрос #{@count} из #{@all_quest}
+    %br/
+  = form_tag(:controller => :test_using, :action =>:testing, :id=> @next_quest) do
+    = label_tag(@quest.title)
+    - case @quest.tip_vop                                                      
+    - when 1                                                                 
+      = render :partial => 'radio', :locals => { :answer => @quest.answers } 
+    - when 2                                                                   
+      = render :partial => 'chek', :locals => { :answer => @quest.answers }  
+    - else                                                                     
+      = render :partial => 'text'                                                                                                          
+    = hidden_field_tag(:id_quest, @quest.id)
+    = submit_tag("Ответить", :name => "next")
+= button_to "Пропустить", { :action => :testing, :id => @next_quest}, :class => "btn"      
+= button_to "Завершить тест", { :action => :finish}, :confirm => "Вы уверены что готовы звершить тест?", :class => "btn" 
