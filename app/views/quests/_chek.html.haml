@@ -1,3 +1,4 @@
 - answer.each do |ans|
-	= check_box_tag "answer[]", ans.answer
-	= label_tag(:title, ans.answer) 
+	%label.checkbox{:for => "rediobutton"}
+		= check_box_tag "answer[]", ans.answer
+		= ans.answer
