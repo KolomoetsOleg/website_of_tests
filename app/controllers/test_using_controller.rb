@@ -52,9 +52,9 @@ class TestUsingController < ApplicationController
 		@count = 1 + session[:array_id].index(session[:id].to_i)
 		id_from_useranswer = UserAnswer.where(:quest_id => @quest.id, :user_id => @user.id).first.id
 		#Блок "Следующий вопрос"
-		next_quest = UserAnswer.find_by_sql("SELECT quest_id FROM user_answers WHERE status = 0 AND id >"+id_from_useranswer.to_s+" AND user_id = "+@user.id.to_s+";").first
+		next_quest = UserAnswer.find_by_sql("SELECT quest_id FROM user_answers WHERE status = false AND id >"+id_from_useranswer.to_s+" AND user_id = "+@user.id.to_s+";").first
 		if next_quest.nil?
-			next_quest = UserAnswer.find_by_sql("SELECT quest_id FROM user_answers WHERE status = 0 AND user_id = "+@user.id.to_s+";").first		
+			next_quest = UserAnswer.find_by_sql("SELECT quest_id FROM user_answers WHERE status = false AND user_id = "+@user.id.to_s+";").first		
 		end
 
 		if next_quest.nil?
