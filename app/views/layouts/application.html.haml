@@ -3,12 +3,12 @@
   %head
     %title Testing SLOBODA
     = stylesheet_link_tag    "application", :media => "all"
-    = stylesheet_link_tag    "bootstrap", :media => "all"
-    = stylesheet_link_tag    "bootstrap-responsive", :media => "all"
     = javascript_include_tag "application"
-    = javascript_include_tag "bootstrap.min"
      
     = csrf_meta_tags
+    %script{:src => "bootstrap.min.js"}
+    %link{:href => "bootstrap.css", :rel => "stylesheet"}/
+    %link{:href => "bootstrap-responsive.css", :rel => "stylesheet"}/
     %meta{ :name => "viewport", :content => "width=device-width, initial-scale=1" }/
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
   %body
