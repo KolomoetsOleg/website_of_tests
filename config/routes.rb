@@ -1,7 +1,7 @@
 WebsiteOfTests::Application.routes.draw do
 
   devise_for :users
-
+ #get "/assets/bootstrap-responsive.css"
   resources :answers
   resources :posts
 
@@ -45,8 +45,9 @@ WebsiteOfTests::Application.routes.draw do
   ### Костыльность роутов поменять
   match 'test_using/show/:id'       =>  'test_using#show'
   match 'test_using/start/:id'       =>  'test_using#start'
-  match 'test_using/testing/:id'       =>  'test_using#testing'
+  match 'test_using/testing'       =>  'test_using#testing'
   match 'test_using/finish'       =>  'test_using#finish'
+
 
 
 

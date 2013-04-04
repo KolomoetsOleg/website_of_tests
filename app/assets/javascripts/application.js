@@ -14,7 +14,7 @@
 //= require jquery_ujs
 //= require_tree .
 
-function timer($hour, $min, $sec, $page) {
+function timer($hour, $min, $sec) {
 
 var outTimer = document.getElementById('timer'),
 	dateEnd = (new Date()).setHours($hour, $min, $sec);
@@ -25,7 +25,7 @@ setInterval(function () {
   
   if (diff < 0) {
 
-	location.replace('/quests/finish/'+$page);
+	location.replace('/test_using/finish');
 	
   } else {
 	text = Math.floor(diff / 3600) + ' час. ' +  Math.floor(diff / 60) % 60 + ' мин.'+  Math.floor(diff) % 60 + ' сек.';
