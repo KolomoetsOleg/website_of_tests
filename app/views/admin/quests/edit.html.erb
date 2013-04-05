@@ -1,6 +1,57 @@
-<h1>Editing quest</h1>
+<%= form_for [:admin, @quest] do |f| %>
 
-<%= render 'form' %>
+    <div class="field">
+      <%= f.label "Вопрос" %><br />
+      <%= f.text_field :title %>
+    </div>
+    <p>Ответы:</p>
+    <div class="answers">
+      <% @answers.each do |s| %>
+        <div class="field" id="<%= s.id %>">
+          <%= if @quest.tip_vop == 1
+               radio_button_tag "status[]", s.id , s.status
+             else if @quest.tip_vop == 2
+                    check_box_tag "status[]", s.id  , s.status
+               else hidden_field_tag "status[]", s.id
+                  end
+           end
+          %>
+          <%= text_field_tag "answer[]", s.answer %><input id="<%= s.id %>" type="button" value="Delete"/>
+          <%= hidden_field_tag "answer_id[]", s.id %>
+        </div>
+      <% end %>
+    </div>
+    <% if @quest.tip_vop == 3 then  else %>  <a href="#"  id="add_answer">Добавить ответ</a> <% end %>
+    <div class="actions">
+      <%= f.submit "Сохранить"%>
+    </div>
+<% end %>
 
-<%= link_to 'Show', '#' %> |
-<%= link_to 'Back', "#" %>
+<script>
+    $('input:button').click(function(){
+        var s = $(this).attr("id");
+        $('#'+s+'').remove();
+
+    });
+
+    $('#add_answer').click(function(){
+        var s = Math.floor((Math.random()*(-1000)))
+        var type = $("[name='status[]']").attr("type");
+        $('<div class="field" id= "-1">' +
+                '<input name="status[]" value="'+s+'"  type="'+type+'"/>' +
+                '<input name="answer[]" type="text"/>' +
+                '<input type="hidden" name="answer_id[]" value="'+s+'">' +
+                '<input id="-1" type="button" value="Delete"/></div>').fadeIn('slow').appendTo('.answers');
+
+        $('input:button').click(function(){
+            var s = $(this).attr("id");
+            $('#'+s+'').remove();
+
+        });
+
+    })
+
+
+</script>
+
+

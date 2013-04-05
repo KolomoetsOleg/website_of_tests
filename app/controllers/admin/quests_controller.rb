@@ -1,4 +1,5 @@
 class Admin::QuestsController < ApplicationController
+  layout false, :only => :edit
 
   def index
     @quests = Quest.all
@@ -17,6 +18,8 @@ class Admin::QuestsController < ApplicationController
 
   def edit
     @quest = Quest.find(params[:id])
+    @answers = @quest.answers
+
   end
 
   def create
@@ -33,34 +36,28 @@ class Admin::QuestsController < ApplicationController
         Answer.create(:answer => @answers[@j], :status => 0, :quest_id => @id)
       end
     end
-
-
-
-
-
-    respond_to do |format|
-      if @quest.save
-        format.html { redirect_to admin_quests_path, notice: 'Quest was successfully created.' }
-        format.json { render json: admin_quests_path, status: :created, location: admin_quests_path }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @quest.errors, status: :unprocessable_entity }
-      end
-    end
   end
 
   def update
     @quest = Quest.find(params[:id])
+    @answers = @quest.answers
 
-    respond_to do |format|
-      if @quest.update_attributes(params[:quest])
-        format.html { redirect_to admin_quest_path(@quest.test_id), notice: 'Quest was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @quest.errors, status: :unprocessable_entity }
-      end
+    if @quest.update_attributes(params[:quest])
+      redirect_to admin_quest_path(@quest.test_id)
     end
+
+    @answer = params[:answer]
+    @answer_id = params[:answer_id].map(&:to_i)
+
+
+    @answers.each { |d| d.destroy unless @answer_id.include?(d.id) }
+
+    @answer_id.each_with_index do |a, index|
+      d =  Answer.find_by_id(a) || Answer.new
+      status =  params[:status].nil? || !params[:status].include?(a.to_s) ? 0 : 1
+      d.update_attributes(answer: @answer[index], status: status, quest_id: @quest.id)
+    end
+
   end
 
   def destroy

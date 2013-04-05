@@ -4,14 +4,11 @@
 <div class="table">
   <%=  render("/shared/questions_admin") %>
 </div>
+<a href="#" id="add">Добавить вопрос</a>
+<div id="content"></div>
+<div id="test_id"><%= hidden_field_tag  "quest[test_id]", @test.id %></div>
+<div id="form_data"></div>
 
-<div id="form_data">
-<p> Выбирите тип вопроса:
-  <%= hidden_field_tag  "quest[test_id]", @test.id  %>
-  <%= radio_button_tag  "quest[tip_vop]", "1",  :checked => true  %>
-  <%= radio_button_tag  "quest[tip_vop]", "2" %>
-  <%= radio_button_tag  "quest[tip_vop]", "3"  %>
-  <a href="#" id="add">Добавить вопрос</a> | <a href="#" id="remove">Удалить</a></p>
   <div id="form">
       <div id="quest" class="quest">
 
@@ -21,9 +18,9 @@
     </div>
 
       </div>
-      <a href="#" id="add_answer">Добавить ответ</a>
-      <input name="submit" type="submit" class="submit" value="ОК">
-</div>
+<div id="send"></div>
+
+
 
 
 

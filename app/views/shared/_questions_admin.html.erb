@@ -23,7 +23,7 @@
           <h5><%= quest.tip_vop%> </h5>
         </td>
         <td>
-          <%= link_to "Редактировать", edit_admin_quest_path(quest) %>
+          <%= link_to "Редактировать", "#", :class => "update", :name => quest.id , :value => quest.tip_vop %>
         </td>
         <td>
           <%= link_to "Удалить", admin_quest_path(quest), method: :delete, data: { confirm: 'Are you sure?' } %>
