@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
 
   def find_current_user
   	@user = current_user
+    @role = UsersRole.find_by_user_id(@user.id)
   end
 
 end
