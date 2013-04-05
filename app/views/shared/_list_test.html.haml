@@ -3,4 +3,4 @@
     %dt= test.title
     %dd
       = test.description
-      \#{button_to "Пройти", start_test_path(test), :class => "btn pull-right btn-primary btn-mini", :method => 'get'}
+      \#{button_to "Пройти", {:controller=> :test_using, :action => :show, :id => test.id}, :class => "btn pull-right btn-primary btn-mini", :method => 'get'}

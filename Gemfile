@@ -6,7 +6,8 @@ gem  'rails', '3.2.12'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-
+gem 'bootbox-rails'
+gem "twitter-bootstrap-rails", "~> 2.2.6"
 gem 'devise'
 gem 'cancan'
 gem 'heroku'

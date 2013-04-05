@@ -1,0 +1,18 @@
+%h3.page-header
+  Вопрос #{@count} из #{@all_quest}
+  %br/
+= form_tag( {:controller => :test_using, :action =>:testing }, :remote => :true ) do
+  = label_tag(@quest.title)
+  - case @quest.tip_vop                                                      
+  - when 1                                                                 
+    = render :partial => 'radio', :locals => { :answer => @quest.answers } 
+  - when 2                                                                   
+    = render :partial => 'chek', :locals => { :answer => @quest.answers }  
+  - else                                                                     
+    = render :partial => 'text'                                                                                                          
+  = hidden_field_tag(:id_quest, @quest.id)
+  %br/
+  %br/
+  = submit_tag "Ответить"
+  = link_to "Пропустить", { :action => :testing, :id => @next_quest}, :remote => :true, :class => "btn"      
+  = link_to "Завершить тест", { :action => :finish}, :confirm => "Вы уверены что готовы звершить тест?", :class => "btn"

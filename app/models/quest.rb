@@ -3,25 +3,25 @@ class Quest < ActiveRecord::Base
   attr_accessible :tip_vop, :title, :test_id
   belongs_to :test
   has_many :answers
+  has_many :user_answer
 
-
-  def self.check(answer_id) # Хеш ответов пользователя, id testa
+  def self.check(answers_user) # Хеш ответов пользователя, id testa
     @bal = 0
-    answer_id.delete(nil)
-    answer_id.each do |id_q, answer_u|
-      case Quest.find(id_q).tip_vop
+    answers_user.each do |answer|
+
+      case Quest.find(answer.quest_id).tip_vop
       when 1
-        if(answer_u == Answer.where(:status => 1, :quest_id => id_q).first[:answer])
+        if(answer.answer == Answer.where(:status => 1, :quest_id => answer.quest_id).first[:answer])
           @bal += 1
         end
       when 2
         @array = Array.new
-        Answer.where(:status => 1, :quest_id => id_q).all.each do |ans| 
+        Answer.where(:status => 1, :quest_id => answer.quest_id).all.each do |ans| 
           @array << ans.answer
         end
-        @bal += 1 if answer_u == @array
+        @bal += 1 if answer.answer == @array.to_s
       else
-        @bal += 1 if answer_u == Answer.find_by_quest_id(id_q).answer
+        @bal += 1 if answer.answer == Answer.find_by_quest_id(answer.quest_id).answer
       end 
     end
 
