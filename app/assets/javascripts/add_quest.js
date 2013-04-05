@@ -42,18 +42,26 @@ $(document).ready(function(){
         if (type == "hidden") {j = 4}
 
         for(; j<5; j++){
-            $('<li id="'+j+'"><input name="status[]" value="'+j+'"  type="'+ type +'"/> <input name="answer[]" type="text"/></li>').fadeIn('slow').appendTo('.answers');
+            $('<li id="'+j+'"><input name="status[]" value="'+j+'"  type="'+ type +'"/> ' +
+                '<input name="answer[]" type="text"/>' +
+                '</li>').fadeIn('slow').appendTo('.answers');
         }
 
         $('</div>').fadeIn('slow').appendTo('.inputs');
 
-        $('<a href="#" id="add_answer">Добавить ответ</a>'+
-            '<input name="submit" type="submit" class="submit" value="ОК">').fadeIn('slow').appendTo('#send')
+         if (type != "hidden")
+         {
+        $('<a href="#" id="add_answer">Добавить ответ</a>   <a href="#" id="remove">Удалить ответ</a>').fadeIn('slow').appendTo('#send')
+         }
+
+
+
+            $('<input name="submit" type="submit" class="submit" value="ОК">').fadeIn('slow').appendTo('#send')
 
 
 
     $('#remove').click(function() {
-        if(j > 0) {
+        if(j > 1) {
             $('#'+(j-1)+'').remove();
             j--;
         }

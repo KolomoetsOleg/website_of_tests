@@ -16,7 +16,8 @@
                   end
            end
           %>
-          <%= text_field_tag "answer[]", s.answer %><input id="<%= s.id %>" type="button" value="Delete"/>
+          <%= text_field_tag "answer[]", s.answer %>
+          <% if @quest.tip_vop == 3 then  else %><input id="<%= s.id %>" type="button" value="Delete"/><% end %>
           <%= hidden_field_tag "answer_id[]", s.id %>
         </div>
       <% end %>
