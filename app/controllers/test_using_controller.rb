@@ -2,6 +2,7 @@ class TestUsingController < ApplicationController
 
 	def index
 		@tests = Test.active.paginate(:page => params[:page], :per_page => 5)
+    @role = UsersRole.find_by_user_id(@user.id)
 	end
 
 	def show
