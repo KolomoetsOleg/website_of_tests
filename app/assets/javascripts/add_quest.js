@@ -12,10 +12,10 @@ $(document).ready(function(){
 
         $('<p> Выбирите тип вопроса:'+
             '<ul>'+
-              '<li>Один ответ:<input type="radio" name="quest[tip_vop]" value="1" /></li>'+
+            '<li>Один ответ:<input type="radio" name="quest[tip_vop]" value="1" /></li>'+
             '<li>Несколько ответов:<input type="radio" name="quest[tip_vop]" value="2" /></li>'+
             '<li>Ответ вопросом:<input type="radio" name="quest[tip_vop]" value="3" /></li>'+
-            '</ul>').fadeIn('slow').appendTo('#form_data')
+            '</ul>').fadeIn('slow').appendTo('#form_data');
 
 
 
@@ -34,73 +34,72 @@ $(document).ready(function(){
             };
 
 
-        $('Введите вопрос: <input id="title"  type="text" name="quest[title]" value = ""/><br>').fadeIn('slow').appendTo('.quest');
+            $('Введите вопрос: <input id="title"  type="text" name="quest[title]" value = ""/><br>').fadeIn('slow').appendTo('.quest');
 
 
 
             $('Варианты ответа : <br>').fadeIn('slow').appendTo('.answers');
-        if (type == "hidden") {j = 4}
+            if (type == "hidden") {j = 4}
 
-        for(; j<5; j++){
-            $('<li id="'+j+'"><input name="status[]" value="'+j+'"  type="'+ type +'"/> ' +
-                '<input name="answer[]" type="text"/>' +
-                '</li>').fadeIn('slow').appendTo('.answers');
-        }
-
-        $('</div>').fadeIn('slow').appendTo('.inputs');
-
-         if (type != "hidden")
-         {
-        $('<a href="#" id="add_answer">Добавить ответ</a>   <a href="#" id="remove">Удалить ответ</a>').fadeIn('slow').appendTo('#send')
-         }
-
-
-
-            $('<input name="submit" type="submit" class="submit" value="ОК">').fadeIn('slow').appendTo('#send')
-
-
-
-    $('#remove').click(function() {
-        if(j > 1) {
-            $('#'+(j-1)+'').remove();
-            j--;
-        }
-    });
-
-
-    $('#add_answer').click(function(){
-
-        if(j<10)
-        {
-        $('<li id="'+j+'"><input name="status[]" value="'+j+'"  type="'+ type +'"/> <input name="answer[]" type="text"/></li>').fadeIn('slow').appendTo('.answers');
-        j++;
-        }
-    });
-
-
-
-// here's our click function for when the forms submitted
-
-    $('.submit').click(function(e){
-
-        var csrfToken = $("meta[name='csrf-token']").attr("content");
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-Token': csrfToken
+            for(; j<5; j++){
+                $('<li id="'+j+'"><input name="status[]" value="'+j+'"  type="'+ type +'"/> ' +
+                    '<input name="answer[]" type="text"/>' +
+                    '</li>').fadeIn('slow').appendTo('.answers');
             }
-        });
 
-        e.preventDefault();
 
-        var data = $('#form_data, #test_id,#answers, .quest').find('input').serialize() ;
-        console.log(data);
-        $.ajax({
+            if (type != "hidden")
+            {
+                $('<a href="#" id="add_answer">Добавить ответ</a>   <a href="#" id="remove">Удалить ответ</a>').fadeIn('slow').appendTo('#send');
+            }
 
-            type: "post",
-            data: data,
-            success: function(data) {console.log('done')}
-        });
-        location.reload();
+
+
+            $('<input name="submit" type="submit" class="submit" value="ОК">').fadeIn('slow').appendTo('#send');
+
+
+
+            $('#remove').click(function() {
+                if(j > 1) {
+                    $('#'+(j-1)+'').remove();
+                    j--;
+                }
+            });
+
+
+            $('#add_answer').click(function(){
+
+                if(j<10)
+                {
+                    $('<li id="'+j+'"><input name="status[]" value="'+j+'"  type="'+ type +'"/> <input name="answer[]" type="text"/></li>').fadeIn('slow').appendTo('.answers');
+                    j++;
+                }
+            });
+
+
+
+            // here's our click function for when the forms submitted
+
+            $('.submit').click(function(e){
+
+                var csrfToken = $("meta[name='csrf-token']").attr("content");
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-Token': csrfToken
+                    }
+                });
+
+                e.preventDefault();
+
+                var data = $('#form_data, #test_id,#answers, .quest').find('input').serialize() ;
+                console.log(data);
+                $.ajax({
+
+                    type: "post",
+                    data: data,
+                    success: function(data) {console.log('done')}
+                });
+                location.reload();
 
             });
 
