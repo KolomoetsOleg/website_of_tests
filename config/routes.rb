@@ -16,6 +16,9 @@ WebsiteOfTests::Application.routes.draw do
     member do
       get :rezult
     end
+    collection do
+      get :not_allowed
+    end
   end
 
   resource :admin, :controller => :admin, :only => [:show]
@@ -51,7 +54,6 @@ WebsiteOfTests::Application.routes.draw do
   match 'test_using/start/:id'       =>  'test_using#start'
   match 'test_using/testing'       =>  'test_using#testing'
   match 'test_using/finish'       =>  'test_using#finish'
-
 
 
 
