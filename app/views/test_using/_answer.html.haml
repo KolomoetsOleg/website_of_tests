@@ -8,8 +8,10 @@
     = render :partial => 'radio', :locals => { :answer => @quest.answers } 
   - when 2                                                                   
     = render :partial => 'chek', :locals => { :answer => @quest.answers }  
+  - when 3                                                                   
+    = render :partial => 'text'
   - else                                                                     
-    = render :partial => 'text'                                                                                                          
+    %iframe{:name => "brands", :scrollbars => "auto", :src => "../upload/new/"+@quest.id.to_s+"" }                                                                                                          
   = hidden_field_tag(:id_quest, @quest.id)
   %br/
   %br/

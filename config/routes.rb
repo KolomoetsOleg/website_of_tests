@@ -51,8 +51,8 @@ WebsiteOfTests::Application.routes.draw do
   match 'test_using/start/:id'       =>  'test_using#start'
   match 'test_using/testing'       =>  'test_using#testing'
   match 'test_using/finish'       =>  'test_using#finish'
-
-
+  match 'upload/load'  => 'upload#load'
+  match 'upload/new/:quest_id'  => 'upload#new'
 
 
 

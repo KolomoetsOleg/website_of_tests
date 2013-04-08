@@ -13,6 +13,9 @@ gem 'cancan'
 gem 'heroku'
 gem 'haml-rails'
 group :development, :test do
+	gem 'pry'
+	gem 'pry-remote'
+ 	gem 'pry-nav'
 	gem 'mysql2'
 end
 group :production do
@@ -32,6 +35,8 @@ end
 
 gem 'jquery-rails'
 gem 'will_paginate', '~> 3.0'
+
+gem 'carrierwave'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

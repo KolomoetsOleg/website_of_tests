@@ -1,0 +1,185 @@
+[1m[1;34mActionView::CompiledTemplates#methods[0m[0m: 
+  __home_werewolf__rvm_gems_ruby_______p____webtest_gems_actionpack________lib_action_dispatch_middleware_templates_rescues_layout_erb__470606876_82297560
+  __home_werewolf__rvm_gems_ruby_______p____webtest_gems_actionpack________lib_action_dispatch_middleware_templates_rescues_layout_erb__470606876_86342420
+  _app_views_layouts_application_html_haml__537494085_87820420                                                                                            
+  _app_views_shared__header_html_haml___52238975__629466828                                                                                               
+  _app_views_shared__list_test_html_haml___218006441__627281708                                                                                           
+  _app_views_test_using__answer_html_haml___894954713_86542530                                                                                            
+  _app_views_test_using__answer_html_haml___894954713__626045408                                                                                          
+  _app_views_test_using__chek_html_haml__161376795_86874910                                                                                               
+  _app_views_test_using__radio_html_haml__138978507__628138578                                                                                            
+  _app_views_test_using__text_html_haml__2871622_83481300                                                                                                 
+  _app_views_test_using_finish_html_haml___345102925_88183010                                                                                             
+  _app_views_test_using_index_html_erb__1058992113__627497518                                                                                             
+  _app_views_test_using_show_html_haml___703756195__623442848                                                                                             
+  _app_views_test_using_testing_html_haml___717740753__627494678                                                                                          
+  _app_views_test_using_testing_js_erb___562652077__627434528                                                                                             
+  _app_views_upload_file__form_html_haml___494946146_83480550                                                                                             
+  _app_views_upload_file__form_html_haml___494946146__627490828                                                                                           
+  debug_hash                                                                                                                                              
+[1m[1;34mActionView::Context#methods[0m[0m: _prepare_context  view_flow  view_flow=
+[1m[1;34mActionDispatch::Routing::PolymorphicRoutes#methods[0m[0m: 
+  edit_polymorphic_path  new_polymorphic_path  polymorphic_path
+  edit_polymorphic_url   new_polymorphic_url   polymorphic_url 
+[1m[1;34mActionView::Helpers::CaptureHelper#methods[0m[0m: 
+  capture               content_for?         with_output_buffer_with_haml_xss   
+  capture_with_haml     flush_output_buffer  with_output_buffer_without_haml_xss
+  capture_without_haml  provide            
+  content_for           with_output_buffer 
+[1m[1;34mActionView::Helpers::TagHelper#methods[0m[0m: 
+  cdata_section  content_tag  content_tag_with_haml  content_tag_without_haml  tag
+[1m[1;34mActionView::Helpers::UrlHelper#methods[0m[0m: 
+  _routes_context  current_page?  link_to_if      link_to_unless_current  url_for    
+  button_to        link_to        link_to_unless  mail_to                 url_options
+[1m[1;34mActiveSupport::Benchmarkable#methods[0m[0m: benchmark  silence
+[1m[1;34mActionView::Helpers::SanitizeHelper#methods[0m[0m: sanitize  sanitize_css  strip_links  strip_tags
+[1m[1;34mActionView::Helpers::AssetTagHelper#methods[0m[0m: 
+  audio_path  auto_discovery_link_tag  image_alt  path_to_audio  video_path
+  audio_tag   favicon_link_tag         image_tag  path_to_video  video_tag 
+[1m[1;34mActionView::Helpers::AtomFeedHelper#methods[0m[0m: atom_feed
+[1m[1;34mActionView::Helpers::CacheHelper#methods[0m[0m: cache
+[1m[1;34mActionView::Helpers::ControllerHelper#methods[0m[0m: 
+  action_name        controller=      flash    params    request_forgery_protection_token
+  assign_controller  controller_name  headers  request   response                        
+  controller         controller_path  logger   request=  session                         
+[1m[1;34mActionView::Helpers::CsrfHelper#methods[0m[0m: csrf_meta_tag  csrf_meta_tags
+[1m[1;34mActionView::Helpers::DateHelper#methods[0m[0m: 
+  date_select                       select_date      select_minute  select_year      
+  datetime_select                   select_datetime  select_month   time_ago_in_words
+  distance_of_time_in_words         select_day       select_second  time_select      
+  distance_of_time_in_words_to_now  select_hour      select_time    time_tag         
+[1m[1;34mActionView::Helpers::DebugHelper#methods[0m[0m: debug
+[1m[1;34mActionView::Helpers::TextHelper#methods[0m[0m: 
+  concat                   current_cycle  highlight    safe_concat                   simple_format
+  concat_with_haml_xss     cycle          pluralize    safe_concat_with_haml_xss     truncate     
+  concat_without_haml_xss  excerpt        reset_cycle  safe_concat_without_haml_xss  word_wrap    
+[1m[1;34mActionView::Helpers::FormTagHelper#methods[0m[0m: 
+  button_tag                                 form_tag_without_haml      search_field_tag   
+  check_box_tag                              form_tag_without_haml_xss  select_tag         
+  email_field_tag                            hidden_field_tag           submit_tag         
+  embed_authenticity_token_in_remote_forms   image_submit_tag           telephone_field_tag
+  embed_authenticity_token_in_remote_forms=  label_tag                  text_area_tag      
+  field_set_tag                              number_field_tag           text_field_tag     
+  file_field_tag                             password_field_tag         url_field_tag      
+  form_tag                                   phone_field_tag            utf8_enforcer_tag  
+  form_tag_with_haml                         radio_button_tag         
+  form_tag_with_haml_xss                     range_field_tag          
+[1m[1;34mActionView::Helpers::FormHelper#methods[0m[0m: 
+  check_box         form_for                   hidden_field    radio_button     text_field
+  convert_to_model  form_for_with_haml         label           range_field      url_field 
+  email_field       form_for_with_haml_xss     number_field    search_field   
+  fields_for        form_for_without_haml      password_field  telephone_field
+  file_field        form_for_without_haml_xss  phone_field     text_area      
+[1m[1;34mActionView::Helpers::FormOptionsHelper#methods[0m[0m: 
+  collection_select                         options_from_collection_for_select
+  grouped_collection_select                 select                            
+  grouped_options_for_select                time_zone_options_for_select      
+  option_groups_from_collection_for_select  time_zone_select                  
+  options_for_select                      
+[1m[1;34mActionView::Helpers::JavaScriptHelper#methods[0m[0m: 
+  button_to_function  j                         javascript_tag  
+  escape_javascript   javascript_cdata_section  link_to_function
+[1m[1;34mActionView::Helpers::NumberHelper#methods[0m[0m: 
+  number_to_currency  number_to_human_size  number_to_phone        number_with_precision
+  number_to_human     number_to_percentage  number_with_delimiter
+[1m[1;34mActionView::Helpers::OutputSafetyHelper#methods[0m[0m: raw  safe_join
+[1m[1;34mActionController::RecordIdentifier#methods[0m[0m: dom_class  dom_id
+[1m[1;34mActionView::Helpers::RecordTagHelper#methods[0m[0m: content_tag_for  div_for
+[1m[1;34mActionView::Helpers::RenderingHelper#methods[0m[0m: _layout_for
+[1m[1;34mActionView::Helpers::TranslationHelper#methods[0m[0m: l  localize  t  translate
+[1m[1;34mSprockets::Helpers::RailsHelper#methods[0m[0m: 
+  asset_path   image_path              path_to_asset  path_to_javascript   stylesheet_path
+  asset_paths  javascript_include_tag  path_to_font   path_to_stylesheet 
+  font_path    javascript_path         path_to_image  stylesheet_link_tag
+[1m[1;34mWillPaginate::ActionView#methods[0m[0m: 
+  page_entries_info  paginated_section  will_paginate  will_paginate_translate
+[1m[1;34mDevise::Controllers::UrlHelpers#methods[0m[0m: 
+  cancel_registration_path  edit_password_url       new_registration_path  password_url     
+  cancel_registration_url   edit_registration_path  new_registration_url   registration_path
+  destroy_session_path      edit_registration_url   new_session_path       registration_url 
+  destroy_session_url       new_password_path       new_session_url        session_path     
+  edit_password_path        new_password_url        password_path          session_url      
+[1m[1;34mActionView::Base#methods[0m[0m: 
+  _routes=               field_error_proc=           render                            
+  _routes?               formats                     render_with_haml                  
+  assign                 formats=                    render_without_haml               
+  assigns                helpers                     set_output_buffer_with_haml       
+  assigns=               helpers=                    set_output_buffer_without_haml    
+  config                 helpers?                    streaming_completion_on_exception 
+  config=                locale                      streaming_completion_on_exception=
+  default_form_builder   locale=                     view_paths                        
+  default_form_builder=  lookup_context              view_paths=                       
+  default_url_options    output_buffer               view_renderer                     
+  default_url_options=   output_buffer=              view_renderer=                    
+  default_url_options?   output_buffer_with_haml   
+  field_error_proc       output_buffer_without_haml
+[1m[1;34m#<Module:0xb4fcdc30>#methods[0m[0m: _routes
+[1m[1;34m#<Module:0x95bb39c>#methods[0m[0m: 
+  admin_path                     edit_user_password_url       rezult_user_path             
+  admin_quest_path               edit_user_path               rezult_user_url              
+  admin_quest_url                edit_user_registration_path  root_path                    
+  admin_quests_path              edit_user_registration_url   root_url                     
+  admin_quests_url               edit_user_url                start_test_path              
+  admin_test_path                new_admin_quest_path         start_test_url               
+  admin_test_url                 new_admin_quest_url          test_using_finish_path       
+  admin_tests_path               new_admin_test_path          test_using_finish_url        
+  admin_tests_url                new_admin_test_url           test_using_testing_path      
+  admin_url                      new_answer_path              test_using_testing_url       
+  admin_users_path               new_answer_url               tests_path                   
+  admin_users_url                new_post_path                tests_url                    
+  answer_path                    new_post_url                 update_roles_admin_users_path
+  answer_url                     new_user_password_path       update_roles_admin_users_url 
+  answers_path                   new_user_password_url        upload_file_upload_path      
+  answers_url                    new_user_path                upload_file_upload_url       
+  cancel_user_registration_path  new_user_registration_path   uploadfile_upload_path       
+  cancel_user_registration_url   new_user_registration_url    uploadfile_upload_url        
+  destroy_user_session_path      new_user_session_path        user_index_path              
+  destroy_user_session_url       new_user_session_url         user_index_url               
+  edit_admin_quest_path          new_user_url                 user_password_path           
+  edit_admin_quest_url           post_path                    user_password_url            
+  edit_admin_test_path           post_url                     user_path                    
+  edit_admin_test_url            posts_path                   user_registration_path       
+  edit_answer_path               posts_url                    user_registration_url        
+  edit_answer_url                rails_info_properties_path   user_session_path            
+  edit_post_path                 rails_info_properties_url    user_session_url             
+  edit_post_url                  results_admin_test_path      user_url                     
+  edit_user_password_path        results_admin_test_url     
+[1m[1;34mActionDispatch::Routing::RouteSet::MountedHelpers#methods[0m[0m: _main_app  main_app
+[1m[1;34mFlashBlockHelper#methods[0m[0m: flash_block  flash_container
+[1m[1;34mModalHelper#methods[0m[0m: 
+  modal_body  modal_cancel_button  modal_dialog  modal_footer  modal_header  modal_toggle
+[1m[1;34m#<Module:0x9a6c83c>#methods[0m[0m: 
+  alert    cookies          devise_controller?       protect_against_forgery?  user_signed_in?
+  can?     current_ability  form_authenticity_token  signed_in?                warden         
+  cannot?  current_user     notice                   user_session            
+[1m[1;34mApplicationHelper#methods[0m[0m: devise_mapping  resource  resource_name
+[1m[1;34mBootstrapFlashHelper#methods[0m[0m: bootstrap_flash
+[1m[1;34mDeviseHelper#methods[0m[0m: devise_error_messages!
+[1m[1;34mGlyphHelper#methods[0m[0m: glyph
+[1m[1;34mTwitterBreadcrumbsHelper#methods[0m[0m: render_breadcrumbs
+[1m[1;34mHaml::Helpers::ActionViewExtensions#methods[0m[0m: 
+  generate_content_class_names  page_class  with_raw_haml_concat
+[1m[1;34mHaml::Helpers::XssMods#methods[0m[0m: 
+  capture_haml_with_haml_xss       haml_indent_with_haml_xss  precede_with_haml_xss 
+  escape_once_with_haml_xss        haml_tag_with_haml_xss     preserve_with_haml_xss
+  find_and_preserve_with_haml_xss  html_escape_with_haml_xss  succeed_with_haml_xss 
+  haml_concat_with_haml_xss        list_of_with_haml_xss      surround_with_haml_xss
+[1m[1;34mHaml::Helpers#methods[0m[0m: 
+  block_is_haml?                      haml_indent_without_haml_xss  precede                  
+  capture_haml                        haml_tag                      precede_without_haml_xss 
+  capture_haml_without_haml_xss       haml_tag_without_haml_xss     preserve                 
+  escape_once                         html_attrs                    preserve_without_haml_xss
+  escape_once_without_haml_xss        html_escape                   succeed                  
+  find_and_preserve                   html_escape_without_haml_xss  succeed_without_haml_xss 
+  find_and_preserve_without_haml_xss  init_haml_helpers             surround                 
+  flatten                             is_haml?                      surround_without_haml_xss
+  haml_concat                         list_of                       tab_down                 
+  haml_concat_without_haml_xss        list_of_without_haml_xss      tab_up                   
+  haml_indent                         non_haml                      with_tabs                
+[1m[1;34minstance variables[0m[0m: 
+  [0;34m@_assigns[0m     [0;34m@_request[0m   [0;34m@count[0m         [0;34m@output_buffer[0m  [0;34m@user[0m           [0;34m@virtual_path[0m
+  [0;34m@_config[0m      [0;34m@_routes[0m    [0;34m@current_user[0m  [0;34m@quest[0m          [0;34m@view_flow[0m    
+  [0;34m@_controller[0m  [0;34m@all_quest[0m  [0;34m@haml_buffer[0m   [0;34m@time[0m           [0;34m@view_renderer[0m
+[1m[1;34mlocals[0m[0m: 
+  _   _dir_    _ex_    [0;33m_hamlout[0m  [0;33m_old_output_buffer[0m  _out_  [0;33mform[0m       [0;33mlocal_assigns[0m  [0;33mquest_id[0m
+  __  [0;33m_erbout[0m  _file_  _in_      [0;33m_old_virtual_path[0m   _pry_  [0;33mhaml_temp[0m  [0;33moutput_buffer[0m

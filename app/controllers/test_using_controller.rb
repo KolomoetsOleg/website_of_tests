@@ -54,7 +54,7 @@ class TestUsingController < ApplicationController
 		#Блок "Следующий вопрос"
 		next_quest = UserAnswer.find_by_sql("SELECT quest_id FROM user_answers WHERE status = false AND id >"+id_from_useranswer.to_s+" AND user_id = "+@user.id.to_s+";").first
 		if next_quest.nil?
-			next_quest = UserAnswer.find_by_sql("SELECT quest_id FROM user_answers WHERE status = false AND user_id = "+@user.id.to_s+";").first		
+			next_quest = UserAnswer.find_by_sql("SELECT quest_id FROM user_answers WHERE status = false  AND user_id = "+@user.id.to_s+";").first		
 		end
 
 		if next_quest.nil?
@@ -78,6 +78,9 @@ class TestUsingController < ApplicationController
 		answer_user = UserAnswer.find_all_by_user_id(@user.id)
 		@bal = Quest.check(answer_user)
 		@bal = 0 if Time.now.getlocal("+03:00") > session[:time] + 60 # погрешность 1 минута на всякий случай)
+		
+		
+
 	end
 
 
