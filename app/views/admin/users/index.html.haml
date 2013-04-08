@@ -1,0 +1,24 @@
+%h1 Все пользователи
+.table
+  = form_tag(:action => :update_roles) do
+    %table
+      %tr
+        %td
+          %h4 Email Пользователя:
+        %td
+          %h4 Текущая роль:
+        %td
+          %h4 Выберете роль:
+      - @users.each  do |user|
+        %tr
+          %td
+            = hidden_field_tag("user[]", user.id)
+            = user.email
+          %td
+            - roles = UsersRole.find_by_user_id(user.id)
+            = roles.role.name
+          %td
+            %select{:name => "role[]"}
+              %option{:value => "2"} User
+              <option #{if roles.role.name == "admin" then "selected" end} value = 1 >Admin
+    = submit_tag("Сохранить изменения")

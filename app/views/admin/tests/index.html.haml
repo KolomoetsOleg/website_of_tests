@@ -1,0 +1,6 @@
+= link_to('Страница пользователя',root_path, :class => "btn pull-right")
+%h1 Управление тестами :
+.table
+ = render("/shared/test_admin")
+= will_paginate @tests
+= link_to "New test", new_admin_test_path

@@ -1,0 +1,18 @@
+= link_to('Назад', admin_tests_path, :class => "btn pull-right")
+%h2
+  Результаты теста "#{@test.title}"
+.table
+  %table
+    %tr
+      %th
+        %h4 Пользователь
+      %th
+        %h4 Количество балов
+    - @results.each do |result|
+      %tr
+        %td
+          - @users = User.find(result.user_id)
+          = @users.f_name
+          = @users.l_name
+        %td
+          = result.bal

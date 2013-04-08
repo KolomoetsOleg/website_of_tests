@@ -4,4 +4,8 @@ class UsersController < ApplicationController
     @rezults = @user.rezults
   end
 
+  def not_allowed
+
+  end
+
 end
