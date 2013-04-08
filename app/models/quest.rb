@@ -22,7 +22,14 @@ class Quest < ActiveRecord::Base
         @bal += 1 if answer.answer == @array.to_s
       
       when 4
-        @bal += check_by_program(answer.quest_id)
+        
+        if answer.answer.nil?
+
+        else
+          @bal += check_by_program(answer.id)
+
+        end
+        #binding.pry
 
       else
         @bal += 1 if answer.answer == Answer.find_by_quest_id(answer.quest_id).answer
@@ -38,30 +45,17 @@ class Quest < ActiveRecord::Base
     # 
     #  user_program - текст юзерской программы
     #  test_program - текст админской программы
-    binding.pry
-    url_user = User_Answer.find_by_id(id_user_answer)
+    #binding.pry
+       
+      url_user = UserAnswer.find_by_id(id_user_answer)
+      url_test = Rails.root.to_s + "/public" + Answer.find_by_quest_id(url_user.quest_id).answer.to_s
+      url_user = Rails.root.to_s + "/public" + url_user.answer.to_s
+
+      require url_user
+      require url_test
     
-    url_test = Answer.find_by_quest_id(url_user.quest_id).answer
-    url_user = url_user.answer
-
-    #
-    # Открываем как текста и включаем через метапрограммирование
-    #
-
-    user_program = IO.read(url_user)
-    test_program = IO.read(url_test)
-
-    eval(user_program)
-    eval(test_program)
-
-    if checkup
-      bal = 1
-    else
-      bal = 0
-    end
-
-    bal
-
+      bal = checkup
+   
   end
 
 

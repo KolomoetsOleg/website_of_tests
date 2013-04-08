@@ -42,14 +42,12 @@ WebsiteOfTests::Application.routes.draw do
   end
 
   resources :user
-  match 'quests/start/:id/:time'  =>  'quests#start'
-  match 'tests/start/:id'         =>  'tests#start'
+ 
   match 'tests/edit/:id'          =>  'test#edit'
   match 'tests/:id?method=delete' =>  'test#destroy'
-  match 'quests/start/:id'        =>  'quests#start'
-  match 'quests/testing/:id'      =>  'quests#testing'
-  match 'quests/finish/:id'       =>  'quests#finish'
   ### Костыльность роутов поменять
+ 
+
   match 'test_using/show/:id'       =>  'test_using#show'
   match 'test_using/start/:id'       =>  'test_using#start'
   match 'test_using/testing'       =>  'test_using#testing'
