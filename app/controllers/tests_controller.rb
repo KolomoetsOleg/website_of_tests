@@ -5,10 +5,12 @@ class TestsController < ApplicationController
   end
 
   def show
+
     @test = Test.find(params[:id])
   end
 
   def start
+    
     @test = Test.find(params[:id])
     session[:test_id] = params[:id]
     @rezult = Rezult.where('user_id = ? and test_id = ?', @user.id, @test.id).first
@@ -29,7 +31,11 @@ class TestsController < ApplicationController
     session[:quest_id] = quest_id
     session[:answer_id] = answer_id
     session[:status] = status
-   
+
+
+
+
+
   end
 
 end

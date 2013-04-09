@@ -23,11 +23,8 @@ class Quest < ActiveRecord::Base
       
       when 4
         
-        if answer.answer.nil?
-
-        else
+        unless answer.answer.nil?
           @bal += check_by_program(answer.id)
-
         end
         #binding.pry
 
@@ -45,7 +42,7 @@ class Quest < ActiveRecord::Base
     # 
     #  user_program - текст юзерской программы
     #  test_program - текст админской программы
-    #binding.pry
+    #  binding.pry
        
       url_user = UserAnswer.find_by_id(id_user_answer)
       url_test = Rails.root.to_s + "/public" + Answer.find_by_quest_id(url_user.quest_id).answer.to_s
@@ -54,7 +51,16 @@ class Quest < ActiveRecord::Base
       require url_user
       require url_test
     
-      bal = checkup
+      begin
+        bal = checkup
+      rescue NameError
+        bal = 0
+      else 
+        bal = 0 
+      end
+
+      return bal
+
    
   end
 
