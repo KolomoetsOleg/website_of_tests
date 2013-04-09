@@ -2,8 +2,7 @@ WebsiteOfTests::Application.routes.draw do
 
   devise_for :users
  #get "/assets/bootstrap-responsive.css"
-  resources :answers
-  resources :posts
+  
 
   resources :tests, :only => [:index] do
     member do
@@ -41,15 +40,6 @@ WebsiteOfTests::Application.routes.draw do
     end
   end
 
-  resources :user
- 
- resources :test 
-
-  #match 'tests/edit/:id'          =>  'test#edit'
-  #match 'tests/:id?method=delete' =>  'test#destroy'
-  ### Костыльность роутов поменять
- 
-
 controller :test_using do
   match 'test_using/show/:id'    =>  :show
   match 'test_using/start/:id'   =>  :start
@@ -57,11 +47,9 @@ controller :test_using do
   match 'test_using/finish'      =>  :finish
 end
 
-controller :upload do
-  match 'upload/load'  => :load
-  match 'upload/new/:quest_id'  => :upload
-end
-  
+
+  match 'upload/load'  => 'upload#load'
+  match 'upload/new/:quest_id'  => 'upload#new'
 
 
 
