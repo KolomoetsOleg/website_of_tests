@@ -9,7 +9,7 @@ class TestUsingController < ApplicationController
 	def show
 		@test = Test.find(params[:id])
 		@rezult = Rezult.where('user_id = ? and test_id = ?', @user.id, @test.id).first
-    	@rezult ||= Rezult.create
+    	@rezult ||= Rezult.create(:user_id => @user.id, :test_id => @test.id)
 	end
 
 
@@ -20,15 +20,15 @@ class TestUsingController < ApplicationController
 		# session[:array_id] - массив из id вопросов в сессии
 		#
 		 @rezult = Rezult.where('user_id = ? and test_id = ?', @user.id, params[:id]).first
-    
+    	
     	if @rezult.nil? 
      		@rezult = Rezult.create(:test_id => params[:id], :user_id => @user.id, :attempt => 1)
     	else
      		@rezult.update_attributes(:attempt => (@rezult.attempt + 1))  
     	end
-
 		array_id = UserAnswer.create_start_data(@user.id, params[:id])
 		session[:array_id] = array_id
+		session[:test_id] = params[:id]
 		session[:time] = Time.now.getlocal("+03:00")  + Test.find(params[:id]).time*60
 		session[:id] = array_id.first
 		redirect_to :action => :testing
