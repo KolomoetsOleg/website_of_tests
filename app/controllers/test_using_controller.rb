@@ -1,7 +1,7 @@
 class TestUsingController < ApplicationController
 
 	def index
-		@tests = Test.active.paginate(:page => params[:page], :per_page => 5)
+		@tests = Test.active.order(:id).reverse_order.paginate(:page => params[:page], :per_page => 5)
     	usersrole = UsersRole.find_by_user_id(@user.id)
     	@role = usersrole.role_id
 	end
@@ -72,6 +72,7 @@ class TestUsingController < ApplicationController
 
 
 	def finish
+		@time = params[:time]
 		answer_user = UserAnswer.find_all_by_user_id(@user.id)
 		@bal = Quest.check(answer_user)
 		@bal = 0 if Time.now.getlocal("+03:00") > session[:time] + 60 # погрешность 1 минута на всякий случай)
