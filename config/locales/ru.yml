@@ -1,7 +1,7 @@
 ru:
   devise:
     failure:
-      invalid: Неверный логин или пароль
+      invalid: Неверный пароль
       unauthenticated: Для дальнейшей работы вам необходимо авторизоваться!
       not_found_in_database: Данный пользователь не найден в базе данных!!!
     passwords:
@@ -270,6 +270,37 @@ ru:
         f_name:  Имя
         time:    Время
         next_label: Следующая
+
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              taken: уже зарегестрирован в базе данных
+            password:
+              confirmation: и его подтверждение не совпадают
+              blank: не должен быть пустым
+              too_short: слишком короткий
+              too_long: слишком длинный
+            f_name:
+              too_short: слишком короткое
+              too_long: слишком длинное
+              blank: не может быть пустым
+            l_name:
+              too_short: слишком короткая
+              too_long: слишком длинное
+              blank: не может быть пустым
+        test:
+          attributes:
+            title:
+              blank: теста на может быть пустым
+            kol_pop:
+              not_a_number: не является числом
+            time:
+              not_a_number: не является числом
+
   errors:
     messages:
       extension_white_list_error: "Вы не можете загрузить %{extension} файл, только: %{allowed_types}"
+      not_saved: Сохранение не было выполнено
