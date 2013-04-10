@@ -28,13 +28,20 @@ WebsiteOfTests::Application.routes.draw do
           get :results
         end
       end
-
+    resources :upload do
+      member do
+        get :new_load
+      end
+    end
     resources :quests do
       member do
         post :create
       end
     end
     resources :users, :only => [:index] do
+      member do
+        get :results
+      end
       collection do
         post :update_roles
       end

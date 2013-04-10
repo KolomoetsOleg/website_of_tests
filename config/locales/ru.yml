@@ -7,6 +7,9 @@ ru:
     passwords:
       user:
         send_instructions: Сообщение с интструкциями отправлено на указанный вами email
+  will_paginate:
+    next_label: Следующая
+    previous_label: Предыдущая
   date:
     abbr_day_names:
     - Вс
@@ -265,3 +268,5 @@ ru:
         password: Пароль
         l_name:  Фамилия
         f_name:  Имя
+        time:    Время
+        next_label: Следующая

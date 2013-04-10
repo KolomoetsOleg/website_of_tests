@@ -1,7 +1,12 @@
 class Admin::UsersController < ApplicationController
   
   def index
-    @users = User.all
+    @users = User.order("email ASC").paginate(:page => params[:page], :per_page => 5)
+  end
+
+  def results
+    @user =  User.find(params[:id])
+    @results = @user.rezults
   end
 
   #TODO!! this is bad..
