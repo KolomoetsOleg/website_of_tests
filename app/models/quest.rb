@@ -11,25 +11,17 @@ class Quest < ActiveRecord::Base
 
       case Quest.find(answer.quest_id).tip_vop
       when 1
-        if(answer.answer == Answer.where(:status => 1, :quest_id => answer.quest_id).first[:answer])
-          @bal += 1
-        end
+         @bal += 1 if(answer.answer == Answer.where(:status => 1, :quest_id => answer.quest_id).first[:answer])
       when 2
         @array = Array.new
         Answer.where(:status => 1, :quest_id => answer.quest_id).all.each do |ans| 
           @array << ans.answer
         end
         @bal += 1 if answer.answer == @array.to_s
-      
+      when 3
+        @bal += 1 if answer.answer.to_s.downcase.rstrip.lstrip == Answer.find_by_quest_id(answer.quest_id).answer.to_s.downcase.rstrip.lstrip
       when 4
-        
-        unless answer.answer.nil?
-          @bal += check_by_program(answer.id)
-        end
-        #binding.pry
-
-      else
-        @bal += 1 if answer.answer == Answer.find_by_quest_id(answer.quest_id).answer
+        @bal += check_by_program(answer.id) unless answer.answer.nil?
       end 
     end
 
