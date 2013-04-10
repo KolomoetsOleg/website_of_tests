@@ -19,9 +19,9 @@ class TestUsingController < ApplicationController
 		# create_start_data - возвращает массив из id вопросов первого вопроса по днанному тесту
 		# session[:array_id] - массив из id вопросов в сессии
 		#
-		 @rezult = Rezult.where('user_id = ? and test_id = ?', @user.id, params[:id]).first
+		@rezult = Rezult.where('user_id = ? and test_id = ?', @user.id, params[:id]).first
     	
-    	@rezult.nil? @rezult = Rezult.create(:test_id => params[:id], :user_id => @user.id, :attempt => 1) : @rezult.update_attributes(:attempt => (@rezult.attempt + 1))  
+    	@rezult.nil? ? @rezult = Rezult.create(:test_id => params[:id], :user_id => @user.id, :attempt => 1) : @rezult.update_attributes(:attempt => (@rezult.attempt + 1))  
     	
 		array_id = UserAnswer.create_start_data(@user.id, params[:id])
 		session[:array_id] = array_id
