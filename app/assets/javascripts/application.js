@@ -25,7 +25,7 @@ setInterval(function () {
   
   if (diff < 0) {
 
-	location.replace('/test_using/finish');
+	location.replace('/test_using/finish?time=out');
 	
   } else {
 	text = Math.floor(diff / 3600) + ' час. ' +  Math.floor(diff / 60) % 60 + ' мин.'+  Math.floor(diff) % 60 + ' сек.';

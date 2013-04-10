@@ -7,6 +7,8 @@
       %p
         На его прохождение у вас есть #{@test.time} минут
       %p
+        В вашем браузере должен быть включен Java Script   
+      %p
         Мой друг попыток у тебя осталось всего навсего #{@test.kol_pop-@rezult.attempt}
       %p При начале прохождения его у вас снимется одна попытка
       = link_to "Начать тестиррование", {:controller => :test_using, :action => :start, :id => @test.id }, :class => "btn"

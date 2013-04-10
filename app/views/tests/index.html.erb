@@ -1,9 +1,0 @@
-Приветствую тебя, <%=@user.l_name %>  <%= @user.f_name %>!!!
-<br> Мой юный падаван, если хочешь просмотреть свои прежнии успехи, кликни здесь: <%= link_to "Просмотр", rezult_user_path(@user), :class => "btn pull-right btn-primary btn-mini"  %> 
-<h2 class="page-header">Выберите нужный тест
-</h2>
-<div class="pull-left container">
-
-<%= render "shared/list_test" %>
-<%= will_paginate @tests %>
-</div>
