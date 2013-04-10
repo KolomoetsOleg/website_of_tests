@@ -1,6 +1,5 @@
 = link_to('Назад', admin_users_path, :class => "btn pull-right")
-%h2
-  Результаты пользователя "#{@user.email}"
+Результаты пользователя "#{@user.email}"
 .table
   %table
     %tr
@@ -11,6 +10,7 @@
     - @results.each do |result|
       %tr
         %td
-          = result.test.title
+          - @test = Test.find(result.test_id)
+          = @test.title
         %td
           = result.bal
