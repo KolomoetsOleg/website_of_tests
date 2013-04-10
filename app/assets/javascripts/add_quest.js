@@ -98,7 +98,7 @@ $(document).ready(function(){
                 e.preventDefault();
 
 
-                var data = $('#form_data, #test_id,#answers, .quest').find('input');
+                var data = $('#form_data, #test_id,#answers, .quest').find('input').serialize();
                 console.log(data);
                 $.ajax({
 
