@@ -302,5 +302,9 @@ ru:
 
   errors:
     messages:
+<<<<<<< HEAD
+      extension_white_list_error: "Вы не можете загрузить %{extension} файл, только: %{allowed_types}"
+=======
       extension_white_list_error: "Вы не можете загрузить %{extension} файл, только: %{allowed_types}"
       not_saved: Сохранение не было выполнено
+>>>>>>> 91c5bf3fe6faab017cf718829ceeaccaa62d8dca
