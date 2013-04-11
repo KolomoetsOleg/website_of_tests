@@ -8,6 +8,7 @@ class Test < ActiveRecord::Base
   has_many :rezults
 
   validates :title,   :presence => true
-  validates :kol_pop, :numericality => {:greater_than => 0, :less_than => 10}
+  validates :kol_pop, :numericality => {:greater_than => 0, :less_than => 11}
+  validates :time,    :numericality => {:greater_than => 0}
 
  end

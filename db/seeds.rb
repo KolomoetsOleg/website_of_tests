@@ -35,7 +35,8 @@ Answer.create([ 		{ :answer => "tachka", 		:status => 0, :quest_id => 1},
 				{ :answer => "Kaspesk see", :status => 0, :quest_id => 2},
 				{ :answer => "Atlantik",    :status => 0, :quest_id => 2},
 				{ :answer => "Dnepr",       :status => 1, :quest_id => 2},
-				{ :answer => "kharkiv",     :status => 1, :quest_id => 3}])
+				{ :answer => "kharkiv",     :status => 1, :quest_id => 3},
+        ])
 
 
 Test.create(:title => "Oleg's test",
@@ -59,6 +60,9 @@ Answer.create([ 		{ :answer => "java", 		:status => 0, :quest_id => 4},
                     { :answer => "red",       :status => 1, :quest_id => 5},
                     { :answer => "user",     :status => 1, :quest_id => 6}])
 
+
+Quest.create(      { :title => "test", 		:tip_vop => 4, :test_id => 1})
+Answer.create(     { :answer => "/uploads/tests/7.rb",     :status => 1, :quest_id => 7})
 #
 #Create User, UsersRole
 #

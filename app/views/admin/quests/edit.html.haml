@@ -1,27 +1,30 @@
-= form_for [:admin, @quest] do |f|
-  .field
-    = f.label "Вопрос"
-    %br/
-    = f.text_field :title
-  %p Ответы:
-  .answers
-    - @answers.each do |s|
-      .field{:id => s.id}
-        = if @quest.tip_vop == 1;                              |
-              radio_button_tag "status[]", s.id , s.status     |
-            else if @quest.tip_vop == 2;                       |
-                   check_box_tag "status[]", s.id  , s.status  |
-              else hidden_field_tag "status[]", s.id           |
-                 end                                           |
-          end                                                  |
-        = text_field_tag "answer[]", s.answer
-        - if @quest.tip_vop == 3 then  else
-          %input{:id => s.id, :type => "button", :value => "Delete"}/
-        = hidden_field_tag "answer_id[]", s.id
-  - if @quest.tip_vop == 3 then  else
-    %a#add_answer{:href => "#"} Добавить ответ
-  .actions
-    = f.submit "Сохранить"
+- if @quest.tip_vop == 4
+  %iframe{:src => admin_upload_path(@quest.id), :method => :get}
+-else
+  = form_for [:admin, @quest] do |f|
+    .field
+      = f.label "Вопрос"
+      %br/
+      = f.text_field :title
+    %p Ответы:
+    .answers
+      - @answers.each do |s|
+        .field{:id => s.id}
+          = if @quest.tip_vop == 1;                              |
+                radio_button_tag "status[]", s.id , s.status     |
+              else if @quest.tip_vop == 2;                       |
+                     check_box_tag "status[]", s.id  , s.status  |
+                else hidden_field_tag "status[]", s.id           |
+                   end                                           |
+            end                                                  |
+          = text_field_tag "answer[]", s.answer
+          - if @quest.tip_vop == 3 then  else
+            %input{:id => s.id, :type => "button", :value => "Delete"}/
+          = hidden_field_tag "answer_id[]", s.id
+    - if @quest.tip_vop == 3 then  else
+      %a#add_answer{:href => "#"} Добавить ответ
+    .actions
+      = f.submit "Сохранить"
 :javascript
   $('input:button').click(function(){
       var s = $(this).attr("id");

@@ -76,8 +76,10 @@ class TestUsingController < ApplicationController
 		answer_user = UserAnswer.find_all_by_user_id(@user.id)
 		@bal = Quest.check(answer_user)
 		@bal = 0 if Time.now.getlocal("+03:00") > session[:time] + 60 # погрешность 1 минута на всякий случай)
+
 		@rezult = Rezult.where(:user_id => @user, :test_id => session[:test_id]).first
   		@rezult.nil? ? @rezult = Rezult.create(:test_id => session[:test_id], :user_id => @user.id, :bal => @bal) : @rezult.update_attributes(:bal => @bal) if  @rezult.bal < @bal  
+
 	end
 
 

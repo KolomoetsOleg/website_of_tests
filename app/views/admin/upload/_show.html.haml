@@ -1,0 +1,5 @@
+= form_tag({:action => :edit, :controller => "admin/upload"}, :multipart => true, :method => :get) do
+  = text_field_tag :quest_title, quest_title
+  = file_field_tag :file
+  = hidden_field_tag :quest_id, quest_id
+  = submit_tag "Загрузить"

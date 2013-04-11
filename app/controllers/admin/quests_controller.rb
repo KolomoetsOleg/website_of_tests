@@ -30,12 +30,13 @@ class Admin::QuestsController < ApplicationController
     @i = @answers.length-1
 
     for @j in 0..@i
-      if @status.include?(@j.to_s) || @quest[:tip_vop]==3
-         Answer.create(:answer => @answers[@j], :status => 1, :quest_id => @id)
+      if @status.include?(@j.to_s) || @quest[:tip_vop]== 3
+        Answer.create(:answer => @answers[@j], :status => 1, :quest_id => @id)
       else
         Answer.create(:answer => @answers[@j], :status => 0, :quest_id => @id)
       end
     end
+
   end
 
   def update
@@ -63,6 +64,8 @@ class Admin::QuestsController < ApplicationController
   def destroy
     @quest = Quest.find(params[:id])
     @answer = Answer.find_all_by_quest_id(@quest.id)
+    path = "public/uploads/tests/"+@quest.id.to_s+".rb"
+    File.delete(path) if File.file?(path)
     @quest.destroy
     @answer.each do |a|
       a.destroy

@@ -13,7 +13,7 @@
         %tr
           %td
             = hidden_field_tag("user[]", user.id)
-            = user.email
+            = link_to user.email, results_admin_user_path(user.id)
           %td
             - roles = UsersRole.find_by_user_id(user.id)
             = roles.role.name
@@ -21,4 +21,5 @@
             %select{:name => "role[]"}
               %option{:value => "2"} User
               <option #{if roles.role.name == "admin" then "selected" end} value = 1 >Admin
+    = will_paginate @users
     = submit_tag("Сохранить изменения")
