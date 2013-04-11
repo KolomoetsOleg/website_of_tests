@@ -8,12 +8,12 @@ class Admin::UploadController < ApplicationController
   def edit
 
     @quest = params[:quest_id]
-    @update_quest = Quest.find(@quest).update_attributes(:title => params[:quest_title])
+    Quest.find(@quest).update_attributes(:title => params[:quest_title])
     uploader = UploadProgramUploader.new
-    uploader.id_user = @user.id
     uploader.id_quest = @quest
     uploader.store!(params[:file])
     render :partial => 'success_upload', :layout => false, :locals => { :quest_id => @quest}
+
   end
 
   def new_load
@@ -24,7 +24,6 @@ class Admin::UploadController < ApplicationController
     @quest = Quest.create(params[:quest])
     @id = Quest.last[:id]
     uploader = UploadProgramUploader.new
-    uploader.id_user = nil
     uploader.id_quest = @id
     uploader.store!(params[:file])
     Answer.create(:answer =>uploader.url , :status => 1, :quest_id => @id )
