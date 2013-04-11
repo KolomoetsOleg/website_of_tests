@@ -1,6 +1,9 @@
-def wrap &b
-print "Santa speeck: "
-	3.times(&b)
-	print "\n"
+class MyClass
+
+	def function1(a,b,c)
+
+		d = a + b + c
+
+	end
+
 end
-wrap { print "Oh! " }

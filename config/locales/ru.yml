@@ -267,4 +267,4 @@ ru:
         f_name:  Имя
   errors:
     messages:
-      extension_white_list_error: "Вы н можете загрузить %{extension} файл, только: %{allowed_types}"
+      extension_white_list_error: "Вы не можете загрузить %{extension} файл, только: %{allowed_types}"
