@@ -47,6 +47,8 @@ class Quest < ActiveRecord::Base
         bal = checkup
       rescue NameError
         bal = 0
+      else
+        bal = 0
       end
 
       File.delete(url_user)
