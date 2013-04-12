@@ -39,8 +39,10 @@ $(document).ready(function(){
       else
       {
 
-        $('<span>Введите вопрос:</span> ' +
-          '<input id="title"  type="text" name="quest[title]" value = ""/><br>').fadeIn('slow').appendTo('.quest');
+        $('<span>Введите вопрос:</span><br>' +
+          '<input id="title"  type="text" name="quest[title]" value = ""/><br>'+
+          '<span>Введите вес вопроса:</span><br>'+
+          '<input id="title"  type="number" step="0.1" min="0.1" max="1" name="quest[cost]" value = "0.1"/><br>').fadeIn('slow').appendTo('.quest');
         $('<span>Ответ :</span> <br>').fadeIn('slow').appendTo('.answers');
 
         if (type == "hidden") {j = 4}

@@ -1,6 +1,6 @@
 class Quest < ActiveRecord::Base
   
-  attr_accessible :tip_vop, :title, :test_id
+  attr_accessible :tip_vop, :title, :test_id, :cost
   belongs_to :test
   has_many :answers
   has_many :user_answer
