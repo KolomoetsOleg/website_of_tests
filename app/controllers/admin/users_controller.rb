@@ -10,13 +10,7 @@ class Admin::UsersController < ApplicationController
   end
 
   def update_roles
-    users =  params[:user]
-    roles = params[:role]
-    users.each_with_index do |user_id, index|
-      updates = UsersRole.find(user_id)
-      updates[:role_id] = roles[index]
-      updates.save
-    end
+    User.update_roles(params[:user], params[:role])
     redirect_to admin_users_path
   end
   

@@ -5,7 +5,6 @@ class UsersController < ApplicationController
   end
 
   def not_allowed
-
   end
 
 end

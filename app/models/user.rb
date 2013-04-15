@@ -22,4 +22,12 @@ class User < ActiveRecord::Base
   def create_role
     self.roles << Role.find_by_name(:user)
   end
+
+  def self.update_roles(users, roles)
+    users.each_with_index do |user_id, index|
+      updates = UsersRole.find(user_id)
+      updates[:role_id] = roles[index]
+      updates.save
+    end
+  end
 end

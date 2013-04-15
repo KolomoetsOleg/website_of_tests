@@ -55,6 +55,47 @@ class Quest < ActiveRecord::Base
    
   end
 
+  #
+  #Admin part
+  #
 
+  def self.create_quest(quest, answer, status)
+    @quest = Quest.create(quest)
+
+    answer.each_with_index do |s, index|
+      if status.include?(index.to_s) || @quest[:tip_vop]== 3
+        Answer.create(:answer => s, :status => 1, :quest_id => @quest.id)
+      else
+        Answer.create(:answer => s, :status => 0, :quest_id => @quest.id)
+      end
+    end
+  end
+
+  def self.update_quest(quest, answer, answer_id, status, id)
+
+
+    @quest = Quest.find(id)
+    @answers = @quest.answers
+    @quest.update_attributes(quest)
+    @answer_id = answer_id.map(&:to_i)
+
+    @answers.each { |d| d.destroy unless @answer_id.include?(d.id) }
+
+    @answer_id.each_with_index do |a, index|
+      d =  Answer.find_by_id(a) || Answer.new
+      status_id =  status.nil? || !status.include?(a.to_s) ? 0 : 1
+      d.update_attributes(answer: answer[index], status: status_id, quest_id: id)
+    end
+  end
+
+  def self.destroy_quest(id)
+    @answer = Answer.find_all_by_quest_id(id)
+    path = "public/uploads/tests/"+id.to_s+".rb"
+    File.delete(path) if File.file?(path)
+    @answer.each do |a|
+      a.destroy
+    end
+    Quest.destroy(id)
+  end
 
 end

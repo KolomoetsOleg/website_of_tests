@@ -29,6 +29,7 @@ WebsiteOfTests::Application.routes.draw do
       end
     resources :upload do
       member do
+        post :update
         get :new_load
       end
     end
