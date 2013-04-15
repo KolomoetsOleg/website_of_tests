@@ -304,3 +304,4 @@ ru:
     messages:
       extension_white_list_error: "Вы не можете загрузить %{extension} файл, только: %{allowed_types}"
       not_saved: Сохранение не было выполнено
+

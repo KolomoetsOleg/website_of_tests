@@ -11,17 +11,17 @@ class Quest < ActiveRecord::Base
 
       case Quest.find(answer.quest_id).tip_vop
       when 1
-         @bal += 1 if(answer.answer == Answer.where(:status => 1, :quest_id => answer.quest_id).first[:answer])
+         @bal += 100 * answer.quest.cost if(answer.answer == Answer.where(:status => 1, :quest_id => answer.quest_id).first[:answer])
       when 2
         @array = Array.new
         Answer.where(:status => 1, :quest_id => answer.quest_id).all.each do |ans| 
           @array << ans.answer
         end
-        @bal += 1 if answer.answer == @array.to_s
+        @bal += 100 * answer.quest.cost if answer.answer == @array.to_s
       when 3
-        @bal += 1 if answer.answer.to_s.downcase.rstrip.lstrip == Answer.find_by_quest_id(answer.quest_id).answer.to_s.downcase.rstrip.lstrip
+        @bal += 100 * answer.quest.cost if answer.answer.to_s.downcase.rstrip.lstrip == Answer.find_by_quest_id(answer.quest_id).answer.to_s.downcase.rstrip.lstrip
       when 4
-        @bal += check_by_program(answer.id) unless answer.answer.nil?
+        @bal += 100 * check_by_program(answer.id) unless answer.answer.nil?
       end 
     end
 
@@ -46,6 +46,8 @@ class Quest < ActiveRecord::Base
       begin
         bal = checkup
       rescue NameError
+        bal = 0
+      else
         bal = 0
       end
 
