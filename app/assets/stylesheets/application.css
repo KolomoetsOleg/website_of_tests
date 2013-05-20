@@ -11,10 +11,6 @@
  *= require_self
  *= require_tree .
  */
-   .col1{
-    width: 100px; /* Ширина ячейки */
-  }
-  
 header nav ul {
 list-style: none;
 margin: 0 0 2em;

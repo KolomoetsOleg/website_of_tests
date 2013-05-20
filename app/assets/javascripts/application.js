@@ -14,9 +14,6 @@
 //= require jquery_ujs
 //= require_tree .
 //= require twitter/bootstrap
-
-$('.dropdown-toggle').dropdown()
-
 function timer($hour, $min, $sec) {
 
 var outTimer = document.getElementById('timer'),
