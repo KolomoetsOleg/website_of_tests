@@ -1,31 +1,27 @@
-= form_for [:admin, @test] do |f|
-  - if @test.errors.any?
-    #error_explanation
-      %h2
-        = @test.errors.count
-        ошибки возникло при сохранении:
-      %ul
-        - @test.errors.full_messages.each do |msg|
-          %li= msg
-  .field
-    = f.label "Название теста"
-    %br/
-    = f.text_field :title
-  .field
-    = f.label "Описание теста"
-    %br/
-    = f.text_field :description
-  .field
-    = f.label "Количество попыток"
-    %br/
-    = f.number_field :kol_pop, :in => 1..10
-  .field
-    = f.label "Время прохождения"
-    %br/
-    = f.number_field :time, :in => 1..100
-  .field
-    = f.label "Сделать активным"
-    %br/
-    = f.check_box :active
-  .actions
-    = f.submit("Сохранить")
+%h5.errorMessage.text-error{:align=>"center"}=flash[:error]
+%table{:align=>"center"} 
+  %td
+    = simple_form_for [:admin, @test] do |f|
+      - if @test.errors.any?
+        #error_explanation
+          %h2
+            = @test.errors.count
+            ошибки, возникшие при сохранении:
+          %ul
+            - @test.errors.full_messages.each do |msg|
+              %li= msg       
+      .field
+        = f.input :title, :label=>"Название теста"
+      .field
+        = f.input :description, :as=>:string, :label=>"Описание"
+      .field
+        = f.input :kol_pop, :collection => 1..10, :label=>"Количество попыток"
+      .field
+        = f.input :time, :in => 1..100, :label=>"Время прохождения"
+      .field
+        = f.input :active, :label=>"Сделать активным"
+      .actions
+        %div{:align=>"center"}
+          %br
+          = f.submit "Сохранить", :class=>"btn btn-small btn-success"
+          = link_to 'Назад', admin_tests_path, :class=>"btn btn-small btn-warning"

@@ -9,6 +9,6 @@ class Test < ActiveRecord::Base
 
   validates :title,   :presence => true
   validates :kol_pop, :numericality => {:greater_than => 0, :less_than => 11}
-  validates :time,    :numericality => {:greater_than => 0}
+  validates :time,    :numericality => {:greater_than => 0, :less_than => 100}
 
  end

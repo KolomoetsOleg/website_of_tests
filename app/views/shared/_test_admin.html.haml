@@ -1,10 +1,10 @@
-%table
+%table.table.table-hover
   %tr
     %th
       %h4 Название теста
     %th
       %h4 Описание теста
-    %th
+    %th{:align=>"center"}
       %h4 Активность
     %th
     %th
@@ -17,13 +17,16 @@
       %td
         %h5
           = test.description
+      %td{:align=>"right"}
+        -if test.active == true
+          =image_tag("plus.png")
+        -else
+          =image_tag("minus.png")
       %td
-        = test.active
+        = link_to "Результаты", results_admin_test_path(test), :class=>"btn btn-primary btn-small"
       %td
-        = link_to "| Результаты |", results_admin_test_path(test)
+        = link_to "Редактировать", edit_admin_test_path(test), :class=>"btn btn-info btn-small"
       %td
-        = link_to "| Редактировать |", edit_admin_test_path(test)
+        = link_to "Вопросы", admin_quest_path(test), :class=>"btn btn-info btn-small"
       %td
-        = link_to "| Удалить |", admin_test_path(test), :method => :delete
-      %td
-        = link_to "| Вопросы |", admin_quest_path(test)
+        = link_to "Удалить", admin_test_path(test), :method => :delete, :class=>"btn btn-danger btn-small"

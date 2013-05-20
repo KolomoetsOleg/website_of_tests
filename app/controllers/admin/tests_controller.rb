@@ -1,3 +1,4 @@
+#encoding: UTF-8
 class Admin::TestsController < ApplicationController
   
   def index
@@ -14,12 +15,20 @@ class Admin::TestsController < ApplicationController
 
   def create
     @test = Test.create(params[:test], :author_id => @user.id)
+
     redirect_to admin_tests_path
   end
 
   def update
-    @test = Test.find(params[:id]).update_attributes(params[:test])
-    redirect_to admin_tests_path
+    @test = Test.find(params[:id])
+    @all_quest = @test.quests.count
+    if @all_quest == 0 and params[:test][:active] == "1"
+      redirect_to edit_admin_test_path(@test)
+      flash[:error] = "Нельзя активировать Тест, пока в нем нет вопросов"
+    else  
+      @test = Test.find(params[:id]).update_attributes(params[:test])
+      redirect_to admin_tests_path
+    end
   end
 
   def destroy

@@ -9,8 +9,9 @@
         %h4 Количество балов
     - @results.each do |result|
       %tr
-        %td
-          - @test = Test.find(result.test_id)
-          = @test.title
-        %td
-          = result.bal
+        - if Test.where(:id=> result.test_id).present?
+          %td
+            - @test = Test.find(result.test_id)
+            = @test.title
+          %td
+            = result.bal

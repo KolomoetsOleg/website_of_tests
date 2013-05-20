@@ -1,4 +1,10 @@
-- @rezults.each do |rezu|
-  %br>/
-  Тест  "#{rezu.test.title}"  -  #{rezu.bal}
-= link_to "На главную", root_path, :class => "btn"
+%h1{:align=>"center"} Результаты пройденных тестов:
+%table.table.table-hover{:align=>"center"}
+  - @rezults.each do |rezu|
+    -if rezu.test.present?  
+      %tr
+        %td{:width=>"20%"}                   #{rezu.test.title}
+        %td{:width=>"20%",:align=>"center"}  #{rezu.bal}
+  %br
+%p{:align=>"center"}
+  = link_to "Назад", root_path, :class => "btn btn-primary"

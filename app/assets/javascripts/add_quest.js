@@ -7,10 +7,10 @@ $(document).ready(function(){
     $('#content, #form_data').empty();
     $('.answers, .quest, .inputs, #send').empty();
 
-    $('<p> Выбирите тип вопроса:'+
-      '<ul><li>Один ответ:<input type="radio" name="quest[tip_vop]" value="1"  /></li>'+
-      '<li>Несколько ответов:<input type="radio" name="quest[tip_vop]" value="2" /></li>'+
-      '<li>Ответ словомом:<input type="radio" name="quest[tip_vop]" value="3" /></li>' +
+    $('<p align="center"> Выбирите тип вопроса:'+
+      '<ul class="unstyled"><li>Один ответ: <input type="radio" name="quest[tip_vop]" value="1"  /></li>'+
+      '<li>Несколько ответов: <input type="radio" name="quest[tip_vop]" value="2" /></li>'+
+      '<li>Ответ словомом: <input type="radio" name="quest[tip_vop]" value="3" /></li>' +
       '<li>С загрузкой файла: <input type="radio" name="quest[tip_vop]" value="4" /></li>'+
       '</ul>').fadeIn('slow').appendTo('#form_data');
 
@@ -55,10 +55,10 @@ $(document).ready(function(){
 
         if (type != "hidden")
         {
-          $('<a href="#" id="add_answer">Добавить ответ</a>   ' +
-            '<a href="#" id="remove">Удалить ответ</a>').fadeIn('slow').appendTo('#send')
+          $('<a href="#" id="add_answer" class="btn btn-info">+</a>   ' +
+            '<a href="#" id="remove" class="btn btn-info">-</a>').fadeIn('slow').appendTo('#send')
         }
-        $('<input name="submit" type="submit" class="submit" value="ОК">').fadeIn('slow').appendTo('#send');
+        $('<input name="submit" type="submit" class="submit btn btn-primary" value="Готово">').fadeIn('slow').appendTo('#send');
       }
 
 

@@ -41,6 +41,8 @@ WebsiteOfTests::Application.routes.draw do
     resources :users, :only => [:index] do
       member do
         get :results
+        get :attempt
+        put :to_default
       end
       collection do
         post :update_roles

@@ -1,17 +1,21 @@
-= link_to('Назад', admin_tests_path, :class => "btn pull-right")
-%h1
-  Вопросы к тесту: #{@test.title}
-.table
-  = render("/shared/questions_admin")
 
-%a#add{:href => "#"} Добавить вопрос
-#content
-#test_id= hidden_field_tag  "quest[test_id]", @test.id
-#form_data
-#form
-  #quest.quest
-  #answers.answers
-#send
+%h1{:align=>"center"}
+  Вопросы к тесту: #{@test.title}
+
+.table.table-hover{:align=>"center"}
+  = render("/shared/questions_admin")
+%div{:align=>"center"}
+  %a.btn.btn-info#add{:href => "#"} Добавить вопрос
+  = link_to('Назад', admin_tests_path, :class => "btn btn-primary")
+  %br
+  %br
+  #content
+  #test_id= hidden_field_tag  "quest[test_id]", @test.id
+  #form_data
+  #form
+    #quest.quest
+    #answers.answers
+  #send
 
 
 

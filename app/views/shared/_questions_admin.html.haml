@@ -12,8 +12,16 @@
         %h5= quest.title
       %td
         %h5
-          = quest.tip_vop
+          -case quest.tip_vop
+            -when 1
+              Один ответ
+            -when 2
+              Несколько ответов
+            -when 3
+              Ответ словом
+            -else 
+              С загрузкой файла             
       %td
-        = link_to "Редактировать", "#", :class => "update", :name => quest.id , :value => quest.tip_vop
+        = link_to "Редактировать", "#", :class => "update btn btn-info btn-small", :name => quest.id , :value => quest.tip_vop
       %td
-        = link_to "Удалить", admin_quest_path(quest), method: :delete, data: { confirm: 'Are you sure?' }
+        = link_to "Удалить", admin_quest_path(quest), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-info btn-small"

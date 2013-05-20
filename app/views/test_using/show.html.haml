@@ -1,18 +1,29 @@
-%h3.page-header Приветствуем
+%h3.page-header{:align=>"center"} Начало теста
 .pull-left.container
   %h5
     - if @rezult.attempt < @test.kol_pop
-      %p
-        Здраствуйте. Вы выбрали тест #{@test.title}
-      %p
-        На его прохождение у вас есть #{@test.time} минут
-      %p
-        В вашем браузере должен быть включен Java Script   
-      %p
-        Мой друг попыток у тебя осталось всего навсего #{@test.kol_pop-@rezult.attempt}
-      %p При начале прохождения его у вас снимется одна попытка
+      %p 
+        Здраствуйте. Вы выбрали тест -  
+        %span.letter
+          =@test.title
+      %p 
+        Время прохождения теста
+        %span.letter
+          =@test.time
+        минут#{okonc(@test.time)}
+      %p 
+        Изначальное количество попыток:
+        %span.letter
+          =@test.kol_pop   
+      %p 
+        Оставшееся  количество попыток:
+        %span.letter 
+          = @test.kol_pop-@rezult.attempt
+      %p Попытка считается начатой, при начале теста
+      %p.text-warning  В вашем браузере должен быть включен Java Script
+
       = link_to "Начать тестиррование", {:controller => :test_using, :action => :start, :id => @test.id }, :class => "btn"
       = link_to "На главную", root_path, :class => "btn"
     - else
-      %p Уппссссс у вас закончились попытки))))
+      %p У вас закончились попытки!
       = link_to "На главную", root_path, :class => "btn"

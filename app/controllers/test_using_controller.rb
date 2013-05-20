@@ -1,9 +1,10 @@
 class TestUsingController < ApplicationController
-
 	def index
 		@tests = Test.active.order(:id).reverse_order.paginate(:page => params[:page], :per_page => 5)
     	usersrole = UsersRole.find_by_user_id(@user.id)
-    	@role = usersrole.role_id
+    	$role=@@role = usersrole.role_id
+    	#@test = Test.find(params[:id])
+    	#@rezult =
 	end
 
 	def show
@@ -48,7 +49,10 @@ class TestUsingController < ApplicationController
 		@time = session[:time]
 		@quest = Quest.find_by_id(session[:id])
 		@all_quest = session[:array_id].count
-		@count = 1 + session[:array_id].index(session[:id].to_i)
+		if @all_quest == 0 
+			render "errorq.haml"
+		else
+		@count = 1 + session[:array_id].index(session[:id].to_i) 
 		id_from_useranswer = UserAnswer.where(:quest_id => @quest.id, :user_id => @user.id).first.id
 		#Блок "Следующий вопрос"
 		next_quest = UserAnswer.find_by_sql("SELECT quest_id FROM user_answers WHERE status = false AND id >"+id_from_useranswer.to_s+" AND user_id = "+@user.id.to_s+";").first
@@ -66,7 +70,7 @@ class TestUsingController < ApplicationController
         		format.js
         	end
 		end
-		
+		end
 		# Конец блока "Следующий вопрос"
 	end
 
@@ -74,6 +78,7 @@ class TestUsingController < ApplicationController
 	def finish
 		@time = params[:time]
 		answer_user = UserAnswer.find_all_by_user_id(@user.id)
+		p answer_user
 		@bal = Quest.check(answer_user)
 		@bal = 0 if Time.now.getlocal("+03:00") > session[:time] + 60 # погрешность 1 минута на всякий случай)
 

@@ -1,8 +1,8 @@
-= link_to('Назад', admin_tests_path, :class => "btn pull-right")
-%h2
+
+%h2{:align=>"center"}
   Результаты теста "#{@test.title}"
-.table
-  %table
+.table.table-hover
+  %table{:align=>"center"}
     %tr
       %th
         %h4 Пользователь
@@ -16,3 +16,4 @@
           = @users.l_name
         %td
           = result.bal
+%div{:align=>"center"}=link_to('Назад', admin_tests_path, :class => "btn btn-primary")

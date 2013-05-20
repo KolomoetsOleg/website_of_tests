@@ -1,6 +1,5 @@
-= link_to('Страница пользователя',root_path, :class => "btn pull-right")
-%h1 Управление тестами :
+%h1{:align=>"center"} Управление тестами :
 .table
  = render("/shared/test_admin")
-= will_paginate @tests
-= link_to "Создать новый тест", new_admin_test_path
+.flickr_pagination=will_paginate @tests
+= link_to "Создать новый тест", new_admin_test_path, :class=>"btn btn-primary pull-right"

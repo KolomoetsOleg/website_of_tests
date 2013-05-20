@@ -4,7 +4,7 @@ class Quest < ActiveRecord::Base
   belongs_to :test
   has_many :answers
   has_many :user_answer
-
+  validates :cost, :numericality => {:greater_than => 0}
   def self.check(answers_user) # Хеш ответов пользователя, id testa
     @bal = 0
     answers_user.each do |answer|

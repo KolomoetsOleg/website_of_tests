@@ -1,6 +1,33 @@
-.container
-  %img{:src => "http://placehold.it/100x30"}/
-  - if user_signed_in?
-    = link_to('Выход', destroy_user_session_path, :method=>'delete', :class => "btn pull-right")
-    - if @role == 1
-      = link_to('Админка', admin_path, :class => "btn pull-right")
+.navbar.navbar-inverse
+  .navbar-inner
+  
+    %a.brand{:href =>  root_path}
+      На главную
+    %ul.nav
+      %li.divider-vertical
+      -if user_signed_in?
+        %li
+          = link_to "Просмотр результатов", rezult_user_path(@user) 
+        %li.divider-vertical
+      %li
+        %a{:href => "#"} Link
+      %li.divider-vertical
+    %ul.nav.pull-right
+      - if user_signed_in?
+        - if $role == 1
+          %li.divider-vertical
+          %ul.nav
+            %li.dropdown
+              %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                Админка
+                %b.caret
+              %ul.dropdown-menu
+                %li
+                  = link_to "Пользователи", admin_users_path
+                %li
+                  = link_to 'Тесты', admin_tests_path
+        %li.divider-vertical
+        %li= link_to('Выйти', destroy_user_session_path, :method => :delete, :class=>"pull-right")
+      - else
+        %li.divider-vertical
+        %li= link_to 'Регистрация', new_user_registration_path 

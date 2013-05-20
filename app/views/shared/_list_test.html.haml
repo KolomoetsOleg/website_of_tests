@@ -1,6 +1,26 @@
-%dl
+%table.table.table-hover
+  %tr
+    %th
+      %h4 Название Теста
+    %th
+      %h4 Описание Теста
+    %th
+      %h4 Оставшиеся попытки  
+    %th
   - @tests.each do |test|
-    %dt= test.title
-    %dd
-      = test.description
-      \#{button_to "Пройти", {:controller=> :test_using, :action => :show, :id => test.id}, :class => "btn pull-right btn-primary btn-mini", :method => 'get'}
+    - attemp = test.kol_pop - Rezult.where('user_id = ? and test_id = ?', @user.id, test.id).first.attempt 
+    %tr
+      %td
+        = test.title 
+      %td
+        = test.description
+      %td{ attemp =>"center"}
+        -if attemp == 0
+          Попытки закончились
+        -else
+          = attemp
+      %td
+        -if attemp != 0
+          = button_to "Пройти", {:controller=> :test_using, :action => :show, :id => test.id}, :class => "btn pull-right btn-inverse btn-small", :method => 'get'
+        -else
+          = button_to "Пройти", "#", :class => "btn pull-right btn-inverse btn-small disabled", :disabled=>"disabled"

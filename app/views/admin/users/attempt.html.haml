@@ -1,0 +1,29 @@
+= link_to('Назад', admin_users_path, :class => "btn pull-right")
+%h3 Результаты пользователя "#{@user.email}"
+.table.table-hover
+  %table
+    %tr
+      %th{:width=>"25%"}
+        %h5 Тест
+      %th
+        %h5 Осталось попыток
+      %th
+        %h5 Изначально попыток
+      %th
+        %h5 Сбросить
+    - @tests.each do |test|
+      %tr
+        %td
+          = test.title
+        %td
+          - att = Rezult.where('user_id = ? and test_id = ?', @user.id, test.id).first
+          - attempl = att.attempt if att.present? 
+          -if attempl.present?
+            - attemp = test.kol_pop - attempl 
+            = attemp
+          -else
+            = test.kol_pop
+        %td
+          =test.kol_pop
+        %td
+          =link_to "Сбросить", to_default_admin_user_path(test.id) , :class=>"btn btn-warning btn-small", :method=>:put
