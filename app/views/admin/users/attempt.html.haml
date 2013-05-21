@@ -1,6 +1,6 @@
-%h3 Результаты пользователя "#{@user.email}"
+%h3{:align=>"center"} Результаты пользователя "#{@user.email}"
 .table.table-hover
-  %table
+  %table{:align=>"center"}
     %tr
       %th{:width=>"25%"}
         %h5 Тест
@@ -28,4 +28,4 @@
           =link_to "Сбросить", to_default_admin_user_path(test.id) , :class=>"btn btn-warning btn-small", :method=>:put
   %div{:align=>"center"}
     %br
-    = link_to('Назад', admin_users_path, :class => "btn btn-info")
+    = link_to('Назад', admin_users_path, :class => "btn btn-primary")

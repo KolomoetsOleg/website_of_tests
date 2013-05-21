@@ -8,24 +8,25 @@
       %th Название вопроса
       %th Ответ пользователя
       %th Верный ответ
-      %th aaaaaa
+      %th Правильно или нет
     -@table.each do |x|
       %tr
         %td
           =Quest.find(x[:quest_id]).title
         %td
           -otv = x.answer
-          ["#{otv}"] 
+          =otv.gsub("[", "").gsub("]", "").gsub("\"","")
         %td
           -arr=Array.new
           -Answer.where(:quest_id=>x[:quest_id],:status=>"1").to_a.each do |x|
             - arr << x.answer
-          =arr.to_s
+          =arr.to_s.gsub("[", "").gsub("]", "").gsub("\"","")
+          -arr_format = arr.to_s.gsub("[\"", "").gsub("\"]", "")
         %td
-          -if 
-            +
+          -if otv.gsub("[\"", "").gsub("\"]", "") == arr_format
+            =image_tag("plus.png")
           -else
-            -
+            =image_tag("minus.png")
   %div{:align=>"center"}
     %br
     = link_to('Назад', results_admin_user_path(@user.id), :class => "btn btn-info")

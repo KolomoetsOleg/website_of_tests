@@ -2,7 +2,7 @@
 class Admin::TestsController < ApplicationController
   
   def index
-    @tests = Test.order("id DESC").paginate(:page => params[:page], :per_page => 5)
+    @tests = Test.order("id DESC").paginate(:page => params[:page], :per_page => 6)
   end
 
   def new

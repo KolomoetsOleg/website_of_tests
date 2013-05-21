@@ -1,6 +1,6 @@
 class TestUsingController < ApplicationController
 	def index
-		@tests = Test.active.order(:id).reverse_order.paginate(:page => params[:page], :per_page => 5)
+		@tests = Test.active.order(:id).reverse_order.paginate(:page => params[:page], :per_page => 10)
     	usersrole = UsersRole.find_by_user_id(@user.id)
     	$role=@@role = usersrole.role_id
     	#@test = Test.find(params[:id])
@@ -92,7 +92,7 @@ class TestUsingController < ApplicationController
   	if @b_answer.empty?
   			BestAnswer.create(answer_hash)	
   	else
-  		if @bal > @rezult.bal 
+  		if @bal >= @rezult.bal 
   			answer_hash.each do |x|
   				#binding.pry
   			  BestAnswer.where(:test_id => x[:test_id], :user_id => x[:user_id],:quest_id=> x[:quest_id]).first.update_attributes(answer:x[:answer])
