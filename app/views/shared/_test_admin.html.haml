@@ -29,4 +29,4 @@
       %td
         = link_to "Вопросы", admin_quest_path(test), :class=>"btn btn-info btn-small"
       %td
-        = link_to "Удалить", admin_test_path(test), :method => :delete, :class=>"btn btn-danger btn-small"
+        = link_to "Удалить", admin_test_path(test), :method => :delete, :class=>"btn btn-danger btn-small", :data=>{:confirm=> "Вы уверены в этом удаление?"}

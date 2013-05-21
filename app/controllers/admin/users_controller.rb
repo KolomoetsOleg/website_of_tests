@@ -25,5 +25,10 @@ class Admin::UsersController < ApplicationController
     @att.save
     redirect_to attempt_admin_user_path(@user)
   end
-
+  
+  def answer_result
+    @user  = User.find(params[:id])
+    @results = @user.rezults
+    @table = BestAnswer.where(:user_id=>@user,:test_id=>params[:t_id]).all
+  end
 end

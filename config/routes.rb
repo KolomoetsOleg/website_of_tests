@@ -43,6 +43,7 @@ WebsiteOfTests::Application.routes.draw do
         get :results
         get :attempt
         put :to_default
+        get :answer_result
       end
       collection do
         post :update_roles

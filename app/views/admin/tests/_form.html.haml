@@ -19,7 +19,7 @@
       .field
         = f.input :time, :in => 1..100, :label=>"Время прохождения"
       .field
-        = f.input :active, :label=>"Сделать активным"
+        = f.input :active, :label=>"Сделать активным" if @flag != "new"
       .actions
         %div{:align=>"center"}
           %br

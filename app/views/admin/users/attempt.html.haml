@@ -1,4 +1,3 @@
-= link_to('Назад', admin_users_path, :class => "btn pull-right")
 %h3 Результаты пользователя "#{@user.email}"
 .table.table-hover
   %table
@@ -27,3 +26,6 @@
           =test.kol_pop
         %td
           =link_to "Сбросить", to_default_admin_user_path(test.id) , :class=>"btn btn-warning btn-small", :method=>:put
+  %div{:align=>"center"}
+    %br
+    = link_to('Назад', admin_users_path, :class => "btn btn-info")

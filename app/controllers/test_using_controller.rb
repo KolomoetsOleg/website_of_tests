@@ -78,13 +78,27 @@ class TestUsingController < ApplicationController
 	def finish
 		@time = params[:time]
 		answer_user = UserAnswer.find_all_by_user_id(@user.id)
-		p answer_user
 		@bal = Quest.check(answer_user)
 		@bal = 0 if Time.now.getlocal("+03:00") > session[:time] + 60 # погрешность 1 минута на всякий случай)
-
 		@rezult = Rezult.where(:user_id => @user, :test_id => session[:test_id]).first
   		@rezult.nil? ? @rezult = Rezult.create(:test_id => session[:test_id], :user_id => @user.id, :bal => @bal) : @rezult.update_attributes(:bal => @bal) if  @rezult.bal < @bal  
+  		@b_answer = BestAnswer.where(:user_id => @user, :test_id => session[:test_id]).all
 
+  		answer_hash=Array.new
+
+  		answer_user.each do |elem|
+  		  answer_hash << {:test_id => session[:test_id].to_i, :user_id => @user.id,:quest_id=> elem[:quest_id],:answer=>elem[:answer],:bool_answer=>elem[:status]}
+  		end
+  	if @b_answer.empty?
+  			BestAnswer.create(answer_hash)	
+  	else
+  		if @bal > @rezult.bal 
+  			answer_hash.each do |x|
+  				#binding.pry
+  			  BestAnswer.where(:test_id => x[:test_id], :user_id => x[:user_id],:quest_id=> x[:quest_id]).first.update_attributes(answer:x[:answer])
+  			end
+  		end
+  	end
 	end
 
 
