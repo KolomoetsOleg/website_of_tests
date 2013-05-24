@@ -4,12 +4,12 @@ class UserAnswer < ActiveRecord::Base
  belongs_to :quest
 
 
- def self.create_start_data(user_id, test_id)
+ def self.create_start_data(user_id, task_id)
  	#
  	# Заполнение начальными значениями
  	# полей для тестирования.
  	# id_quest - переменная передающяя первый вопрос для начала теста
- 	quests = Quest.find_by_sql("SELECT id FROM quests WHERE test_id = "+test_id+";")
+ 	quests = Quest.find_by_sql("SELECT id FROM quests WHERE task_id = "+task_id+";")
  	UserAnswer.delete_all(:user_id => user_id)
 
  	quests.each do |quest|

@@ -23,10 +23,10 @@
         -else
           =image_tag("minus.png")
       %td
-        = link_to "Результаты", results_admin_test_path(test), :class=>"btn btn-primary btn-small"
+        = link_to "Результаты", results_admin_task_path(test), :class=>"btn btn-primary btn-small"
       %td
-        = link_to "Редактировать", edit_admin_test_path(test), :class=>"btn btn-info btn-small"
+        = link_to "Редактировать", edit_admin_task_path(test), :class=>"btn btn-info btn-small"
       %td
         = link_to "Вопросы", admin_quest_path(test), :class=>"btn btn-info btn-small"
       %td
-        = link_to "Удалить", admin_test_path(test), :method => :delete, :class=>"btn btn-danger btn-small", :data=>{:confirm=> "Вы уверены в этом удаление?"}
+        = link_to "Удалить", admin_task_path(test), :method => :delete, :class=>"btn btn-danger btn-small", :data=>{:confirm=> "Вы уверены в этом удаление?"}

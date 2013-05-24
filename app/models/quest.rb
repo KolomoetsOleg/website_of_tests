@@ -1,7 +1,7 @@
 class Quest < ActiveRecord::Base
   
-  attr_accessible :tip_vop, :title, :test_id, :cost
-  belongs_to :test
+  attr_accessible :tip_vop, :title, :task_id, :cost
+  belongs_to :task
   has_many :answers
   has_many :user_answer
   validates :cost, :numericality => {:greater_than => 0}

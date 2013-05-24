@@ -11,14 +11,14 @@
         %h4 Ответы лучшего результата
     - @results.each do |result|
       %tr
-        - if Test.where(:id=> result.test_id).present?
+        - if Task.where(:id=> result.task_id).present?
           %td
-            - @test = Test.find(result.test_id)
+            - @test = Task.find(result.task_id)
             = @test.title
           %td
             = result.bal
           %td
-            = link_to "Просмотр", answer_result_admin_user_path(:t_id=>result.test_id), :class=>"btn btn-info btn-small"
+            = link_to "Просмотр", answer_result_admin_user_path(:t_id=>result.task_id), :class=>"btn btn-info btn-small"
   %div{:align=>"center"}
     %br
       = link_to('Назад', admin_users_path, :class => "btn btn-primary")

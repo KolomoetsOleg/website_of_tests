@@ -1,0 +1,27 @@
+%h5.errorMessage.text-error{:align=>"center"}=flash[:error]
+%table{:align=>"center"} 
+  %td
+    = simple_form_for [:admin, @test] do |f|
+      - if @test.errors.any?
+        #error_explanation
+          %h2
+            = @test.errors.count
+            ошибки, возникшие при сохранении:
+          %ul
+            - @test.errors.full_messages.each do |msg|
+              %li= msg       
+      .field
+        = f.input :title, :label=>"Название теста"
+      .field
+        = f.input :description, :as=>:string, :label=>"Описание"
+      .field
+        = f.input :kol_pop, :collection => 1..10, :label=>"Количество попыток"
+      .field
+        = f.input :time, :in => 1..100, :label=>"Время прохождения"
+      .field
+        = f.input :active, :label=>"Сделать активным" if @flag != "new"
+      .actions
+        %div{:align=>"center"}
+          %br
+          = f.submit "Сохранить", :class=>"btn btn-small btn-success"
+          = link_to 'Назад', admin_tasks_path, :class=>"btn btn-small btn-warning"

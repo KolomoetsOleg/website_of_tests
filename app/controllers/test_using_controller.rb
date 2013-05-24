@@ -1,16 +1,16 @@
 class TestUsingController < ApplicationController
 	def index
-		@tests = Test.active.order(:id).reverse_order.paginate(:page => params[:page], :per_page => 10)
+		@tests = Task.active.order(:id).reverse_order.paginate(:page => params[:page], :per_page => 10)
     	usersrole = UsersRole.find_by_user_id(@user.id)
     	$role=@@role = usersrole.role_id
-    	#@test = Test.find(params[:id])
+    	#@test = Task.find(params[:id])
     	#@rezult =
 	end
 
 	def show
-		@test = Test.find(params[:id])
-		@rezult = Rezult.where('user_id = ? and test_id = ?', @user.id, @test.id).first
-    	@rezult ||= Rezult.create(:user_id => @user.id, :test_id => @test.id)
+		@test = Task.find(params[:id])
+		@rezult = Rezult.where('user_id = ? and task_id = ?', @user.id, @test.id).first
+    	@rezult ||= Rezult.create(:user_id => @user.id, :task_id => @test.id)
 	end
 
 
@@ -20,14 +20,14 @@ class TestUsingController < ApplicationController
 		# create_start_data - возвращает массив из id вопросов первого вопроса по днанному тесту
 		# session[:array_id] - массив из id вопросов в сессии
 		#
-		@rezult = Rezult.where('user_id = ? and test_id = ?', @user.id, params[:id]).first
+		@rezult = Rezult.where('user_id = ? and task_id = ?', @user.id, params[:id]).first
     	
-    	@rezult.nil? ? @rezult = Rezult.create(:test_id => params[:id], :user_id => @user.id, :attempt => 1) : @rezult.update_attributes(:attempt => (@rezult.attempt + 1))  
+    	@rezult.nil? ? @rezult = Rezult.create(:task_id => params[:id], :user_id => @user.id, :attempt => 1) : @rezult.update_attributes(:attempt => (@rezult.attempt + 1))  
     	
 		array_id = UserAnswer.create_start_data(@user.id, params[:id])
 		session[:array_id] = array_id
-		session[:test_id] = params[:id]
-		session[:time] = Time.now.getlocal("+03:00")  + Test.find(params[:id]).time*60
+		session[:task_id] = params[:id]
+		session[:time] = Time.now.getlocal("+03:00")  + Task.find(params[:id]).time*60
 		session[:id] = array_id.first
 		redirect_to :action => :testing
 	end
@@ -80,14 +80,14 @@ class TestUsingController < ApplicationController
 		answer_user = UserAnswer.find_all_by_user_id(@user.id)
 		@bal = Quest.check(answer_user)
 		@bal = 0 if Time.now.getlocal("+03:00") > session[:time] + 60 # погрешность 1 минута на всякий случай)
-		@rezult = Rezult.where(:user_id => @user, :test_id => session[:test_id]).first
-  		@rezult.nil? ? @rezult = Rezult.create(:test_id => session[:test_id], :user_id => @user.id, :bal => @bal) : @rezult.update_attributes(:bal => @bal) if  @rezult.bal < @bal  
-  		@b_answer = BestAnswer.where(:user_id => @user, :test_id => session[:test_id]).all
+		@rezult = Rezult.where(:user_id => @user, :task_id => session[:task_id]).first
+  		@rezult.nil? ? @rezult = Rezult.create(:task_id => session[:task_id], :user_id => @user.id, :bal => @bal) : @rezult.update_attributes(:bal => @bal) if  @rezult.bal < @bal  
+  		@b_answer = BestAnswer.where(:user_id => @user, :task_id => session[:task_id]).all
 
   		answer_hash=Array.new
 
   		answer_user.each do |elem|
-  		  answer_hash << {:test_id => session[:test_id].to_i, :user_id => @user.id,:quest_id=> elem[:quest_id],:answer=>elem[:answer],:bool_answer=>elem[:status]}
+  		  answer_hash << {:task_id => session[:task_id].to_i, :user_id => @user.id,:quest_id=> elem[:quest_id],:answer=>elem[:answer],:bool_answer=>elem[:status]}
   		end
   	if @b_answer.empty?
   			BestAnswer.create(answer_hash)	
@@ -95,7 +95,7 @@ class TestUsingController < ApplicationController
   		if @bal >= @rezult.bal 
   			answer_hash.each do |x|
   				#binding.pry
-  			  BestAnswer.where(:test_id => x[:test_id], :user_id => x[:user_id],:quest_id=> x[:quest_id]).first.update_attributes(answer:x[:answer])
+  			  BestAnswer.where(:task_id => x[:task_id], :user_id => x[:user_id],:quest_id=> x[:quest_id]).first.update_attributes(answer:x[:answer])
   			end
   		end
   	end

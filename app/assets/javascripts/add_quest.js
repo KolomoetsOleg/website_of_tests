@@ -33,8 +33,8 @@ $(document).ready(function(){
 
       if (type_id == "4")
       {
-        var test_id = $('#test_id input:hidden').attr('value')
-        $('<iframe src="../upload/'+test_id+'/new_load"></iframe>').fadeIn('slow').appendTo('.answers');
+        var task_id = $('#task_id input:hidden').attr('value')
+        $('<iframe src="../upload/'+task_id+'/new_load"></iframe>').fadeIn('slow').appendTo('.answers');
       }
       else
       {
@@ -92,7 +92,7 @@ $(document).ready(function(){
           });
           e.preventDefault();
 
-          var data = $('#form_data, #test_id,#answers, .quest').find('input').serialize();
+          var data = $('#form_data, #task_id,#answers, .quest').find('input').serialize();
           console.log(data);
           $.ajax({
             type: "post",

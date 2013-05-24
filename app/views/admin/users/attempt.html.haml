@@ -15,7 +15,7 @@
         %td
           = test.title
         %td
-          - att = Rezult.where('user_id = ? and test_id = ?', @user.id, test.id).first
+          - att = Rezult.where('user_id = ? and task_id = ?', @user.id, test.id).first
           - attempl = att.attempt if att.present? 
           -if attempl.present?
             - attemp = test.kol_pop - attempl 

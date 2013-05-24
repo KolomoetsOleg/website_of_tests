@@ -4,7 +4,7 @@ WebsiteOfTests::Application.routes.draw do
  #get "/assets/bootstrap-responsive.css"
   
 
-  resources :tests, :only => [:index] do
+  resources :tasks, :only => [:index] do
     member do
       get :start
     end
@@ -22,7 +22,7 @@ WebsiteOfTests::Application.routes.draw do
 
   resource :admin, :controller => :admin, :only => [:show]
   namespace :admin do
-    resources :tests do
+    resources :tasks do
         member do
           get :results
         end

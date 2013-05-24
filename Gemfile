@@ -43,6 +43,7 @@ gem "simple_form", "~> 2.1.0"
 
 group :development, :test do
   gem 'rspec-rails', '~> 2.0'
+  gem 'shoulda-matchers'
 end
 
 # To use ActiveModel has_secure_password
