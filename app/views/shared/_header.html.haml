@@ -9,9 +9,6 @@
         %li
           = link_to "Просмотр результатов", rezult_user_path(@user) 
         %li.divider-vertical
-      %li
-        %a{:href => "#"} Link
-      %li.divider-vertical
     %ul.nav.pull-right
       - if user_signed_in?
         - if $role == 1

@@ -2,7 +2,7 @@ source 'http://rubygems.org'
 
 ruby '1.9.3'
 gem  'rails', '3.2.12'
-
+gem 'factory_girl_rails'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
@@ -40,6 +40,10 @@ gem 'will_paginate', '~> 3.0'
 gem 'carrierwave'
 
 gem "simple_form", "~> 2.1.0"
+
+group :development, :test do
+  gem 'rspec-rails', '~> 2.0'
+end
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
