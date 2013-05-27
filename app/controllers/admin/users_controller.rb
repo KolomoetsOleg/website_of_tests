@@ -26,7 +26,7 @@ class Admin::UsersController < ApplicationController
     redirect_to attempt_admin_user_path(@user)
   end
   
-  def answer_result
+  def answer_result # Загружает таблицу для нужного теста, нужного юзера
     @user  = User.find(params[:id])
     @results = @user.rezults
     @table = BestAnswer.where(:user_id=>@user,:task_id=>params[:t_id]).all

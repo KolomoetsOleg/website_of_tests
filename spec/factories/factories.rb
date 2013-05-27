@@ -23,5 +23,18 @@ FactoryGirl.define do
   	attempt 1
   	bal 100
   end
+
+  factory :quest do
+    title "Question"
+    tip_vop 3
+    task_id 1
+    cost 1
+  end
+
+  factory :answer do
+    answer "123"
+    status 1
+    quest_id 1
+  end
   
 end
