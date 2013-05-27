@@ -6,11 +6,11 @@
   = render("/shared/questions_admin")
 %div{:align=>"center"}
   %a.btn.btn-info#add{:href => "#"} Добавить вопрос
-  = link_to('Назад', admin_tests_path, :class => "btn btn-primary")
+  = link_to('Назад', admin_tasks_path, :class => "btn btn-primary")
   %br
   %br
   #content
-  #test_id= hidden_field_tag  "quest[test_id]", @test.id
+  #task_id= hidden_field_tag  "quest[task_id]", @test.id
   #form_data
   #form
     #quest.quest

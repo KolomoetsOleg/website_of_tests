@@ -16,19 +16,19 @@ class Admin::UsersController < ApplicationController
   
   def attempt #Страница для сброса и просмотра кол-ва попыток!
     @user  = User.find(params[:id])
-    @tests = Test.all
+    @tests = Task.all
   end
 
   def to_default # Сбрасывает кол-во использованых попыток до нуля!
-    @att  = Rezult.where('user_id = ? and test_id = ?', @user.id, params[:id]).first
+    @att  = Rezult.where('user_id = ? and task_id = ?', @user.id, params[:id]).first
     @att.attempt  = 0
     @att.save
     redirect_to attempt_admin_user_path(@user)
   end
   
-  def answer_result
+  def answer_result # Загружает таблицу для нужного теста, нужного юзера
     @user  = User.find(params[:id])
     @results = @user.rezults
-    @table = BestAnswer.where(:user_id=>@user,:test_id=>params[:t_id]).all
+    @table = BestAnswer.where(:user_id=>@user,:task_id=>params[:t_id]).all
   end
 end

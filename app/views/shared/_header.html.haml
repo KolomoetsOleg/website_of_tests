@@ -22,7 +22,7 @@
                 %li
                   = link_to "Пользователи", admin_users_path
                 %li
-                  = link_to 'Тесты', admin_tests_path
+                  = link_to 'Тесты', admin_tasks_path
         %li.divider-vertical
         %li= link_to('Выйти', destroy_user_session_path, :method => :delete, :class=>"pull-right")
       - else

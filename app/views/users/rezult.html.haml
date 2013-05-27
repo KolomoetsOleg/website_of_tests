@@ -1,9 +1,9 @@
 %h1{:align=>"center"} Результаты пройденных тестов:
 %table.table.table-hover{:align=>"center"}
   - @rezults.each do |rezu|
-    -if rezu.test.present?  
+    -if rezu.task.present?  
       %tr
-        %td{:width=>"20%"}                   #{rezu.test.title}
+        %td{:width=>"20%"}                   #{rezu.task.title}
         %td{:width=>"20%",:align=>"center"}  #{rezu.bal}
   %br
 %p{:align=>"center"}

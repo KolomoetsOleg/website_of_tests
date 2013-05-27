@@ -1,4 +1,4 @@
-class Test < ActiveRecord::Base
+class Task < ActiveRecord::Base
 
   scope :active, :conditions => {:active => true}
 

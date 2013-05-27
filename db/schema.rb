@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130521084051) do
+ActiveRecord::Schema.define(:version => 20130524104802) do
 
   create_table "answers", :force => true do |t|
     t.string  "answer"
@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(:version => 20130521084051) do
   end
 
   create_table "best_answers", :force => true do |t|
-    t.integer "test_id"
+    t.integer "task_id"
     t.integer "user_id"
     t.integer "quest_id"
     t.string  "answer"
@@ -30,13 +30,13 @@ ActiveRecord::Schema.define(:version => 20130521084051) do
   create_table "quests", :force => true do |t|
     t.string  "title"
     t.integer "tip_vop"
-    t.integer "test_id"
+    t.integer "task_id"
     t.float   "cost"
   end
 
   create_table "rezults", :force => true do |t|
     t.integer  "user_id"
-    t.integer  "test_id"
+    t.integer  "task_id"
     t.integer  "attempt",     :default => 0
     t.integer  "bal",         :default => 0
     t.datetime "created_at",                 :null => false
@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(:version => 20130521084051) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "tests", :force => true do |t|
+  create_table "tasks", :force => true do |t|
     t.string  "title"
     t.integer "kol_pop"
     t.integer "time"

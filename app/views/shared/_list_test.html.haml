@@ -8,8 +8,8 @@
       %h4 Оставшиеся попытки  
     %th
   - @tests.each do |test|
-    -if Rezult.where('user_id = ? and test_id = ?', @user.id, test.id).first.present?
-      - attemp = test.kol_pop - Rezult.where('user_id = ? and test_id = ?', @user.id, test.id).first.attempt
+    -if Rezult.where('user_id = ? and task_id = ?', @user.id, test.id).first.present?
+      - attemp = test.kol_pop - Rezult.where('user_id = ? and task_id = ?', @user.id, test.id).first.attempt
     -else
       - attemp = test.kol_pop
     %tr
