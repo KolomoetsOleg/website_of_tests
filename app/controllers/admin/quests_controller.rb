@@ -11,7 +11,6 @@ class Admin::QuestsController < ApplicationController
   end
 
   def new
-    #
     @quest = Quest.new
     @author = @user
   end
@@ -19,7 +18,6 @@ class Admin::QuestsController < ApplicationController
   def edit
     @quest = Quest.find(params[:id])
     @answers = @quest.answers
-
   end
 
   def create

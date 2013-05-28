@@ -19,7 +19,7 @@
       .field
         = f.input :time, :in => 1..100, :label=>"Время прохождения"
       .field
-        = f.input :active, :label=>"Сделать активным" if @flag != "new"
+        = f.input :active, :label=>"Сделать активным" if @flag != "new" # последнее правильно здесь для НЕ отображения чебокса 'active'
       .actions
         %div{:align=>"center"}
           %br

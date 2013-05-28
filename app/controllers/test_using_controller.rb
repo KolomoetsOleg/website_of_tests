@@ -1,10 +1,7 @@
 class TestUsingController < ApplicationController
 	def index
 		@tests = Task.active.order(:id).reverse_order.paginate(:page => params[:page], :per_page => 10)
-    	usersrole = UsersRole.find_by_user_id(@user.id)
-    	$role=@@role = usersrole.role_id
-    	#@test = Task.find(params[:id])
-    	#@rezult =
+    	$role = @@role = UsersRole.find_by_user_id(@user.id).role_id
 	end
 
 	def show
@@ -89,16 +86,15 @@ class TestUsingController < ApplicationController
   		answer_user.each do |elem|
   		  answer_hash << {:task_id => session[:task_id].to_i, :user_id => @user.id,:quest_id=> elem[:quest_id],:answer=>elem[:answer],:bool_answer=>elem[:status]}
   		end
-  	if @b_answer.empty?
-  			BestAnswer.create(answer_hash)	
-  	else
-  		if @bal >= @rezult.bal 
-  			answer_hash.each do |x|
-  				#binding.pry
-  			  BestAnswer.where(:task_id => x[:task_id], :user_id => x[:user_id],:quest_id=> x[:quest_id]).first.update_attributes(answer:x[:answer])
-  			end
-  		end
-  	end
+	  	if @b_answer.empty?
+	  			BestAnswer.create(answer_hash)	
+	  	else
+	  		if @bal >= @rezult.bal 
+	  			answer_hash.each do |x|
+	  			  BestAnswer.where(:task_id => x[:task_id], :user_id => x[:user_id],:quest_id=> x[:quest_id]).first.update_attributes(answer:x[:answer])
+	  			end
+	  		end
+	  	end
 	end
 
 

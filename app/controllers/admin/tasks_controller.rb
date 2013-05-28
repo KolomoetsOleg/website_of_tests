@@ -7,7 +7,7 @@ class Admin::TasksController < ApplicationController
 
   def new
     @test = Task.new
-    @flag = "new"
+    @flag = "new" #Флаг отображения чекбокса "active"
   end
 
   def edit
@@ -22,20 +22,28 @@ class Admin::TasksController < ApplicationController
       flash[:error] = "Нельзя активировать Тест, пока в нем нет вопросов"
     else
       @test = Task.create(params[:task], :author_id => @user.id)
-      redirect_to admin_tasks_path
+      if @test.errors.empty?
+        redirect_to admin_tasks_path
+      else
+        redirect_to new_admin_task_path
+      end
     end
   end
 
   def update
-    @flag = "1"
     @test = Task.find(params[:id])
     @all_quest = @test.quests.count
     if @all_quest == 0 and params[:task][:active] == "1"
       redirect_to edit_admin_task_path(@test)
       flash[:error] = "Нельзя активировать Тест, пока в нем нет вопросов"
     else  
-      @test = Task.find(params[:id]).update_attributes(params[:task])
-      redirect_to admin_tasks_path
+      @test = Task.find(params[:id])
+      @test.update_attributes(params[:task])
+      if @test.errors.empty?
+        redirect_to admin_tasks_path
+      else
+        redirect_to edit_admin_task_path(@test)
+      end
     end
   end
 

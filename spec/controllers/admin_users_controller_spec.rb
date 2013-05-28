@@ -87,16 +87,14 @@ include Devise::TestHelpers
         assigns(:tests)[0][:id].should eq(@task.id)
       end
 
-    describe "answer_result method" do
-      it "check redirect of answer_result method" do
-        @user = User.first
-        @task = Task.first
-        get :answer_result, id: @user.id, t_id: @task.id
-        assigns(:table).should_not be_nil
+      describe "answer_result method" do
+        it "check redirect of answer_result method" do
+          @user = User.first
+          @task = Task.first
+          get :answer_result, id: @user.id, t_id: @task.id
+          assigns(:table).should_not be_nil
+        end
       end
-
-    end
-
     end
 
   end
