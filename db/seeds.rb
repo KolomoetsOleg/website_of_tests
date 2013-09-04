@@ -16,15 +16,15 @@ Role.create(:name => :user)
 #
 #Create Test, Quest and Answer
 #
-Test.create(:title => "Test test",
+Task.create(:title => "Test test",
       :description => "This is Andrew's test)))",
 			:kol_pop => 5,
 			:time => 10,
 			:active => 1
 	)
-Quest.create([{ :title => "choose a car", 		:tip_vop => 1, :test_id => 1},
-			  { :title => "choose the river", 	:tip_vop => 2, :test_id => 1},
-			  { :title => "Student sity",       :tip_vop => 3, :test_id => 1} ])
+Quest.create([{ :title => "choose a car", 		:tip_vop => 1, :task_id => 1, :cost => 0.5},
+			  { :title => "choose the river", 	:tip_vop => 2, :task_id => 1, :cost => 0.5},
+			  { :title => "Student sity",       :tip_vop => 3, :task_id => 1, :cost => 0.5} ])
 
 Answer.create([ 		{ :answer => "tachka", 		:status => 0, :quest_id => 1},
 				{ :answer => "BMW", 		:status => 1, :quest_id => 1},
@@ -39,15 +39,15 @@ Answer.create([ 		{ :answer => "tachka", 		:status => 0, :quest_id => 1},
         ])
 
 
-Test.create(:title => "Oleg's test",
+Task.create(:title => "Oleg's test",
             :description => "This is Oleg's test)))",
             :kol_pop => 2,
             :time => 1,
             :active => 1
 )
-Quest.create([{ :title => "chose true", 		:tip_vop => 1, :test_id => 2},
-              { :title => "chose color", 	:tip_vop => 2, :test_id => 2},
-              { :title => "who are you?",       :tip_vop => 3, :test_id => 2} ])
+Quest.create([{ :title => "chose true", 		:tip_vop => 1, :task_id => 2, :cost => 0.5},
+              { :title => "chose color", 	:tip_vop => 2, :task_id => 2, :cost => 0.5},
+              { :title => "who are you?",       :tip_vop => 3, :task_id => 2, :cost => 0.5} ])
 
 Answer.create([ 		{ :answer => "java", 		:status => 0, :quest_id => 4},
                     { :answer => "true", 		:status => 1, :quest_id => 4},
@@ -61,7 +61,7 @@ Answer.create([ 		{ :answer => "java", 		:status => 0, :quest_id => 4},
                     { :answer => "user",     :status => 1, :quest_id => 6}])
 
 
-Quest.create(      { :title => "test", 		:tip_vop => 4, :test_id => 1})
+Quest.create(      { :title => "test", 		:tip_vop => 4, :task_id => 1, :cost => 0.5})
 Answer.create(     { :answer => "/uploads/tests/7.rb",     :status => 1, :quest_id => 7})
 #
 #Create User, UsersRole

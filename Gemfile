@@ -5,7 +5,7 @@ gem  'rails', '3.2.12'
 gem 'factory_girl_rails'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
-
+gem 'thin'
 gem 'carrierwave'
 gem 'bootbox-rails'
 gem "twitter-bootstrap-rails", "~> 2.2.6"

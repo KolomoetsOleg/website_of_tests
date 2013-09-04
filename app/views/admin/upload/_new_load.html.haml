@@ -1,6 +1,7 @@
 = form_tag({:action => :create, :controller => "admin/upload" }, :multipart => true) do
   = hidden_field_tag "quest[tip_vop]", 4
-  = hidden_field_tag "quest[test_id]", params[:id]
+  = hidden_field_tag "quest[cost]", 1
+  = hidden_field_tag "quest[task_id]", params[:id]
   Вопрос:
   = text_field_tag "quest[title]"
   Загрузите файл с ответом:

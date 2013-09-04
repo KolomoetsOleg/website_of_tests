@@ -21,7 +21,12 @@ class Admin::QuestsController < ApplicationController
   end
 
   def create
-    Quest.create_quest(params[:quest], params[:answer], params[:status])
+
+    if Quest.create_quest(params[:quest], params[:answer], params[:status])
+
+    else
+      redirect_to root_path
+    end  
   end
 
 
